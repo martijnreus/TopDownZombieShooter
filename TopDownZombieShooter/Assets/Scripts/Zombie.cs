@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Zombie : MonoBehaviour
     private float attackTimer;
 
     public HealthSystem healthSystem;
+
+    private NavMeshAgent agent;
 
     private enum State
     {
@@ -33,6 +36,11 @@ public class Zombie : MonoBehaviour
     {
         healthSystem = new HealthSystem(health);
         healthSystem.OnDead += Die;
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
         state = State.spawning;
     }
 
@@ -57,7 +65,8 @@ public class Zombie : MonoBehaviour
                     break;
                 }
 
-                WalkTowardsPlayer();
+                agent.SetDestination(player.transform.position);
+                //WalkTowardsPlayer();
                 break;
 
             case State.attacking:
@@ -76,11 +85,12 @@ public class Zombie : MonoBehaviour
     private void Attack()
     {
         player.healthSystem.Damage(damageAmount);
-        Debug.Log("attack");
     }
 
+    /*
     private void WalkTowardsPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, walkSpeed * Time.deltaTime);
     }
+    */
 }
