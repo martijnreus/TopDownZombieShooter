@@ -58,15 +58,17 @@ public class Zombie : MonoBehaviour
                 break;
 
             case State.walking:
+                //Check if the player is in attack range
                 float distance = (transform.position - player.transform.position).magnitude;
                 if (distance < attackRange)
                 {
                     state = State.attacking;
+                    agent.isStopped = true;
                     break;
                 }
 
+                Debug.Log(GetComponent<Rigidbody2D>().velocity);
                 agent.SetDestination(player.transform.position);
-                //WalkTowardsPlayer();
                 break;
 
             case State.attacking:
@@ -76,6 +78,7 @@ public class Zombie : MonoBehaviour
                     Attack();
                     attackTimer = 0;
                     state = State.walking;
+                    agent.isStopped = false;
                 }
 
                 break;
@@ -84,13 +87,7 @@ public class Zombie : MonoBehaviour
 
     private void Attack()
     {
+        //TODO check if the player is still in range and hit if it is
         player.healthSystem.Damage(damageAmount);
     }
-
-    /*
-    private void WalkTowardsPlayer()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, walkSpeed * Time.deltaTime);
-    }
-    */
 }
