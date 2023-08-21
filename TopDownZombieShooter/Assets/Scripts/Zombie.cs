@@ -67,11 +67,12 @@ public class Zombie : MonoBehaviour
                     break;
                 }
 
-                Debug.Log(GetComponent<Rigidbody2D>().velocity);
+                RotateSprite();
                 agent.SetDestination(player.transform.position);
                 break;
 
             case State.attacking:
+                //TODO play attack animation and damage aan het einde als de player nog in de buurt is
                 attackTimer += Time.deltaTime;
                 if (attackTimer >= attackSpeed)
                 {
@@ -89,5 +90,17 @@ public class Zombie : MonoBehaviour
     {
         //TODO check if the player is still in range and hit if it is
         player.healthSystem.Damage(damageAmount);
+    }
+
+    private void RotateSprite()
+    {
+        if (agent.velocity.x > 0.02)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else if (agent.velocity.y < 0.02)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 }
