@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 1189853145
+    locked: 0
+  - name: Wall
+    uniqueID: 1964739991
+    locked: 0
+  - name: Zombie
+    uniqueID: 3944992291
+    locked: 0
+  - name: Player
+    uniqueID: 759975579
+    locked: 0
+  - name: BulletTracer
+    uniqueID: 2525188989
+    locked: 0

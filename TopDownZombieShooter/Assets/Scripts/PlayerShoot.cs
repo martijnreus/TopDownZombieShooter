@@ -73,7 +73,8 @@ public class PlayerShoot : MonoBehaviour
         Vector3 tracerSpawnPosisition = fromPosition + shootDirection * distance * .5f;
         Material tmpWeaponTracerMaterial = new Material(weaponTracerMaterial);
         tmpWeaponTracerMaterial.SetTextureScale("_MainTex", new Vector2(1f, distance / 32f));
-        World_Mesh worldMesh = World_Mesh.Create(tracerSpawnPosisition, eulerZ, 1f, distance, tmpWeaponTracerMaterial, null, 10000);
+        World_Mesh worldMesh = World_Mesh.Create(tracerSpawnPosisition, eulerZ, 0.5f, distance, tmpWeaponTracerMaterial, null, 10000);
+        worldMesh.gameObject.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("BulletTracer");
 
         StartCoroutine(DoTracerCycle(worldMesh));
     }
