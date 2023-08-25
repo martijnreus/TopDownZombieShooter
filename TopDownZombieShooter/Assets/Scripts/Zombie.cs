@@ -11,6 +11,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float attackSpeed;
     [SerializeField] private int damageAmount;
     [SerializeField] private int health;
+    [SerializeField] private Transform attackPoint;
 
     private Player player;
     private State state;
@@ -59,13 +60,15 @@ public class Zombie : MonoBehaviour
 
             case State.walking:
                 //Check if the player is in attack range
-                float distance = (transform.position - player.transform.position).magnitude;
+                float distance = (attackPoint.position - player.transform.position).magnitude;
                 if (distance < attackRange)
                 {
                     state = State.attacking;
                     agent.isStopped = true;
                     break;
                 }
+
+                agent.isStopped = false;
 
                 RotateSprite();
                 agent.SetDestination(player.transform.position);
@@ -78,8 +81,7 @@ public class Zombie : MonoBehaviour
                 {
                     Attack();
                     attackTimer = 0;
-                    state = State.walking;
-                    agent.isStopped = false;
+                    state = State.walking;    
                 }
 
                 break;

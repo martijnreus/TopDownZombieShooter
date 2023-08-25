@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Gun
   layers:
   - Default
   - TransparentFX
@@ -41,17 +42,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Floor
-    uniqueID: 1189853145
+  - name: BackGround
+    uniqueID: 1570733501
     locked: 0
   - name: Wall
     uniqueID: 1964739991
     locked: 0
-  - name: Zombie
-    uniqueID: 3944992291
-    locked: 0
-  - name: Player
-    uniqueID: 759975579
+  - name: ForeGround
+    uniqueID: 2100190533
     locked: 0
   - name: BulletTracer
     uniqueID: 2525188989
