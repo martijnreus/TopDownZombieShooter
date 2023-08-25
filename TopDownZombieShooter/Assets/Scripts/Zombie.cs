@@ -18,6 +18,7 @@ public class Zombie : MonoBehaviour
     private float attackTimer;
 
     public HealthSystem healthSystem;
+    private WaveManager waveManager;
 
     private NavMeshAgent agent;
 
@@ -30,7 +31,8 @@ public class Zombie : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>(); 
+        player = FindObjectOfType<Player>();
+        waveManager = FindObjectOfType<WaveManager>();
     }
 
     private void Start()
@@ -47,6 +49,7 @@ public class Zombie : MonoBehaviour
 
     private void Die(object sender, EventArgs e)
     {
+        waveManager.activeZombies.Remove(gameObject);
         Destroy(gameObject);
     }
 
