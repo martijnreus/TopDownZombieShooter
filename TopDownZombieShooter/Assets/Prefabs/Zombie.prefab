@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 2903697147876374119}
   - component: {fileID: 2903697147876374118}
   - component: {fileID: 2903697147876374121}
-  - component: {fileID: 5467633217796480667}
+  - component: {fileID: 6678110692147528084}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -288,7 +288,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 1.5
+  m_Speed: 1
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -316,19 +316,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.005785376, y: -0.17934656}
   m_Size: {x: 0.5024579, y: 1.6413069}
   m_Direction: 0
---- !u!114 &5467633217796480667
-MonoBehaviour:
+--- !u!58 &6678110692147528084
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2903697147876374123}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54b662a39f5c9c24085971fdfe28ecd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectsToOrder: []
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.7}
+  serializedVersion: 2
+  m_Radius: 0.3
 --- !u!1 &2903697148084695747
 GameObject:
   m_ObjectHideFlags: 0
