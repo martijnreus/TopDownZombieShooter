@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    private int currentWave = 0;
+    [SerializeField] private GameObject zombiePrefab;
+    [SerializeField] private int maxZombiesAmount = 12;
+    [SerializeField] private float spawnSpeed = 0.5f;
+
+    public List<GameObject> activeZombies;
+
     private Spawner[] spawners;
 
     private int zombiesToSpawn;
-
-    [SerializeField] private GameObject zombiePrefab;
-    public List<GameObject> activeZombies;
-    private int maxZombiesAmount = 12;
-    private float spawnSpeed = 0.5f;
-
     private float spawnTimer;
+    private int currentWave = 0;
 
     private void Start()
     {

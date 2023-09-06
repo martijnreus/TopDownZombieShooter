@@ -10,7 +10,11 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject shootFlash;
     [SerializeField] private int damageAmount;
 
+    [SerializeField] private WallCheck wallCheck;
+
     private GameInput gameInput;
+
+    RaycastHit2D closestHit;
 
     private void Awake()
     {
@@ -26,14 +30,66 @@ public class PlayerShoot : MonoBehaviour
     {
         Vector3 aimDirection = GetAimDirection();
 
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(shootTransform.position, aimDirection);
+        //RaycastHit2D raycastHit2D2 = Physics2D.Raycast(shootTransform.position, aimDirection);
 
+        RaycastHit2D[] raycastHit2DArray = Physics2D.RaycastAll(shootTransform.position, aimDirection);
+        RaycastHit2D? raycastHit2D = FindClosestHit(raycastHit2DArray);
+
+        // If there is no hit dont continue
+        if (raycastHit2D == null)
+        {
+            return;
+        }
+
+        if (raycastHit2DArray.Length > 0)
+        {
+            Damage(raycastHit2D.Value.collider.gameObject);
+        }
+
+        CreateShootEffect(raycastHit2D.Value.point);
+        
+
+        /*
         if (raycastHit2D != false)
         {
             Damage(raycastHit2D.collider.gameObject);
         }
+        */
+       
         
-        CreateShootEffect(raycastHit2D.point);
+    }
+
+    private RaycastHit2D? FindClosestHit(RaycastHit2D[] hits)
+    {
+        if (hits.Length == 0)
+        {
+            return null;
+        }
+
+        float closestDistance = 9999;
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.distance < closestDistance)
+            {
+                closestHit = hit;
+                closestDistance = hit.distance;
+
+                Debug.Log(wallCheck.GetIsInWall());
+                //TODO switch the tag with a certain wall collider so the player can only shoot trough the closest wall
+                if (wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown())
+                {
+                    Debug.Log("Shoot trough wall");
+                }
+                else
+                {
+                    Debug.Log("normal");
+                    closestHit = hit;
+                    closestDistance = hit.distance;
+                }   
+            }
+        }
+
+        return closestHit;
     }
 
     private void Damage(GameObject target)
@@ -54,6 +110,7 @@ public class PlayerShoot : MonoBehaviour
         }
 
         CreatBulletTracer(shootTransform.position, hitPosition);
+        //Debug.Log(shootTransform.position + " and " + hitPosition);
         StartCoroutine(DoFlashEffect());
     }
 
@@ -63,6 +120,15 @@ public class PlayerShoot : MonoBehaviour
         Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
 
         return aimDirection;
+    }
+
+    private bool IsAimingDown()
+    {
+        if (GetAimDirection().y < 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void CreatBulletTracer(Vector3 fromPosition, Vector3 targetPosition)
