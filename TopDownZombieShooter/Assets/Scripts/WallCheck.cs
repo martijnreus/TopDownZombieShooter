@@ -6,11 +6,6 @@ public class WallCheck : MonoBehaviour
 {
     private bool isInWall;
 
-    private void Update()
-    {
-        Debug.Log(isInWall);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isInWall = true;

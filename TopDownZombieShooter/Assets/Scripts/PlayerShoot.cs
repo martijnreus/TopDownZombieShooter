@@ -76,16 +76,12 @@ public class PlayerShoot : MonoBehaviour
 
                 Debug.Log(wallCheck.GetIsInWall());
                 //TODO switch the tag with a certain wall collider so the player can only shoot trough the closest wall
-                if (wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown())
+                if (!(wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown()))
                 {
-                    Debug.Log("Shoot trough wall");
-                }
-                else
-                {
-                    Debug.Log("normal");
                     closestHit = hit;
                     closestDistance = hit.distance;
-                }   
+                    
+                }
             }
         }
 
@@ -110,7 +106,6 @@ public class PlayerShoot : MonoBehaviour
         }
 
         CreatBulletTracer(shootTransform.position, hitPosition);
-        //Debug.Log(shootTransform.position + " and " + hitPosition);
         StartCoroutine(DoFlashEffect());
     }
 
