@@ -94,6 +94,7 @@ public class Zombie : MonoBehaviour
     private void Attack()
     {
         //TODO check if the player is still in range and hit if it is
+        Debug.Log("attack");
         player.healthSystem.Damage(damageAmount);
     }
 
