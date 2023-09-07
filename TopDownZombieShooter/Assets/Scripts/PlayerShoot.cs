@@ -50,7 +50,7 @@ public class PlayerShoot : MonoBehaviour
         
 
         /*
-        if (raycastHit2D != false)
+        if (raycastHit2D2 != false)
         {
             Damage(raycastHit2D.collider.gameObject);
         }
@@ -69,18 +69,15 @@ public class PlayerShoot : MonoBehaviour
         float closestDistance = 9999;
         foreach (RaycastHit2D hit in hits)
         {
+            Debug.Log(hits.Length);
             if (hit.distance < closestDistance)
             {
-                closestHit = hit;
-                closestDistance = hit.distance;
-
-                Debug.Log(wallCheck.GetIsInWall());
                 //TODO switch the tag with a certain wall collider so the player can only shoot trough the closest wall
                 if (!(wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown()))
                 {
+                    //TODO find out why he still fires the wall
                     closestHit = hit;
-                    closestDistance = hit.distance;
-                    
+                    closestDistance = hit.distance;                 
                 }
             }
         }

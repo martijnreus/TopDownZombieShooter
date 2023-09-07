@@ -8,12 +8,18 @@ public class WallCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isInWall = true;
+        if (collision.tag == "Wall")
+        {
+            isInWall = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isInWall = false;
+        if (collision.tag == "Wall")
+        {
+            isInWall = false;
+        }  
     }
 
     public bool GetIsInWall()
