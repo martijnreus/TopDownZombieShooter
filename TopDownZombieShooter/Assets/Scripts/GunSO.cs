@@ -12,4 +12,5 @@ public class GunSO : ScriptableObject
     public float reloadTime;
     public bool isAutomatic;
     public GameObject gun;
+    public float bulletSpreadAngle;
 }

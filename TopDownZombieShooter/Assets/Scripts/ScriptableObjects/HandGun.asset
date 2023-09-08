@@ -15,7 +15,8 @@ MonoBehaviour:
   gunName: HandGun
   bulletsPerShot: 1
   bulletCapacity: 10
-  timeBetweenShots: 0.5
+  timeBetweenShots: 0
   reloadTime: 1
   isAutomatic: 0
   gun: {fileID: 0}
+  bulletSpreadAngle: 10

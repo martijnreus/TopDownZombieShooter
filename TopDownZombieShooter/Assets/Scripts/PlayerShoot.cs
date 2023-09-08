@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -18,6 +18,8 @@ public class PlayerShoot : MonoBehaviour
 
     private float timeLastShot;
 
+    private bool isShooting;
+
     RaycastHit2D closestHit;
 
     private void Awake()
@@ -29,23 +31,34 @@ public class PlayerShoot : MonoBehaviour
     private void Start()
     {
         gameInput.OnShootAction += StartShooting;
+        gameInput.OnStopShootAction += StopShooting;
     }
 
     private void StartShooting(object sender, System.EventArgs e)
     {
-        if (gunHandler.GetAmmoInWeapon() > 0)
+        if (gunHandler.GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunHandler.GetCurrentGun().timeBetweenShots)
         {
             //TODO make this a enum and switch case
             // In case of a automatic weapon
-            if (gunHandler.GetCurrentGun().isAutomatic && Time.time - timeLastShot > gunHandler.GetCurrentGun().timeBetweenShots)
+            if (gunHandler.GetCurrentGun().isAutomatic)
             {
                 ShootBullet();
             }
-        } 
+            else if (!gunHandler.GetCurrentGun().isAutomatic && isShooting == false)
+            {
+                ShootBullet();
+            }
+        }
+    }
+
+    private void StopShooting(object sender, System.EventArgs e)
+    {
+        isShooting = false;
     }
 
     private void ShootBullet()
     {
+        isShooting = true;
         timeLastShot = Time.time;
         gunHandler.UseAmmo();
 
@@ -118,7 +131,11 @@ public class PlayerShoot : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
 
-        return aimDirection;
+        // Give a random spread angle to the shooting direction
+        float randomSpreadAngle = UnityEngine.Random.Range(-gunHandler.GetCurrentGun().bulletSpreadAngle / 2, gunHandler.GetCurrentGun().bulletSpreadAngle / 2);
+        Vector3 shootDirection = Quaternion.AngleAxis(randomSpreadAngle, Vector3.forward) * aimDirection;
+
+        return shootDirection;
     }
 
     private bool IsAimingDown()

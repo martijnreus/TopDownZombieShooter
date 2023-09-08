@@ -15,7 +15,8 @@ MonoBehaviour:
   gunName: AK47
   bulletsPerShot: 1
   bulletCapacity: 32
-  timeBetweenShots: 0.5
+  timeBetweenShots: 0.1
   reloadTime: 1
   isAutomatic: 1
   gun: {fileID: 0}
+  bulletSpreadAngle: 10

@@ -6,12 +6,18 @@ using System;
 public class GameInput: MonoBehaviour
 {
     public event EventHandler OnShootAction;
+    public event EventHandler OnStopShootAction;
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
             OnShootAction?.Invoke(this, EventArgs.Empty);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            OnStopShootAction?.Invoke(this, EventArgs.Empty);
         }
     }
 
