@@ -4445,20 +4445,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 169304979}
     m_Modifications:
-    - target: {fileID: 2809423791794791240, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809423791794791247, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: m_Size.y
-      value: 0.28107584
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809423791794791247, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.8219599
-      objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}

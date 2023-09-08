@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -60,7 +61,7 @@ public class PlayerShoot : MonoBehaviour
             if (hit.distance < closestDistance)
             {
                 //TODO switch the tag with a certain wall collider so the player can only shoot trough the closest wall
-                if (!(wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown()))
+                if (!(wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown()) && hit.collider.tag != "Player")
                 {
                     closestHit = hit;
                     closestDistance = hit.distance;                 
