@@ -14,21 +14,41 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private WallCheck wallCheck;
 
     private GameInput gameInput;
+    private GunHandler gunHandler;
+
+    private float timeLastShot;
 
     RaycastHit2D closestHit;
 
     private void Awake()
     {
         gameInput = FindObjectOfType<GameInput>();
+        gunHandler = FindObjectOfType<GunHandler>();
     }
 
     private void Start()
     {
-        gameInput.OnShootAction += Shoot;
+        gameInput.OnShootAction += StartShooting;
     }
 
-    private void Shoot(object sender, System.EventArgs e)
+    private void StartShooting(object sender, System.EventArgs e)
     {
+        if (gunHandler.GetAmmoInWeapon() > 0)
+        {
+            //TODO make this a enum and switch case
+            // In case of a automatic weapon
+            if (gunHandler.GetCurrentGun().isAutomatic && Time.time - timeLastShot > gunHandler.GetCurrentGun().timeBetweenShots)
+            {
+                ShootBullet();
+            }
+        } 
+    }
+
+    private void ShootBullet()
+    {
+        timeLastShot = Time.time;
+        gunHandler.UseAmmo();
+
         Vector3 aimDirection = GetAimDirection();
 
         RaycastHit2D[] raycastHit2DArray = Physics2D.RaycastAll(shootTransform.position, aimDirection);
@@ -45,7 +65,7 @@ public class PlayerShoot : MonoBehaviour
             Damage(raycastHit2D.Value.collider.gameObject);
         }
 
-        CreateShootEffect(raycastHit2D.Value.point);     
+        CreateShootEffect(raycastHit2D.Value.point);
     }
 
     private RaycastHit2D? FindClosestHit(RaycastHit2D[] hits)

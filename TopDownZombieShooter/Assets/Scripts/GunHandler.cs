@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class GunHandler : MonoBehaviour
 {
     [SerializeField] GunSO gunSO;
 
-    private int currentAmmo;
+    private int totalAmmo;
+    private int ammoInWeapon;
 
     private GameInput gameInput;
 
@@ -17,8 +18,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        currentAmmo = gunSO.bulletCapacity;
-        gameInput.OnShootAction += GameInput_OnShootAction;
+        ammoInWeapon = gunSO.bulletCapacity;
     }
 
     private void Update()
@@ -30,20 +30,25 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void GameInput_OnShootAction(object sender, System.EventArgs e)
+    public void UseAmmo()
     {
-        currentAmmo--;
-        Debug.Log("Ammo left: " + currentAmmo);
+        ammoInWeapon--;
+        Debug.Log("Ammo left: " + ammoInWeapon);
     }
 
     private void ReloadGun()
     {
-        currentAmmo = gunSO.bulletCapacity;
+        ammoInWeapon = gunSO.bulletCapacity;
         Debug.Log("Reloaded");
     }
 
     public GunSO GetCurrentGun()
     {
         return gunSO;
+    }
+
+    public int GetAmmoInWeapon()
+    {
+        return ammoInWeapon;
     }
 }

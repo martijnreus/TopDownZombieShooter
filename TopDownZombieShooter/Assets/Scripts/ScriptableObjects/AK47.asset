@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0076208e2a92dbe49875283c24285e74, type: 3}
-  m_Name: HandGun
+  m_Name: AK47
   m_EditorClassIdentifier: 
-  gunName: HandGun
+  gunName: AK47
   bulletsPerShot: 1
-  bulletCapacity: 10
+  bulletCapacity: 32
   timeBetweenShots: 0.5
   reloadTime: 1
-  isAutomatic: 0
+  isAutomatic: 1
   gun: {fileID: 0}
