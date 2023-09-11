@@ -2,32 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunHandler : MonoBehaviour
+public class Gun : MonoBehaviour
 {
-    [SerializeField] GunSO gunSO;
+    [SerializeField] private GunSO gunSO;
 
     private int totalAmmo;
     private int ammoInWeapon;
 
-    private GameInput gameInput;
-
-    private void Awake()
-    {
-        gameInput = FindObjectOfType<GameInput>();
-    }
-
+    // When gun is created set the ammo to max
     private void Start()
     {
         ammoInWeapon = gunSO.bulletCapacity;
-    }
-
-    private void Update()
-    {
-        //TODO move to input class and handle with event
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ReloadGun();
-        }
     }
 
     public void UseAmmo()
@@ -36,13 +21,13 @@ public class GunHandler : MonoBehaviour
         Debug.Log("Ammo left: " + ammoInWeapon);
     }
 
-    private void ReloadGun()
+    public void ReloadGun()
     {
         ammoInWeapon = gunSO.bulletCapacity;
         Debug.Log("Reloaded");
     }
 
-    public GunSO GetCurrentGun()
+    public GunSO GetGunSO()
     {
         return gunSO;
     }

@@ -14,7 +14,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private WallCheck wallCheck;
 
     private GameInput gameInput;
-    private GunHandler gunHandler;
+    private GunInventory gunInventory;
 
     private float timeLastShot;
 
@@ -25,7 +25,7 @@ public class PlayerShoot : MonoBehaviour
     private void Awake()
     {
         gameInput = FindObjectOfType<GameInput>();
-        gunHandler = FindObjectOfType<GunHandler>();
+        gunInventory = FindObjectOfType<GunInventory>();
     }
 
     private void Start()
@@ -36,15 +36,15 @@ public class PlayerShoot : MonoBehaviour
 
     private void StartShooting(object sender, System.EventArgs e)
     {
-        if (gunHandler.GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunHandler.GetCurrentGun().timeBetweenShots)
+        if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
         {
             //TODO make this a enum and switch case
             // In case of a automatic weapon
-            if (gunHandler.GetCurrentGun().isAutomatic)
+            if (gunInventory.GetCurrentGun().GetGunSO().isAutomatic)
             {
                 ShootBullet();
             }
-            else if (!gunHandler.GetCurrentGun().isAutomatic && isShooting == false)
+            else if (!gunInventory.GetCurrentGun().GetGunSO().isAutomatic && isShooting == false)
             {
                 ShootBullet();
             }
@@ -60,7 +60,7 @@ public class PlayerShoot : MonoBehaviour
     {
         isShooting = true;
         timeLastShot = Time.time;
-        gunHandler.UseAmmo();
+        gunInventory.GetCurrentGun().UseAmmo();
 
         Vector3 aimDirection = GetAimDirection();
 
@@ -132,7 +132,8 @@ public class PlayerShoot : MonoBehaviour
         Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
 
         // Give a random spread angle to the shooting direction
-        float randomSpreadAngle = UnityEngine.Random.Range(-gunHandler.GetCurrentGun().bulletSpreadAngle / 2, gunHandler.GetCurrentGun().bulletSpreadAngle / 2);
+        float randomSpreadAngle = UnityEngine.Random.Range(-gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2,
+                                                            gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2);
         Vector3 shootDirection = Quaternion.AngleAxis(randomSpreadAngle, Vector3.forward) * aimDirection;
 
         return shootDirection;
