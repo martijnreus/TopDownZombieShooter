@@ -9,10 +9,6 @@ public class GunInventory : MonoBehaviour
 
     private Gun currentWeapon;
 
-    //TODO make 2 slots for weapons and move the ammo logic to the gun class
-    //TODO make variable for the gun you are holding
-    //TODO make a way to switch weapons
-
     private GameInput gameInput;
 
     private void Awake()
@@ -41,11 +37,11 @@ public class GunInventory : MonoBehaviour
 
     private void SwitchGun()
     {
-        if (currentWeapon == primaryWeapon)
+        if (currentWeapon == primaryWeapon && secondaryWeapon != null)
         {
             currentWeapon = secondaryWeapon;
         }
-        else
+        else if (primaryWeapon != null)
         {
             currentWeapon = primaryWeapon;
         }
@@ -54,5 +50,41 @@ public class GunInventory : MonoBehaviour
     public Gun GetCurrentGun()
     {
         return currentWeapon;
+    }
+
+    public bool HaveGun(Gun gun)
+    {
+        if (gun == primaryWeapon || gun == secondaryWeapon)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void AddGun(Gun newGun)
+    {
+        if (currentWeapon == primaryWeapon)
+        {
+            if (secondaryWeapon == null)
+            {
+                secondaryWeapon = newGun;
+            }
+            else
+            {
+                primaryWeapon = newGun;
+            }
+        }
+        else
+        {
+            if (primaryWeapon == null)
+            {
+                primaryWeapon = newGun;
+            }
+            else
+            {
+                secondaryWeapon = newGun;
+            }
+        }
+        
     }
 }

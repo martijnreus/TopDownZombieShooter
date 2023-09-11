@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 994471422}
   m_Layer: 6
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809423791007895689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.69, y: 0.13, z: 0}
+  m_LocalPosition: {x: 0.19, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,7 +58,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.4, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -372,9 +372,10 @@ GameObject:
   - component: {fileID: 2809423791794791245}
   - component: {fileID: 2809423791794791244}
   - component: {fileID: 1275178551}
+  - component: {fileID: 6205693442026379683}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -512,6 +513,18 @@ SortingGroup:
   m_SortingLayerID: 2100190533
   m_SortingLayer: 3
   m_SortingOrder: 0
+--- !u!114 &6205693442026379683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423791794791250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a116fba53af72d24f89384d0f2c0e152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2809423792068325608
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2809423792068325609}
   - component: {fileID: 2809423792068325610}
+  - component: {fileID: 842685377}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Gun
@@ -596,6 +610,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &842685377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423792068325608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638c85930275a044b83c729f7b7e00c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
 --- !u!1 &2809423792114546152
 GameObject:
   m_ObjectHideFlags: 0
