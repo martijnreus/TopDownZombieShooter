@@ -19,6 +19,7 @@ public class PlayerShoot : MonoBehaviour
     private float timeLastShot;
 
     private bool isShooting;
+    private bool muzzleFlashIsActive;
 
     RaycastHit2D closestHit;
 
@@ -123,7 +124,11 @@ public class PlayerShoot : MonoBehaviour
         }
 
         CreatBulletTracer(shootTransform.position, hitPosition);
-        StartCoroutine(DoFlashEffect());
+        if (muzzleFlashIsActive == false)
+        {
+            StartCoroutine(DoFlashEffect());
+        }
+        
     }
 
     private Vector3 GetAimDirection()
@@ -181,8 +186,10 @@ public class PlayerShoot : MonoBehaviour
     {
         muzzleFlash.SetActive(true);
         shootFlash.SetActive(true);
+        muzzleFlashIsActive = true;
         yield return new WaitForSeconds(0.1f);
         muzzleFlash.SetActive(false);
         shootFlash.SetActive(false);
+        muzzleFlashIsActive = false;
     }
 }
