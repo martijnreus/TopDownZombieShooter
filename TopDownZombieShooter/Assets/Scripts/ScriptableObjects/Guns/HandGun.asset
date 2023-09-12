@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: HandGun
   bulletsPerShot: 1
-  bulletCapacity: 10
+  bulletCapacity: 8
   timeBetweenShots: 0
   reloadTime: 1
   isAutomatic: 0
