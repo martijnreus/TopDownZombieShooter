@@ -13,18 +13,18 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         ammoInWeapon = gunSO.bulletCapacity;
+        totalAmmo = gunSO.bulletCapacity * 9;
     }
 
     public void UseAmmo()
     {
         ammoInWeapon--;
-        Debug.Log("Ammo left: " + ammoInWeapon);
     }
 
     public void ReloadGun()
     {
+        totalAmmo -= (gunSO.bulletCapacity - ammoInWeapon);
         ammoInWeapon = gunSO.bulletCapacity;
-        Debug.Log("Reloaded");
     }
 
     public GunSO GetGunSO()
@@ -35,5 +35,10 @@ public class Gun : MonoBehaviour
     public int GetAmmoInWeapon()
     {
         return ammoInWeapon;
+    }
+
+    public int GetTotalAmmo()
+    {
+        return totalAmmo;
     }
 }
