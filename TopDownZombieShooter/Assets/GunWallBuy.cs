@@ -13,7 +13,7 @@ public class GunWallBuy : MonoBehaviour, IInteractable
         gunInventory = FindObjectOfType<GunInventory>();
     }
 
-    public void Interact(Transform interactorTransform)
+    public void Interact()
     {
         // If the player dont have the gun already buy it
         if (!gunInventory.HaveGun(gun))
