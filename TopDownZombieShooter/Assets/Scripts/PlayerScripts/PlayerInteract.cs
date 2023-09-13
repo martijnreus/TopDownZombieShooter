@@ -31,7 +31,7 @@ public class PlayerInteract : MonoBehaviour
         {
             if (collider.TryGetComponent(out IInteractable interactable))
             {
-                interactable.Interact(transform);
+                interactable.Interact();
             }
         }
     }
