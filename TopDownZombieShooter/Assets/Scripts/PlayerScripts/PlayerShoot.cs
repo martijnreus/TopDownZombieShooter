@@ -45,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 ShootBullet();
             }
-            else if (!gunInventory.GetCurrentGun().GetGunSO().isAutomatic && isShooting == false)
+            else if (!gunInventory.GetCurrentGun().GetGunSO().isAutomatic && !isShooting)
             {
                 ShootBullet();
             }

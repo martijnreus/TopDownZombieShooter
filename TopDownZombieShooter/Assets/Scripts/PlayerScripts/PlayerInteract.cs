@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,31 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private float interactRange;
 
-    private void Update()
+    private GameInput gameInput;
+
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        gameInput = FindObjectOfType<GameInput>();
+    }
+
+    private void Start()
+    {
+        gameInput.OnInteractAction += OnInteractAction;
+    }
+
+    private void OnInteractAction(object sender, EventArgs e)
+    {
+        TryInteract();
+    }
+
+    private void TryInteract()
+    {
+        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, interactRange);
+        foreach (Collider2D collider in colliderArray)
         {
-            Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, interactRange);
-            foreach (Collider2D collider in colliderArray)
+            if (collider.TryGetComponent(out IInteractable interactable))
             {
-                if (collider.TryGetComponent(out IInteractable interactable))
-                {
-                    interactable.Interact(transform);
-                }
+                interactable.Interact(transform);
             }
         }
     }

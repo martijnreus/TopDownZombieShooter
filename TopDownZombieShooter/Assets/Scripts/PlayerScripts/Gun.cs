@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
     private void Start()
     {
         ammoInWeapon = gunSO.bulletCapacity;
-        totalAmmo = gunSO.bulletCapacity * 1;
+        totalAmmo = gunSO.bulletCapacity * 4;
     }
 
     public void UseAmmo()

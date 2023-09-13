@@ -7,6 +7,9 @@ public class GameInput: MonoBehaviour
 {
     public event EventHandler OnShootAction;
     public event EventHandler OnStopShootAction;
+    public event EventHandler OnReloadAction;
+    public event EventHandler OnSwitchAction;
+    public event EventHandler OnInteractAction;
 
     private void Update()
     {
@@ -18,6 +21,21 @@ public class GameInput: MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             OnStopShootAction?.Invoke(this, EventArgs.Empty);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            OnReloadAction?.Invoke(this, EventArgs.Empty);
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            OnSwitchAction?.Invoke(this, EventArgs.Empty);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            OnInteractAction?.Invoke(this, EventArgs.Empty);
         }
     }
 

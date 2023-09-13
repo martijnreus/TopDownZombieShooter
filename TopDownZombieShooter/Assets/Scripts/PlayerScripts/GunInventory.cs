@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,21 +19,19 @@ public class GunInventory : MonoBehaviour
 
     private void Start()
     {
+        gameInput.OnReloadAction += OnReloadAcion;
+        gameInput.OnSwitchAction += OnSwitchAction;
         currentWeapon = primaryWeapon;
     }
 
-    private void Update()
+    private void OnSwitchAction(object sender, EventArgs e)
     {
-        //TODO move to input class and handle with event
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            currentWeapon.ReloadGun();
-        }
+        SwitchGun();
+    }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SwitchGun();
-        }
+    private void OnReloadAcion(object sender, System.EventArgs e)
+    {
+        currentWeapon.ReloadGun();
     }
 
     private void SwitchGun()
