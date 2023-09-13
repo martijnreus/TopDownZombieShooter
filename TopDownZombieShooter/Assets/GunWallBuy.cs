@@ -15,20 +15,20 @@ public class GunWallBuy : MonoBehaviour, IInteractable
 
     public void Interact(Transform interactorTransform)
     {
-        //TODO the player cant have the same weapon twice
         // If the player dont have the gun already buy it
         if (!gunInventory.HaveGun(gun))
         {
+            //TODO Substract points when buying
             gunInventory.AddGun(gun);
         }
-        else
+        else if (gunInventory.GetCurrentGun() == gun)
         {
-            //TODO refill ammo
+            gunInventory.GetCurrentGun().RefillAmmo();
         }
     }
 
     public string GetInteractText()
     {
-        return "Buy gun for 200 points";
+        return "Buy " + gun.GetGunSO().gunName + " for 200 points";
     }
 }
