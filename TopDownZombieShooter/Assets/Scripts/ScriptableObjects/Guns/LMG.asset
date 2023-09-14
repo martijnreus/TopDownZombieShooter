@@ -15,7 +15,7 @@ MonoBehaviour:
   gunName: LMG
   bulletsPerShot: 1
   bulletCapacity: 80
-  timeBetweenShots: 0.3
+  timeBetweenShots: 0.25
   reloadTime: 5
   isAutomatic: 1
   gun: {fileID: 0}
