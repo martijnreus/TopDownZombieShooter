@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun
 {
-    [SerializeField] private GunSO gunSO;
+    private GunSO gunSO;
 
     private int totalAmmo;
     private int ammoInWeapon;
 
-    // When gun is created set the ammo to max
-    private void Start()
+    public Gun(GunSO gunSO)
     {
+        this.gunSO = gunSO;
         ammoInWeapon = gunSO.bulletCapacity;
-        RefillAmmo();
+        RefillAmmo();   
     }
 
     public void UseAmmo()

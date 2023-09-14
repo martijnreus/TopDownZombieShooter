@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class GunInventory : MonoBehaviour
 {
-    [SerializeField] private Gun primaryWeapon;
-    [SerializeField] private Gun secondaryWeapon;
+    [SerializeField] GunSO starterWeaponSO;
+    private Gun primaryWeapon;
+    private Gun secondaryWeapon;
 
     private Gun currentWeapon;
 
@@ -21,6 +22,7 @@ public class GunInventory : MonoBehaviour
     {
         gameInput.OnReloadAction += OnReloadAcion;
         gameInput.OnSwitchAction += OnSwitchAction;
+        primaryWeapon = new Gun(starterWeaponSO);
         currentWeapon = primaryWeapon;
     }
 
@@ -37,7 +39,7 @@ public class GunInventory : MonoBehaviour
     private void SwitchGun()
     {
         if (currentWeapon == primaryWeapon && secondaryWeapon != null)
-        {
+        {   
             currentWeapon = secondaryWeapon;
         }
         else if (primaryWeapon != null)
@@ -51,39 +53,42 @@ public class GunInventory : MonoBehaviour
         return currentWeapon;
     }
 
-    public bool HaveGun(Gun gun)
+    public bool HaveGun(GunSO gunSO)
     {
-        if (gun == primaryWeapon || gun == secondaryWeapon)
+        if (gunSO == primaryWeapon.GetGunSO() || (secondaryWeapon != null && gunSO == secondaryWeapon.GetGunSO()))
         {
             return true;
         }
         return false;
     }
 
-    public void AddGun(Gun newGun)
+    public void AddGun(GunSO newGunSO)
     {
         if (currentWeapon == primaryWeapon)
         {
             if (secondaryWeapon == null)
             {
-                secondaryWeapon = newGun;
+                secondaryWeapon = new Gun(newGunSO);
+                currentWeapon = secondaryWeapon;
             }
             else
             {
-                primaryWeapon = newGun;
+                primaryWeapon = new Gun(newGunSO);
+                currentWeapon = primaryWeapon;
             }
         }
         else
         {
             if (primaryWeapon == null)
             {
-                primaryWeapon = newGun;
+                primaryWeapon = new Gun(newGunSO);
+                currentWeapon = primaryWeapon;
             }
             else
             {
-                secondaryWeapon = newGun;
+                secondaryWeapon = new Gun(newGunSO);
+                currentWeapon = secondaryWeapon;
             }
         }
-        
     }
 }

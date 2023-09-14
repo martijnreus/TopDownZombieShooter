@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunWallBuy : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Gun gun;
+    [SerializeField] private GunSO gunSO;
 
     private GunInventory gunInventory;
 
@@ -16,12 +16,12 @@ public class GunWallBuy : MonoBehaviour, IInteractable
     public void Interact()
     {
         // If the player dont have the gun already buy it
-        if (!gunInventory.HaveGun(gun))
+        if (!gunInventory.HaveGun(gunSO))
         {
             //TODO Substract points when buying
-            gunInventory.AddGun(gun);
+            gunInventory.AddGun(gunSO);
         }
-        else if (gunInventory.GetCurrentGun() == gun)
+        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO)
         {
             gunInventory.GetCurrentGun().RefillAmmo();
         }
@@ -29,6 +29,6 @@ public class GunWallBuy : MonoBehaviour, IInteractable
 
     public string GetInteractText()
     {
-        return "Buy " + gun.GetGunSO().gunName + " for 200 points";
+        return "Buy " + gunSO.gunName + " for 200 points";
     }
 }
