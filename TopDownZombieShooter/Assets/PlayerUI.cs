@@ -7,6 +7,7 @@ using TMPro;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI bulletText;
+    [SerializeField] TextMeshProUGUI weaponText;
 
     private GunInventory gunInventory;
 
@@ -18,6 +19,7 @@ public class PlayerUI : MonoBehaviour
     private void Update()
     {
         UpdateBulletText();
+        UpdateWeaponText();
     }
 
     private void UpdateBulletText()
@@ -25,5 +27,11 @@ public class PlayerUI : MonoBehaviour
         int ammoInWeapon = gunInventory.GetCurrentGun().GetAmmoInWeapon();
         int totalAmmo = gunInventory.GetCurrentGun().GetTotalAmmo();
         bulletText.text = "Bullet: " + ammoInWeapon + "/" + totalAmmo;
+    }
+
+    private void UpdateWeaponText()
+    {
+        string gunName = gunInventory.GetCurrentGun().GetGunSO().gunName;
+        weaponText.text = gunName;
     }
 }

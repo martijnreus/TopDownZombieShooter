@@ -69,10 +69,12 @@ public class GunInventory : MonoBehaviour
             if (secondaryWeapon == null)
             {
                 secondaryWeapon = new Gun(newGunSO);
+                currentWeapon = secondaryWeapon;
             }
             else
             {
                 primaryWeapon = new Gun(newGunSO);
+                currentWeapon = primaryWeapon;
             }
         }
         else
@@ -80,10 +82,12 @@ public class GunInventory : MonoBehaviour
             if (primaryWeapon == null)
             {
                 primaryWeapon = new Gun(newGunSO);
+                currentWeapon = primaryWeapon;
             }
             else
             {
                 secondaryWeapon = new Gun(newGunSO);
+                currentWeapon = secondaryWeapon;
             }
         }
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun
 {
-    //[SerializeField] private GunSO gunSO;
     private GunSO gunSO;
 
     private int totalAmmo;
@@ -13,18 +12,9 @@ public class Gun
     public Gun(GunSO gunSO)
     {
         this.gunSO = gunSO;
-        totalAmmo = gunSO.bulletCapacity * 4;
         ammoInWeapon = gunSO.bulletCapacity;
+        RefillAmmo();   
     }
-
-    /*
-    // When gun is created set the ammo to max
-    private void Start()
-    {
-        ammoInWeapon = gunSO.bulletCapacity;
-        RefillAmmo();
-    }
-    */
 
     public void UseAmmo()
     {
