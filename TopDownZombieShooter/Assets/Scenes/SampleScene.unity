@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletText: {fileID: 96145132}
-  weaponText: {fileID: 0}
+  weaponText: {fileID: 1112060564}
 --- !u!114 &892446273
 MonoBehaviour:
   m_ObjectHideFlags: 0
