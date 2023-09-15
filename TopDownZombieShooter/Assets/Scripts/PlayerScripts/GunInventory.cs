@@ -31,7 +31,7 @@ public class GunInventory : MonoBehaviour
         SwitchGun();
     }
 
-    private void OnReloadAcion(object sender, System.EventArgs e)
+    private void OnReloadAcion(object sender, EventArgs e)
     {
         currentWeapon.ReloadGun();
     }
