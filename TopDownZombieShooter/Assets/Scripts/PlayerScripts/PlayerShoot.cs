@@ -63,7 +63,7 @@ public class PlayerShoot : MonoBehaviour
         timeLastShot = Time.time;
         gunInventory.GetCurrentGun().UseAmmo();
 
-        Vector3 aimDirection = GetAimDirection();
+        Vector3 aimDirection = GetShootDirection();
 
         RaycastHit2D[] raycastHit2DArray = Physics2D.RaycastAll(shootTransform.position, aimDirection);
         RaycastHit2D? raycastHit2D = FindClosestHit(raycastHit2DArray);
@@ -117,10 +117,10 @@ public class PlayerShoot : MonoBehaviour
 
     private void CreateShootEffect(Vector3 hitPosition)
     {
-        Vector3 aimDirection = GetAimDirection();
+        Vector3 shootDirection = GetShootDirection();
         if (hitPosition == Vector3.zero)
         {
-            hitPosition = shootTransform.position + aimDirection * 20f;
+            hitPosition = shootTransform.position + shootDirection * 20f;
         }
 
         CreatBulletTracer(shootTransform.position, hitPosition);
@@ -131,10 +131,9 @@ public class PlayerShoot : MonoBehaviour
         
     }
 
-    private Vector3 GetAimDirection()
+    private Vector3 GetShootDirection()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
+        Vector3 aimDirection = GetAimDirection();
 
         // Give a random spread angle to the shooting direction
         float randomSpreadAngle = UnityEngine.Random.Range(-gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2,
@@ -144,9 +143,17 @@ public class PlayerShoot : MonoBehaviour
         return shootDirection;
     }
 
+    public Vector3 GetAimDirection()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
+
+        return aimDirection;
+    }
+
     private bool IsAimingDown()
     {
-        if (GetAimDirection().y < 0)
+        if (GetShootDirection().y < 0)
         {
             return true;
         }

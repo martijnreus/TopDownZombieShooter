@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HandGun
+  m_text: 'Weapon
 
 '
   m_isRightToLeft: 0
@@ -1620,6 +1620,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 336393225702713189, guid: f66e1c87bff2f0b46a1655b2c8487744, type: 3}
   m_PrefabInstance: {fileID: 73652536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1164261791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2809423791621843138, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+  m_PrefabInstance: {fileID: 2809423792667102588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1164261794
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164261791}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6036e100667294d418bc906d334377ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1193057474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2705,6 +2730,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
   m_PrefabInstance: {fileID: 2809423792667102588}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1275178553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275178542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee934391c5e35c4081dee0c037b6446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1400032792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 336393225702713189, guid: f66e1c87bff2f0b46a1655b2c8487744, type: 3}
@@ -5270,6 +5307,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e0f76e9c32bac394185abf4f006a36f9, type: 3}
+    - target: {fileID: 2809423791794791241, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1164261794}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player
