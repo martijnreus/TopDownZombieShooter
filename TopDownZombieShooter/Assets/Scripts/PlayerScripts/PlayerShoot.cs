@@ -44,33 +44,47 @@ public class PlayerShoot : MonoBehaviour
             switch (gunInventory.GetCurrentGun().GetGunSO().gunType)
             {
                 case GunSO.GunType.Automatic:
+                    gunInventory.GetCurrentGun().UseAmmo();
+                    isShooting = true;
                     ShootBullet();
                     break;
 
-                case GunSO.GunType.SemiAutomic:
+                case GunSO.GunType.SemiAutomatic:
                     if (!isShooting)
                     {
+                        gunInventory.GetCurrentGun().UseAmmo();
+                        isShooting = true;
                         ShootBullet();
                     }
                     break;
 
                 case GunSO.GunType.Shotgun:
+                    gunInventory.GetCurrentGun().UseAmmo();
+                    for (int i = 0; i < gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot; i++)
+                    {
+                        isShooting = true;
+                        ShootBullet();
+                    }
                     break;
 
                 case GunSO.GunType.Burst:
+                    if (!isShooting && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot * gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
+                    {
+                        isShooting = true;
+                        StartCoroutine(DoBurst());
+                    }
                     break;
             }
+        }
+    }
 
-            /*
-            if (gunInventory.GetCurrentGun().GetGunSO().isAutomatic)
-            {
-                ShootBullet();
-            }
-            else if (!gunInventory.GetCurrentGun().GetGunSO().isAutomatic && !isShooting)
-            {
-                ShootBullet();
-            }
-            */
+    private IEnumerator DoBurst()
+    {
+        for (int i = 0; i < gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot; i++)
+        {
+            gunInventory.GetCurrentGun().UseAmmo();
+            ShootBullet();
+            yield return new WaitForSeconds(gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots);
         }
     }
 
@@ -81,9 +95,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void ShootBullet()
     {
-        isShooting = true;
         timeLastShot = Time.time;
-        gunInventory.GetCurrentGun().UseAmmo();
 
         Vector3 aimDirection = GetShootDirection();
 

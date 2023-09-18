@@ -18,7 +18,7 @@ public class GunSO : ScriptableObject
     public enum GunType
     {
         Automatic,
-        SemiAutomic,
+        SemiAutomatic,
         Shotgun,
         Burst,
     }
