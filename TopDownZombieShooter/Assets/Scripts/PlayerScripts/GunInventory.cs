@@ -6,6 +6,8 @@ using UnityEngine;
 public class GunInventory : MonoBehaviour
 {
     [SerializeField] GunSO starterWeaponSO;
+    [SerializeField] SpriteRenderer gunSpriteRenderer;
+
     private Gun primaryWeapon;
     private Gun secondaryWeapon;
 
@@ -24,6 +26,8 @@ public class GunInventory : MonoBehaviour
         gameInput.OnSwitchAction += OnSwitchAction;
         primaryWeapon = new Gun(starterWeaponSO);
         currentWeapon = primaryWeapon;
+
+        UpdateGunSprite();
     }
 
     private void OnSwitchAction(object sender, EventArgs e)
@@ -46,11 +50,8 @@ public class GunInventory : MonoBehaviour
         {
             currentWeapon = primaryWeapon;
         }
-    }
 
-    public Gun GetCurrentGun()
-    {
-        return currentWeapon;
+        UpdateGunSprite();
     }
 
     public bool HaveGun(GunSO gunSO)
@@ -90,5 +91,17 @@ public class GunInventory : MonoBehaviour
                 currentWeapon = secondaryWeapon;
             }
         }
+
+        UpdateGunSprite();
+    }
+
+    private void UpdateGunSprite()
+    {
+        gunSpriteRenderer.sprite = currentWeapon.GetGunSO().gunSprite;
+    }
+
+    public Gun GetCurrentGun()
+    {
+        return currentWeapon;
     }
 }
