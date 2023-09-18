@@ -41,6 +41,27 @@ public class PlayerShoot : MonoBehaviour
         {
             //TODO make this a enum and switch case
             // In case of a automatic weapon
+            switch (gunInventory.GetCurrentGun().GetGunSO().gunType)
+            {
+                case GunSO.GunType.Automatic:
+                    ShootBullet();
+                    break;
+
+                case GunSO.GunType.SemiAutomic:
+                    if (!isShooting)
+                    {
+                        ShootBullet();
+                    }
+                    break;
+
+                case GunSO.GunType.Shotgun:
+                    break;
+
+                case GunSO.GunType.Burst:
+                    break;
+            }
+
+            /*
             if (gunInventory.GetCurrentGun().GetGunSO().isAutomatic)
             {
                 ShootBullet();
@@ -49,6 +70,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 ShootBullet();
             }
+            */
         }
     }
 

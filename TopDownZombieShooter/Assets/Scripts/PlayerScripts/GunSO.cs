@@ -6,12 +6,20 @@ using UnityEngine;
 public class GunSO : ScriptableObject
 {
     public string gunName;
+    public int baseDamage;
     public int bulletsPerShot;
     public int bulletCapacity;   
     public float timeBetweenShots; 
     public float reloadTime;
-    public bool isAutomatic;
-    public GameObject gun;
+    public GunType gunType;
     public float bulletSpreadAngle;
     public Sprite gunSprite;
+
+    public enum GunType
+    {
+        Automatic,
+        SemiAutomic,
+        Shotgun,
+        Burst,
+    }
 }
