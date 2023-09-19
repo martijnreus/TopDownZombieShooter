@@ -10,10 +10,13 @@ public class GunInventory : MonoBehaviour
 
     private Gun primaryWeapon;
     private Gun secondaryWeapon;
-
     private Gun currentWeapon;
 
     private GameInput gameInput;
+
+    private bool isReloading;
+
+    private Coroutine doReload;
 
     private void Awake()
     {
@@ -37,7 +40,27 @@ public class GunInventory : MonoBehaviour
 
     private void OnReloadAcion(object sender, EventArgs e)
     {
+        //TODO make it impossible to shoot during the reload
+        //TODO make the waitforseconds here
+        //currentWeapon.ReloadGun();
+        if (!isReloading)
+        {
+            doReload = StartCoroutine(DoReload());
+        }
+    }
+
+    private IEnumerator DoReload()
+    {
+        isReloading = true;
+        yield return new WaitForSeconds(currentWeapon.GetGunSO().reloadTime);
         currentWeapon.ReloadGun();
+        isReloading = false;
+    }
+
+    public void CancelReload()
+    {
+        isReloading = false;
+        StopCoroutine(doReload);
     }
 
     private void SwitchGun()
@@ -103,5 +126,10 @@ public class GunInventory : MonoBehaviour
     public Gun GetCurrentGun()
     {
         return currentWeapon;
+    }
+
+    public bool GetIsReloading()
+    {
+        return isReloading;
     }
 }

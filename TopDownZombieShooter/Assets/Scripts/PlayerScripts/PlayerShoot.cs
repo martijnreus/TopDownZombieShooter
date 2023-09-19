@@ -36,11 +36,15 @@ public class PlayerShoot : MonoBehaviour
     }
 
     private void StartShooting(object sender, System.EventArgs e)
-    {
+    { 
         if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
         {
-            //TODO make this a enum and switch case
-            // In case of a automatic weapon
+            // Reload cancel by shooting;
+            if (gunInventory.GetIsReloading())
+            {
+                gunInventory.CancelReload();
+            }
+
             switch (gunInventory.GetCurrentGun().GetGunSO().gunType)
             {
                 case GunSO.GunType.Automatic:

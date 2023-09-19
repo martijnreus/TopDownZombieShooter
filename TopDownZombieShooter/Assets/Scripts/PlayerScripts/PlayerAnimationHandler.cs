@@ -32,15 +32,10 @@ public class PlayerAnimationHandler : MonoBehaviour
         float moveDirection = playerController.GetMoveDirection().x;
         float aimDirection = playerShoot.GetAimDirection().x;
 
-        Debug.Log("move" + moveDirection);
-        Debug.Log("aim" + aimDirection);
-
         if (aimDirection < 0 && moveDirection > 0 || aimDirection > 0 && moveDirection < 0)
         {
-            Debug.Log("heloo");
             return false;
         }
-        Debug.Log("doei");
         return true;
     }
 }
