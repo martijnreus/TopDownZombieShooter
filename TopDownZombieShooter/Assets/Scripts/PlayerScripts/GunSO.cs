@@ -14,6 +14,7 @@ public class GunSO : ScriptableObject
     public GunType gunType;
     public float bulletSpreadAngle;
     public Sprite gunSprite;
+    public Sprite gunUISprite;
 
     public enum GunType
     {

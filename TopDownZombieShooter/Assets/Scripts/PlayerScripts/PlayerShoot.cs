@@ -9,7 +9,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Material weaponTracerMaterial;
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private GameObject shootFlash;
-    [SerializeField] private int damageAmount;
+    //[SerializeField] private int damageAmount;
 
     [SerializeField] private WallCheck wallCheck;
 
@@ -149,7 +149,7 @@ public class PlayerShoot : MonoBehaviour
         Zombie zombie = target.GetComponent<Zombie>();
         if (zombie != null)
         {
-            zombie.healthSystem.Damage(damageAmount);
+            zombie.healthSystem.Damage(gunInventory.GetCurrentGun().GetGunSO().baseDamage);
         }
     }
 

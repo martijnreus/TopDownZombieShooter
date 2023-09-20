@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI currentAmmoText;
     [SerializeField] TextMeshProUGUI weaponText;
     [SerializeField] TextMeshProUGUI totalAmmoText;
+    [SerializeField] Image gunImage;
 
     private GunInventory gunInventory;
 
@@ -20,6 +22,12 @@ public class PlayerUI : MonoBehaviour
     {
         UpdateBulletText();
         UpdateWeaponText();
+        UpdateWeaponImage();
+    }
+
+    private void UpdateWeaponImage()
+    {
+        gunImage.sprite = gunInventory.GetCurrentGun().GetGunSO().gunUISprite;
     }
 
     private void UpdateBulletText()
