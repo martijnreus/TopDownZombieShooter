@@ -21,3 +21,4 @@ MonoBehaviour:
   gunType: 0
   bulletSpreadAngle: 10
   gunSprite: {fileID: 21300000, guid: 81e1438c44dbdd2478f57c4e618ad535, type: 3}
+  gunUISprite: {fileID: 21300000, guid: dd2963e347a2a7545b42b5c3ce536fdf, type: 3}
