@@ -15,6 +15,7 @@ public class GunInventory : MonoBehaviour
     private GameInput gameInput;
 
     private bool isReloading;
+    private float completionAmount;
 
     private Coroutine doReload;
 
@@ -40,10 +41,7 @@ public class GunInventory : MonoBehaviour
 
     private void OnReloadAcion(object sender, EventArgs e)
     {
-        //TODO make it impossible to shoot during the reload
-        //TODO make the waitforseconds here
-        //currentWeapon.ReloadGun();
-        if (!isReloading)
+        if (!isReloading && currentWeapon.GetGunSO().bulletCapacity != currentWeapon.GetAmmoInWeapon())
         {
             doReload = StartCoroutine(DoReload());
         }
@@ -52,7 +50,18 @@ public class GunInventory : MonoBehaviour
     private IEnumerator DoReload()
     {
         isReloading = true;
-        yield return new WaitForSeconds(currentWeapon.GetGunSO().reloadTime);
+        float timeStartReloading = Time.time;
+
+        completionAmount = 0;
+
+        while(Time.time - timeStartReloading <= currentWeapon.GetGunSO().reloadTime)
+        {
+            completionAmount = 1 - ((currentWeapon.GetGunSO().reloadTime - (Time.time - timeStartReloading)) / currentWeapon.GetGunSO().reloadTime);
+            Debug.Log(completionAmount);
+            yield return new WaitForEndOfFrame();
+        }
+
+        completionAmount = 1;
         currentWeapon.ReloadGun();
         isReloading = false;
     }
@@ -131,5 +140,10 @@ public class GunInventory : MonoBehaviour
     public bool GetIsReloading()
     {
         return isReloading;
+    }
+
+    public float GetCompletionAmount()
+    {
+        return completionAmount;
     }
 }

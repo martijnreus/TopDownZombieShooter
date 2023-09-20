@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI weaponText;
     [SerializeField] TextMeshProUGUI totalAmmoText;
     [SerializeField] Image gunImage;
+    [SerializeField] Slider timeBetweenShotSlider;
 
     private GunInventory gunInventory;
 
@@ -23,6 +25,21 @@ public class PlayerUI : MonoBehaviour
         UpdateBulletText();
         UpdateWeaponText();
         UpdateWeaponImage();
+        UpdateSliderValue();
+    }
+
+    private void UpdateSliderValue()
+    {
+        if (gunInventory.GetIsReloading())
+        {
+            timeBetweenShotSlider.gameObject.SetActive(true);
+            timeBetweenShotSlider.value = gunInventory.GetCompletionAmount();
+        }
+        else
+        {
+            timeBetweenShotSlider.gameObject.SetActive(false);
+        }
+            
     }
 
     private void UpdateWeaponImage()
