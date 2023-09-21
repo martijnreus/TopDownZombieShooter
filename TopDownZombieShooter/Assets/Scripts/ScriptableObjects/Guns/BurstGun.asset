@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BurstGun
   m_EditorClassIdentifier: 
   gunName: BurstGun
-  baseDamage: 10
+  baseDamage: 75
   bulletsPerShot: 3
   bulletCapacity: 30
   timeBetweenShots: 0.1

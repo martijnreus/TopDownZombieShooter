@@ -1868,6 +1868,7 @@ MonoBehaviour:
   gunImage: {fileID: 1027960448}
   reloadSlider: {fileID: 87355426}
   shootSlider: {fileID: 983427808}
+  pointsText: {fileID: 1089516322}
 --- !u!114 &892446273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,7 +2435,7 @@ GameObject:
   - component: {fileID: 1089516323}
   - component: {fileID: 1089516322}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: PointsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3867,7 +3868,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 800, y: -483}
+  m_AnchoredPosition: {x: 830.5, y: -483}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1296872018
@@ -5194,7 +5195,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: -375}
+  m_AnchoredPosition: {x: 730.5, y: -375}
   m_SizeDelta: {x: 400, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1544069389

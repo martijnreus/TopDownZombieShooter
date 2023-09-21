@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chauchat LMG
   m_EditorClassIdentifier: 
   gunName: Chauchat LMG
-  baseDamage: 30
+  baseDamage: 125
   bulletsPerShot: 1
   bulletCapacity: 80
   timeBetweenShots: 0.25

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AK47
   m_EditorClassIdentifier: 
   gunName: AK47
-  baseDamage: 10
+  baseDamage: 100
   bulletsPerShot: 1
   bulletCapacity: 32
   timeBetweenShots: 0.1

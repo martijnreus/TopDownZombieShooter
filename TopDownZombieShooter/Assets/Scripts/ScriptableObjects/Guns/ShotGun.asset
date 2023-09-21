@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: 
   gunName: ShotGun
-  baseDamage: 10
+  baseDamage: 50
   bulletsPerShot: 5
   bulletCapacity: 20
   timeBetweenShots: 0.5
