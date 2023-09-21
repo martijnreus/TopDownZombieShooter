@@ -5,25 +5,30 @@ using UnityEngine;
 public class GunWallBuy : MonoBehaviour, IInteractable
 {
     [SerializeField] private GunSO gunSO;
+    [SerializeField] private int gunCost;
+    [SerializeField] private int ammoCost;
 
     private GunInventory gunInventory;
+    private PointManager pointManager;
 
     private void Awake()
     {
         gunInventory = FindObjectOfType<GunInventory>();
+        pointManager = FindObjectOfType<PointManager>();
     }
 
     public void Interact()
     {
         // If the player dont have the gun already buy it
-        if (!gunInventory.HaveGun(gunSO))
+        if (!gunInventory.HaveGun(gunSO) && pointManager.GetCurrentPointAmount() >= gunCost)
         {
-            //TODO Substract points when buying
             gunInventory.AddGun(gunSO);
+            pointManager.RemovePoints(gunCost);
         }
-        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO)
+        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO && pointManager.GetCurrentPointAmount() >= ammoCost)
         {
             gunInventory.GetCurrentGun().RefillAmmo();
+            pointManager.RemovePoints(ammoCost);
         }
     }
 

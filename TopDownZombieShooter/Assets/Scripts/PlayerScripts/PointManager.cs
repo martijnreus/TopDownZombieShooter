@@ -20,6 +20,7 @@ public class PointManager : MonoBehaviour
         currentPointAmount = 0;
     }
 
+    //TODO it is better to put this logic in the playerShoot script 
     private void PlayerShoot_OnHitZombieAction(object sender, Zombie target)
     {
         if (!target.healthSystem.IsDead())
@@ -30,6 +31,11 @@ public class PointManager : MonoBehaviour
         {
             currentPointAmount += 50;
         }
+    }
+
+    public void RemovePoints(int amount)
+    {
+        currentPointAmount -= amount;
     }
 
     public int GetCurrentPointAmount()

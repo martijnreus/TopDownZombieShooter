@@ -821,6 +821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSO: {fileID: 11400000, guid: bc4548f21c89d0b4ebae872d937fd75a, type: 2}
+  gunCost: 750
+  ammoCost: 300
 --- !u!1 &255819710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1245,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSO: {fileID: 11400000, guid: 6ccdf17c48108e1409268aa5c3299dfd, type: 2}
+  gunCost: 1000
+  ammoCost: 500
 --- !u!4 &592465390
 Transform:
   m_ObjectHideFlags: 0
@@ -2423,6 +2427,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSO: {fileID: 11400000, guid: 9eebc82db32a7f84daf76ff289adfc38, type: 2}
+  gunCost: 1250
+  ammoCost: 750
 --- !u!1 &1089516320
 GameObject:
   m_ObjectHideFlags: 0
