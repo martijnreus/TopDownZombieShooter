@@ -30,9 +30,10 @@ public class PointManager : MonoBehaviour
         {
             currentPointAmount += 50;
         }
+    }
 
-        Debug.Log(currentPointAmount);
-        //TODO add the object you hit as a argument
-        // if its death then give extra points
+    public int GetCurrentPointAmount()
+    {
+        return currentPointAmount;
     }
 }

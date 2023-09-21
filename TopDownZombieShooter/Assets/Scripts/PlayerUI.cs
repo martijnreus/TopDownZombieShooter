@@ -13,14 +13,17 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Image gunImage;
     [SerializeField] Slider reloadSlider;
     [SerializeField] Slider shootSlider;
+    [SerializeField] TextMeshProUGUI pointsText;
 
     private GunInventory gunInventory;
     private PlayerShoot playerShoot;
+    private PointManager pointManager;
 
     private void Awake()
     {
         gunInventory = FindObjectOfType<GunInventory>();
         playerShoot = FindObjectOfType<PlayerShoot>();
+        pointManager = FindObjectOfType<PointManager>();
     }
 
     private void Update()
@@ -30,6 +33,12 @@ public class PlayerUI : MonoBehaviour
         UpdateWeaponImage();
         UpdateReloadSlider();
         UpdateShootSlider();
+        UpdatePointsText();
+    }
+
+    private void UpdatePointsText()
+    {
+        pointsText.text = "Points: " + pointManager.GetCurrentPointAmount();
     }
 
     private void UpdateReloadSlider()

@@ -57,7 +57,6 @@ public class GunInventory : MonoBehaviour
         while(Time.time - timeStartReloading <= currentWeapon.GetGunSO().reloadTime)
         {
             completionAmount = 1 - ((currentWeapon.GetGunSO().reloadTime - (Time.time - timeStartReloading)) / currentWeapon.GetGunSO().reloadTime);
-            Debug.Log(completionAmount);
             yield return new WaitForEndOfFrame();
         }
 
