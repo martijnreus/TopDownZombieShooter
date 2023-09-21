@@ -9,9 +9,13 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Material weaponTracerMaterial;
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private GameObject shootFlash;
-    //[SerializeField] private int damageAmount;
-
     [SerializeField] private WallCheck wallCheck;
+
+    public event EventHandler<Zombie> OnHitZombieAction;
+    //public event Notify OnHitAction;
+
+    
+    //public delegate void Notify(int i);
 
     private GameInput gameInput;
     private GunInventory gunInventory;
@@ -92,7 +96,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
-    private void StopShooting(object sender, System.EventArgs e)
+    private void StopShooting(object sender, EventArgs e)
     {
         isShooting = false;
     }
@@ -150,6 +154,8 @@ public class PlayerShoot : MonoBehaviour
         if (zombie != null)
         {
             zombie.healthSystem.Damage(gunInventory.GetCurrentGun().GetGunSO().baseDamage);
+            //TODO Make sure every weapon gives you the same amount of points
+            OnHitZombieAction?.Invoke(this, zombie);
         }
     }
 
