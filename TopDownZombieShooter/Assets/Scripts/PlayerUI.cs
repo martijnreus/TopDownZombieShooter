@@ -11,13 +11,16 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI weaponText;
     [SerializeField] TextMeshProUGUI totalAmmoText;
     [SerializeField] Image gunImage;
-    [SerializeField] Slider timeBetweenShotSlider;
+    [SerializeField] Slider reloadSlider;
+    [SerializeField] Slider shootSlider;
 
     private GunInventory gunInventory;
+    private PlayerShoot playerShoot;
 
     private void Awake()
     {
         gunInventory = FindObjectOfType<GunInventory>();
+        playerShoot = FindObjectOfType<PlayerShoot>();
     }
 
     private void Update()
@@ -25,21 +28,40 @@ public class PlayerUI : MonoBehaviour
         UpdateBulletText();
         UpdateWeaponText();
         UpdateWeaponImage();
-        UpdateSliderValue();
+        UpdateReloadSlider();
+        UpdateShootSlider();
     }
 
-    private void UpdateSliderValue()
+    private void UpdateReloadSlider()
     {
         if (gunInventory.GetIsReloading())
         {
-            timeBetweenShotSlider.gameObject.SetActive(true);
-            timeBetweenShotSlider.value = gunInventory.GetCompletionAmount();
+            reloadSlider.gameObject.SetActive(true);
+            reloadSlider.value = gunInventory.GetCompletionAmount();
         }
         else
         {
-            timeBetweenShotSlider.gameObject.SetActive(false);
+            reloadSlider.gameObject.SetActive(false);
         }
             
+    }
+
+    private void UpdateShootSlider()
+    {
+
+        if (Time.time - playerShoot.GetTimeLastShot() < gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
+        {
+            shootSlider.gameObject.SetActive(true);
+            float timeBetweenShots = gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots;
+            Debug.Log("last shot" + (Time.time - playerShoot.GetTimeLastShot()));
+            shootSlider.value = 1 - (timeBetweenShots - (Time.time - playerShoot.GetTimeLastShot())) / timeBetweenShots;
+            Debug.Log(shootSlider.value);
+        }
+        else
+        {
+            shootSlider.gameObject.SetActive(false);
+        }
+        
     }
 
     private void UpdateWeaponImage()

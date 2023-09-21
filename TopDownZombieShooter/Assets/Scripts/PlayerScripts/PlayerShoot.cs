@@ -237,4 +237,9 @@ public class PlayerShoot : MonoBehaviour
         shootFlash.SetActive(false);
         muzzleFlashIsActive = false;
     }
+
+    public float GetTimeLastShot()
+    {
+        return timeLastShot;
+    }
 }
