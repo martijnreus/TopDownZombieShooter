@@ -53,9 +53,7 @@ public class PlayerUI : MonoBehaviour
         {
             shootSlider.gameObject.SetActive(true);
             float timeBetweenShots = gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots;
-            Debug.Log("last shot" + (Time.time - playerShoot.GetTimeLastShot()));
             shootSlider.value = 1 - (timeBetweenShots - (Time.time - playerShoot.GetTimeLastShot())) / timeBetweenShots;
-            Debug.Log(shootSlider.value);
         }
         else
         {
