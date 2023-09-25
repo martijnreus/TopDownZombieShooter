@@ -13,20 +13,15 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private WallCheck wallCheck;
 
     public event EventHandler<Zombie> OnHitZombieAction;
-    //public event Notify OnHitAction;
-
-    
-    //public delegate void Notify(int i);
 
     private GameInput gameInput;
     private GunInventory gunInventory;
 
     private float timeLastShot;
-
     private bool isShooting;
     private bool muzzleFlashIsActive;
 
-    RaycastHit2D closestHit;
+    private RaycastHit2D closestHit;
 
     private List<Zombie> uniqueHits = new List<Zombie>();
 
