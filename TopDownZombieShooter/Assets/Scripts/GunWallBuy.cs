@@ -34,11 +34,11 @@ public class GunWallBuy : MonoBehaviour, IInteractable
     {
         if (!gunInventory.HaveGun(gunSO))
         {
-            return "Press E to buy " + gunSO.gunName + " [Cost: " + gunSO.gunPrice + "]";
+            return "Press E to buy " + gunSO.gunName + "\n[Cost: " + gunSO.gunPrice + "]";
         }
         else
         {
-            return "Press E to buy " + gunSO.gunName + " ammo [Cost: " + gunSO.ammoPrice + "]";
+            return "Press E to buy " + gunSO.gunName + " ammo\n[Cost: " + gunSO.ammoPrice + "]";
         }      
     }
 }
