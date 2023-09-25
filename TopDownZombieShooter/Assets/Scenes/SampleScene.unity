@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b81428329bff4479c3f74b8e7c7851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPointAmount: 3000
 --- !u!1 &853284712
 GameObject:
   m_ObjectHideFlags: 0

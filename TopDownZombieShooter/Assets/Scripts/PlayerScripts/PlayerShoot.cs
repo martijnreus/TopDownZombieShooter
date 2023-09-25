@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class PlayerShoot : MonoBehaviour
 
     RaycastHit2D closestHit;
 
+    private List<Zombie> uniqueHits = new List<Zombie>();
+
     private void Awake()
     {
         gameInput = FindObjectOfType<GameInput>();
@@ -40,7 +43,9 @@ public class PlayerShoot : MonoBehaviour
     }
 
     private void StartShooting(object sender, System.EventArgs e)
-    { 
+    {
+        uniqueHits.Clear();
+
         if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
         {
             // Reload cancel by shooting;
@@ -73,6 +78,12 @@ public class PlayerShoot : MonoBehaviour
                         isShooting = true;
                         ShootBullet();
                     }
+
+                    foreach(Zombie hit in uniqueHits)
+                    {
+                        OnHitZombieAction?.Invoke(this, hit);
+                    }
+                    
                     break;
 
                 case GunSO.GunType.Burst:
@@ -153,9 +164,20 @@ public class PlayerShoot : MonoBehaviour
         Zombie zombie = target.GetComponent<Zombie>();
         if (zombie != null)
         {
+            if (!uniqueHits.Contains(zombie))
+            {
+                uniqueHits.Add(zombie);
+            }
+
             zombie.healthSystem.Damage(gunInventory.GetCurrentGun().GetGunSO().baseDamage);
-            //TODO Make sure every weapon gives you the same amount of points
-            OnHitZombieAction?.Invoke(this, zombie);
+            
+            // make sure the shotgun is calculated differently
+            if (gunInventory.GetCurrentGun().GetGunSO().gunType == GunSO.GunType.Shotgun)
+            {
+                return;
+            }
+
+            OnHitZombieAction?.Invoke(this, zombie);    
         }
     }
 

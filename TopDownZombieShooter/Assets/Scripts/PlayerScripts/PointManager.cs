@@ -6,7 +6,7 @@ public class PointManager : MonoBehaviour
 {
     private PlayerShoot playerShoot;
 
-    private int currentPointAmount;
+    [SerializeField] private int currentPointAmount;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class PointManager : MonoBehaviour
     {
         playerShoot.OnHitZombieAction += PlayerShoot_OnHitZombieAction;
 
-        currentPointAmount = 0;
+        //currentPointAmount = 0;
     }
 
     //TODO it is better to put this logic in the playerShoot script 
