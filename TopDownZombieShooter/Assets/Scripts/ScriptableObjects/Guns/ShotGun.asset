@@ -22,3 +22,5 @@ MonoBehaviour:
   bulletSpreadAngle: 10
   gunSprite: {fileID: 21300000, guid: 22ef35e21b3c0014a9997ce53bff16da, type: 3}
   gunUISprite: {fileID: 21300000, guid: 280d1bc1c7831e54bbd175248b158aec, type: 3}
+  gunPrice: 1250
+  ammoPrice: 750

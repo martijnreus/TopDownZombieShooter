@@ -5,8 +5,6 @@ using UnityEngine;
 public class GunWallBuy : MonoBehaviour, IInteractable
 {
     [SerializeField] private GunSO gunSO;
-    [SerializeField] private int gunCost;
-    [SerializeField] private int ammoCost;
 
     private GunInventory gunInventory;
     private PointManager pointManager;
@@ -20,20 +18,27 @@ public class GunWallBuy : MonoBehaviour, IInteractable
     public void Interact()
     {
         // If the player dont have the gun already buy it
-        if (!gunInventory.HaveGun(gunSO) && pointManager.GetCurrentPointAmount() >= gunCost)
+        if (!gunInventory.HaveGun(gunSO) && pointManager.GetCurrentPointAmount() >= gunSO.gunPrice)
         {
             gunInventory.AddGun(gunSO);
-            pointManager.RemovePoints(gunCost);
+            pointManager.RemovePoints(gunSO.gunPrice);
         }
-        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO && pointManager.GetCurrentPointAmount() >= ammoCost)
+        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO && pointManager.GetCurrentPointAmount() >= gunSO.ammoPrice)
         {
             gunInventory.GetCurrentGun().RefillAmmo();
-            pointManager.RemovePoints(ammoCost);
+            pointManager.RemovePoints(gunSO.ammoPrice);
         }
     }
 
     public string GetInteractText()
     {
-        return "Buy " + gunSO.gunName + " for " + gunSO.gunPrice + " points";
+        if (!gunInventory.HaveGun(gunSO))
+        {
+            return "Press E to buy " + gunSO.gunName + " [Cost: " + gunSO.gunPrice + "]";
+        }
+        else
+        {
+            return "Press E to buy " + gunSO.gunName + " ammo [Cost: " + gunSO.ammoPrice + "]";
+        }      
     }
 }

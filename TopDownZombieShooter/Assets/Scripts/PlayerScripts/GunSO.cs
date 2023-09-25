@@ -16,6 +16,7 @@ public class GunSO : ScriptableObject
     public Sprite gunSprite;
     public Sprite gunUISprite;
     public int gunPrice;
+    public int ammoPrice;
 
     public enum GunType
     {
