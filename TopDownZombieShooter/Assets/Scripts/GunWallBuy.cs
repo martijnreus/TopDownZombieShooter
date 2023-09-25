@@ -34,6 +34,6 @@ public class GunWallBuy : MonoBehaviour, IInteractable
 
     public string GetInteractText()
     {
-        return "Buy " + gunSO.gunName + " for 200 points";
+        return "Buy " + gunSO.gunName + " for " + gunSO.gunPrice + " points";
     }
 }
