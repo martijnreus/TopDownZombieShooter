@@ -6,7 +6,8 @@ public class WaveManager : MonoBehaviour
 {
     [SerializeField] private GameObject zombiePrefab;
     [SerializeField] private int maxZombiesAmount = 12;
-    [SerializeField] private float spawnSpeed = 0.5f;
+
+    //TODO the spawn rate should be depended on the wave
 
     public List<GameObject> activeZombies;
 
@@ -15,6 +16,7 @@ public class WaveManager : MonoBehaviour
     private int zombiesToSpawn;
     private float spawnTimer;
     private int currentWave = 0;
+    private float spawnSpeed = 2f;
 
     private void Start()
     {
@@ -48,8 +50,12 @@ public class WaveManager : MonoBehaviour
 
     private void StartNextWave()
     {
+        //TODO at a pauze before starting next wave
         currentWave++;
         zombiesToSpawn = (int)(0.000058f * Mathf.Pow(currentWave, 3) + 0.074032f * Mathf.Pow(currentWave, 2) + 0.718119f * Mathf.Pow(currentWave, 1) + 6);
+
+        //Add the calculation
+        spawnSpeed = Mathf.Max(2 * Mathf.Pow(0.95f, currentWave - 1), 0.1f);
     }
 
     public int GetCurrentWave()
