@@ -37,6 +37,7 @@ public class Zombie : MonoBehaviour
 
     private void Start()
     {
+        health = CalculateZombieHealth();
         healthSystem = new HealthSystem(health);
         healthSystem.OnDead += Die;
 
@@ -107,5 +108,13 @@ public class Zombie : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
+    }
+
+    private int CalculateZombieHealth()
+    {
+        int health = 150 + Mathf.Min((waveManager.GetCurrentWave() - 1), 8) * 100;
+        health = (int)Mathf.Floor(health * Mathf.Pow(1.1f, Mathf.Max(waveManager.GetCurrentWave() - 9, 0)));
+
+        return health;
     }
 }
