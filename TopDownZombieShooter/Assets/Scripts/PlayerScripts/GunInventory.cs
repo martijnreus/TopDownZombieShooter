@@ -41,7 +41,7 @@ public class GunInventory : MonoBehaviour
 
     private void OnReloadAcion(object sender, EventArgs e)
     {
-        if (!isReloading && currentWeapon.GetGunSO().bulletCapacity != currentWeapon.GetAmmoInWeapon())
+        if (!isReloading && currentWeapon.GetGunSO().bulletCapacity != currentWeapon.GetAmmoInWeapon() && currentWeapon.GetTotalAmmo() != 0)
         {
             doReload = StartCoroutine(DoReload());
         }
