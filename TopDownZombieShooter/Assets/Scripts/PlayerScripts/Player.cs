@@ -9,14 +9,13 @@ public class Player : MonoBehaviour
 
     public HealthSystem healthSystem;
 
-    private void Start()
+    private void Awake()
     {
         healthSystem = new HealthSystem(health);
-        healthSystem.OnDead += Die;
     }
 
-    private void Die(object sender, EventArgs e)
+    public HealthSystem GetHealthSystem()
     {
-        Debug.Log("you died!");
+        return healthSystem;
     }
 }

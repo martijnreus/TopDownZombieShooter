@@ -109,7 +109,7 @@ public class Zombie : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
     }
-
+    
     private int CalculateZombieHealth()
     {
         int health = 150 + Mathf.Min((waveManager.GetCurrentWave() - 1), 8) * 100;

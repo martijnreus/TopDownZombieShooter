@@ -62,9 +62,9 @@ public class HealthSystem
         if (health > healthMax)
         {
             health = healthMax;
+            OnHealed?.Invoke(this, EventArgs.Empty);
         }
-        OnHealthChanged?.Invoke(this, EventArgs.Empty);
-        OnHealed?.Invoke(this, EventArgs.Empty);
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);    
     }
 
     public void SetHealthMax(int healthMax, bool fullHealth)

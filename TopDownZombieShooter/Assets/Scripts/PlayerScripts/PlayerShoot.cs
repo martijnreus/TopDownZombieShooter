@@ -16,10 +16,12 @@ public class PlayerShoot : MonoBehaviour
 
     private GameInput gameInput;
     private GunInventory gunInventory;
+    private HealthSystem healthSystem;
 
     private float timeLastShot;
     private bool isShooting;
     private bool muzzleFlashIsActive;
+    private bool canShoot = true;
 
     private RaycastHit2D closestHit;
 
@@ -33,12 +35,25 @@ public class PlayerShoot : MonoBehaviour
 
     private void Start()
     {
+        healthSystem = GetComponent<Player>().GetHealthSystem();
+        healthSystem.OnDead += Die;
+
         gameInput.OnShootAction += StartShooting;
         gameInput.OnStopShootAction += StopShooting;
     }
 
+    private void Die(object sender, EventArgs e)
+    {
+        canShoot = false;
+    }
+
     private void StartShooting(object sender, System.EventArgs e)
     {
+        if (!canShoot)
+        {
+            return;
+        }
+
         uniqueHits.Clear();
 
         if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
