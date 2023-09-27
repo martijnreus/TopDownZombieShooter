@@ -36,7 +36,12 @@ public class Gun
 
     public void RefillAmmo()
     {
-        totalAmmo = gunSO.bulletCapacity * 4;
+        totalAmmo = GetMaxAmmoAmount();
+    }
+
+    public int GetMaxAmmoAmount()
+    {
+        return gunSO.bulletCapacity * 4;
     }
 
     public GunSO GetGunSO()

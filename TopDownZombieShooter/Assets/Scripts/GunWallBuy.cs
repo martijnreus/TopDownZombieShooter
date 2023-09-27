@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunWallBuy : MonoBehaviour, IInteractable
@@ -23,7 +24,8 @@ public class GunWallBuy : MonoBehaviour, IInteractable
             gunInventory.AddGun(gunSO);
             pointManager.RemovePoints(gunSO.gunPrice);
         }
-        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO && pointManager.GetCurrentPointAmount() >= gunSO.ammoPrice)
+        else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO && pointManager.GetCurrentPointAmount() >= gunSO.ammoPrice && 
+                    gunInventory.GetCurrentGun().GetTotalAmmo() != gunInventory.GetCurrentGun().GetMaxAmmoAmount())
         {
             gunInventory.GetCurrentGun().RefillAmmo();
             pointManager.RemovePoints(gunSO.ammoPrice);
