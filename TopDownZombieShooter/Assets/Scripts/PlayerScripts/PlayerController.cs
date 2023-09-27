@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerBody.velocity = moveDirection * moveSpeed;
+        playerBody.velocity = moveDirection * moveSpeed; 
     }
 
     public Vector2 GetMoveDirection()
