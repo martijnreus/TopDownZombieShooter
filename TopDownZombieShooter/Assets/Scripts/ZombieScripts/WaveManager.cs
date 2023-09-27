@@ -34,7 +34,7 @@ public class WaveManager : MonoBehaviour
                 spawnTimer = 0f;
             }
         }
-        else if (activeZombies.Count == 0)
+        else if (activeZombies.Count == 0 && zombiesToSpawn == 0)
         {
             StartNextWave();
         }

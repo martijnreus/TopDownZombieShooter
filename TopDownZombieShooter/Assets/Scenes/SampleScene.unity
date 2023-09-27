@@ -7568,7 +7568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 2903697147876374123, guid: 86bbdc7a2d899a8418720fbf5424d8ac, type: 3}
-  maxZombiesAmount: 0
+  maxZombiesAmount: 1
   activeZombies: []
 --- !u!1 &1790924472
 GameObject:
