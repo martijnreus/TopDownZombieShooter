@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 6205693442026379683}
   - component: {fileID: 1710560658254265586}
   - component: {fileID: 1275178553}
+  - component: {fileID: 1275178554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -594,7 +595,6 @@ MonoBehaviour:
   weaponTracerMaterial: {fileID: 2100000, guid: a993d6e83cdb76b478ebfa3ec0cb8925, type: 2}
   muzzleFlash: {fileID: 2809423791021660679}
   shootFlash: {fileID: 2809423792114546152}
-  damageAmount: 50
   wallCheck: {fileID: 2055449674796905097}
 --- !u!114 &2809423791794791244
 MonoBehaviour:
@@ -659,6 +659,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee934391c5e35c4081dee0c037b6446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1275178554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423791794791250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42131df3316257f40a84055139010824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathScreen: {fileID: 0}
+  scriptsToDisable:
+  - {fileID: 2809423791794791246}
+  - {fileID: 6205693442026379683}
+  - {fileID: 2809423791794791245}
+  - {fileID: 2809423791794791241}
+  - {fileID: 1710560658254265586}
 --- !u!1 &2809423792114546152
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class Zombie : MonoBehaviour
 
     private NavMeshAgent agent;
 
-    private enum State
+    public enum State
     {
         spawning,
         walking,
@@ -116,5 +116,10 @@ public class Zombie : MonoBehaviour
         health = (int)Mathf.Floor(health * Mathf.Pow(1.1f, Mathf.Max(waveManager.GetCurrentWave() - 9, 0)));
 
         return health;
+    }
+
+    public State GetState()
+    {
+        return state;
     }
 }

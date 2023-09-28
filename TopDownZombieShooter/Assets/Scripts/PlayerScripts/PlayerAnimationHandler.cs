@@ -18,6 +18,11 @@ public class PlayerAnimationHandler : MonoBehaviour
 
     private void Update()
     {
+        if (animator == null) 
+        { 
+            return; 
+        }
+
         UpdateAnimator();
     }
 
