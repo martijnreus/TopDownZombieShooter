@@ -15,7 +15,6 @@ public class Zombie : MonoBehaviour
 
     private Player player;
     private State state;
-    private float attackTimer;
 
     public HealthSystem healthSystem;
     private WaveManager waveManager;
@@ -27,6 +26,7 @@ public class Zombie : MonoBehaviour
         spawning,
         walking,
         attacking,
+        idling,
     }
 
     private void Awake()
@@ -78,24 +78,11 @@ public class Zombie : MonoBehaviour
                 break;
 
             case State.attacking:
-                //TODO Change this timer to an animation event so it is on the same moment as the hit
-                /*
-                attackTimer += Time.deltaTime;
-                if (attackTimer >= attackSpeed)
-                {
-                    Attack();
-                    attackTimer = 0;
-                    state = State.walking;    
-                }
-                */
+                break;
 
+            case State.idling:
                 break;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     public void Attack()
@@ -142,5 +129,10 @@ public class Zombie : MonoBehaviour
     public State GetState()
     {
         return state;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
