@@ -79,7 +79,7 @@ public class Zombie : MonoBehaviour
                 break;
 
             case State.attacking:
-                //TODO play attack animation and damage aan het einde als de player nog in de buurt is
+                //TODO Change this timer to an animation event so it is on the same moment as the hit
                 attackTimer += Time.deltaTime;
                 if (attackTimer >= attackSpeed)
                 {
@@ -92,10 +92,18 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
     private void Attack()
     {
-        //TODO check if the player is still in range and hit if it is
-        player.healthSystem.Damage(damageAmount);
+        float distance = (attackPoint.position - player.transform.position).magnitude;
+        if (distance < attackRange)
+        {
+            player.healthSystem.Damage(damageAmount);
+        }
     }
 
     private void RotateSprite()

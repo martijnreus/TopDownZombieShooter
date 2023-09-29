@@ -15,11 +15,13 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Slider shootSlider;
     [SerializeField] TextMeshProUGUI pointsText;
     [SerializeField] TextMeshProUGUI waveText;
+    [SerializeField] Slider healthSlider;
 
     private GunInventory gunInventory;
     private PlayerShoot playerShoot;
     private PointManager pointManager;
     private WaveManager waveManager;
+    private Player player;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class PlayerUI : MonoBehaviour
         playerShoot = FindObjectOfType<PlayerShoot>();
         pointManager = FindObjectOfType<PointManager>();
         waveManager = FindObjectOfType<WaveManager>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Update()
@@ -38,6 +41,12 @@ public class PlayerUI : MonoBehaviour
         UpdateShootSlider();
         UpdatePointsText();
         UpdateWaveText();
+        UpdateHealthSlider();
+    }
+
+    private void UpdateHealthSlider()
+    {
+        healthSlider.value = player.GetHealthSystem().GetHealthNormalized();
     }
 
     private void UpdateWaveText()
