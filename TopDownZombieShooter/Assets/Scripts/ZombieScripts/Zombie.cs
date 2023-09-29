@@ -64,8 +64,7 @@ public class Zombie : MonoBehaviour
 
             case State.walking:
                 //Check if the player is in attack range
-                float distance = (attackPoint.position - player.transform.position).magnitude;
-                if (distance < attackRange)
+                if (isInAttackRange())
                 {
                     state = State.attacking;
                     agent.isStopped = true;
@@ -80,6 +79,7 @@ public class Zombie : MonoBehaviour
 
             case State.attacking:
                 //TODO Change this timer to an animation event so it is on the same moment as the hit
+                /*
                 attackTimer += Time.deltaTime;
                 if (attackTimer >= attackSpeed)
                 {
@@ -87,6 +87,7 @@ public class Zombie : MonoBehaviour
                     attackTimer = 0;
                     state = State.walking;    
                 }
+                */
 
                 break;
         }
@@ -97,13 +98,25 @@ public class Zombie : MonoBehaviour
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
-    private void Attack()
+    public void Attack()
+    {
+        if (isInAttackRange())
+        {
+            player.healthSystem.Damage(damageAmount);
+        }
+
+        state = State.walking;
+    }
+
+    private bool isInAttackRange()
     {
         float distance = (attackPoint.position - player.transform.position).magnitude;
         if (distance < attackRange)
         {
-            player.healthSystem.Damage(damageAmount);
+            return true;
         }
+
+        return false;
     }
 
     private void RotateSprite()
