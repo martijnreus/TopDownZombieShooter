@@ -6,11 +6,10 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
+    [SerializeField] private int health;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float attackRange;
-    [SerializeField] private float attackSpeed;
     [SerializeField] private int damageAmount;
-    [SerializeField] private int health;
     [SerializeField] private Transform attackPoint;
 
     private Player player;
@@ -64,7 +63,7 @@ public class Zombie : MonoBehaviour
 
             case State.walking:
                 //Check if the player is in attack range
-                if (isInAttackRange())
+                if (isInRange(attackRange))
                 {
                     state = State.attacking;
                     agent.isStopped = true;
@@ -87,7 +86,7 @@ public class Zombie : MonoBehaviour
 
     public void Attack()
     {
-        if (isInAttackRange())
+        if (isInRange(attackRange * 1.5f))
         {
             player.healthSystem.Damage(damageAmount);
         }
@@ -95,10 +94,10 @@ public class Zombie : MonoBehaviour
         state = State.walking;
     }
 
-    private bool isInAttackRange()
+    private bool isInRange(float range)
     {
         float distance = (attackPoint.position - player.transform.position).magnitude;
-        if (distance < attackRange)
+        if (distance < range)
         {
             return true;
         }

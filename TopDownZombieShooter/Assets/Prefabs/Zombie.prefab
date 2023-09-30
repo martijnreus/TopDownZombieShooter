@@ -308,11 +308,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9da94841427d5449d903091b857f06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 150
   walkSpeed: 1
   attackRange: 0.8
-  attackSpeed: 1
   damageAmount: 50
-  health: 150
   attackPoint: {fileID: 2903697148084695744}
 --- !u!195 &2903697147876374118
 NavMeshAgent:
@@ -323,7 +322,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2903697147876374123}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.25
+  m_Radius: 0.5
   m_Speed: 1
   m_Acceleration: 100
   avoidancePriority: 50
