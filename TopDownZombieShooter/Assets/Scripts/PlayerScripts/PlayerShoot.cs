@@ -55,55 +55,71 @@ public class PlayerShoot : MonoBehaviour
         }
 
         uniqueHits.Clear();
+        GunSO currentGun = gunInventory.GetCurrentGun().GetGunSO();
 
-        if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
+        if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > currentGun.timeBetweenShots)
         {
-            // Reload cancel by shooting;
             if (gunInventory.GetIsReloading())
             {
                 gunInventory.CancelReload();
             }
 
-            switch (gunInventory.GetCurrentGun().GetGunSO().gunType)
+            switch (currentGun.gunType)
             {
                 case GunSO.GunType.Automatic:
-                    gunInventory.GetCurrentGun().UseAmmo();
-                    isShooting = true;
-                    ShootBullet();
+                    HandleAutomaticGun();
                     break;
-
                 case GunSO.GunType.SemiAutomatic:
-                    if (!isShooting)
-                    {
-                        gunInventory.GetCurrentGun().UseAmmo();
-                        isShooting = true;
-                        ShootBullet();
-                    }
+                    HandleSemiAutomaticGun();
                     break;
-
                 case GunSO.GunType.Shotgun:
-                    gunInventory.GetCurrentGun().UseAmmo();
-                    for (int i = 0; i < gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot; i++)
-                    {
-                        isShooting = true;
-                        ShootBullet();
-                    }
-
-                    foreach(Zombie hit in uniqueHits)
-                    {
-                        OnHitZombieAction?.Invoke(this, hit);
-                    }
-                    
+                    HandleShotgun();
                     break;
-
                 case GunSO.GunType.Burst:
-                    if (!isShooting && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot * gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
-                    {
-                        isShooting = true;
-                        StartCoroutine(DoBurst());
-                    }
+                    HandleBurstGun();
                     break;
             }
+        }
+    }
+
+    private void HandleAutomaticGun()
+    {
+        gunInventory.GetCurrentGun().UseAmmo();
+        isShooting = true;
+        ShootBullet();
+    }
+
+    private void HandleSemiAutomaticGun()
+    {
+        if (!isShooting)
+        {
+            gunInventory.GetCurrentGun().UseAmmo();
+            isShooting = true;
+            ShootBullet();
+        }
+    }
+
+    private void HandleShotgun()
+    {
+        gunInventory.GetCurrentGun().UseAmmo();
+        for (int i = 0; i < gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot; i++)
+        {
+            isShooting = true;
+            ShootBullet();
+        }
+
+        foreach (Zombie hit in uniqueHits)
+        {
+            OnHitZombieAction?.Invoke(this, hit);
+        }
+    }
+
+    private void HandleBurstGun()
+    {
+        if (!isShooting && Time.time - timeLastShot > gunInventory.GetCurrentGun().GetGunSO().bulletsPerShot * gunInventory.GetCurrentGun().GetGunSO().timeBetweenShots)
+        {
+            isShooting = true;
+            StartCoroutine(DoBurst());
         }
     }
 
@@ -131,7 +147,6 @@ public class PlayerShoot : MonoBehaviour
         RaycastHit2D[] raycastHit2DArray = Physics2D.RaycastAll(shootTransform.position, aimDirection);
         RaycastHit2D? raycastHit2D = FindClosestHit(raycastHit2DArray);
 
-        // If there is no hit dont continue
         if (raycastHit2D == null)
         {
             return;
@@ -155,18 +170,19 @@ public class PlayerShoot : MonoBehaviour
         float closestDistance = 9999;
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.distance < closestDistance)
+            if (hit.distance < closestDistance && ShouldProcessHit(hit))
             {
-                //TODO switch the tag with a certain wall collider so the player can only shoot trough the closest wall
-                if (!(wallCheck.GetIsInWall() && hit.collider.gameObject.tag == "Wall" && IsAimingDown()) && hit.collider.tag != "Player")
-                {
-                    closestHit = hit;
-                    closestDistance = hit.distance;                 
-                }
+                closestHit = hit;
+                closestDistance = hit.distance;
             }
         }
 
         return closestHit;
+    }
+
+    private bool ShouldProcessHit(RaycastHit2D hit)
+    {
+        return !(wallCheck.GetIsInWall() && hit.collider.CompareTag("Wall") && IsAimingDown()) && !hit.collider.CompareTag("Player");
     }
 
     private void Damage(GameObject target)
@@ -180,14 +196,11 @@ public class PlayerShoot : MonoBehaviour
             }
 
             zombie.healthSystem.Damage(gunInventory.GetCurrentGun().GetGunSO().baseDamage);
-            
-            // make sure the shotgun is calculated differently
-            if (gunInventory.GetCurrentGun().GetGunSO().gunType == GunSO.GunType.Shotgun)
-            {
-                return;
-            }
 
-            OnHitZombieAction?.Invoke(this, zombie);    
+            if (gunInventory.GetCurrentGun().GetGunSO().gunType != GunSO.GunType.Shotgun)
+            {
+                OnHitZombieAction?.Invoke(this, zombie);
+            }
         }
     }
 
@@ -211,12 +224,8 @@ public class PlayerShoot : MonoBehaviour
     private Vector3 GetShootDirection()
     {
         Vector3 aimDirection = GetAimDirection();
-
-        // Give a random spread angle to the shooting direction
-        float randomSpreadAngle = UnityEngine.Random.Range(-gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2,
-                                                            gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2);
+        float randomSpreadAngle = UnityEngine.Random.Range(-gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2, gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2);
         Vector3 shootDirection = Quaternion.AngleAxis(randomSpreadAngle, Vector3.forward) * aimDirection;
-
         return shootDirection;
     }
 
@@ -224,17 +233,12 @@ public class PlayerShoot : MonoBehaviour
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
-
         return aimDirection;
     }
 
     private bool IsAimingDown()
     {
-        if (GetShootDirection().y < 0)
-        {
-            return true;
-        }
-        return false;
+        return GetShootDirection().y < 0;
     }
 
     private void CreatBulletTracer(Vector3 fromPosition, Vector3 targetPosition)
@@ -247,7 +251,6 @@ public class PlayerShoot : MonoBehaviour
         tmpWeaponTracerMaterial.SetTextureScale("_MainTex", new Vector2(1f, distance / 32f));
         World_Mesh worldMesh = World_Mesh.Create(tracerSpawnPosisition, eulerZ, 0.5f, distance, tmpWeaponTracerMaterial, null, 10000);
         worldMesh.gameObject.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("BulletTracer");
-
         StartCoroutine(DoTracerCycle(worldMesh));
     }
 
