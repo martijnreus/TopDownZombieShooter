@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private GameObject shootFlash;
     [SerializeField] private WallCheck wallCheck;
+    [SerializeField] private float cameraShakeAmount;
 
     public event EventHandler<Zombie> OnHitZombieAction;
 
@@ -205,7 +205,7 @@ public class PlayerShoot : MonoBehaviour
             StartCoroutine(DoFlashEffect());
         }
 
-        CinemachineShake.Instance.ShakeCamera(3f, 0.1f);
+        CinemachineShake.Instance.ShakeCamera(cameraShakeAmount, 0.1f);
     }
 
     private Vector3 GetShootDirection()

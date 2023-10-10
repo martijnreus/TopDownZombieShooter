@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 1710560658254265586}
   - component: {fileID: 1275178553}
   - component: {fileID: 1275178554}
+  - component: {fileID: 1275178555}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -596,6 +597,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 2809423791021660679}
   shootFlash: {fileID: 2809423792114546152}
   wallCheck: {fileID: 2055449674796905097}
+  cameraShakeAmount: 1.7
 --- !u!114 &2809423791794791244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,6 +611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
+  healDelay: 2.5
+  healRate: 0.02
 --- !u!210 &1275178551
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -678,6 +682,22 @@ MonoBehaviour:
   - {fileID: 2809423791794791245}
   - {fileID: 2809423791794791241}
   - {fileID: 1710560658254265586}
+--- !u!70 &1275178555
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423791794791250}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.15}
+  m_Size: {x: 0.5, y: 1.6}
+  m_Direction: 0
 --- !u!1 &2809423792114546152
 GameObject:
   m_ObjectHideFlags: 0

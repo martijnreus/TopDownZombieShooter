@@ -3353,7 +3353,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -12.642822, y: 0, z: -108.75348, w: 0}
+  m_margin: {x: 50.66211, y: 0, z: -108.75348, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5737,22 +5737,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
   m_PrefabInstance: {fileID: 2809423792667102588}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &1275178555
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275178542}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
-  m_Size: {x: 0.5, y: 1.6}
-  m_Direction: 0
 --- !u!1 &1296872016
 GameObject:
   m_ObjectHideFlags: 0
@@ -10588,14 +10572,6 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1539304174}
-    - target: {fileID: 2809423791794791244, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: healRate
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 2809423791794791244, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: healDelay
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player
