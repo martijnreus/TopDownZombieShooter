@@ -55,16 +55,16 @@ public class PlayerShoot : MonoBehaviour
         }
 
         uniqueHits.Clear();
-        GunSO currentGun = gunInventory.GetCurrentGun().GetGunSO();
+        Gun currentGun = gunInventory.GetCurrentGun();
 
-        if (gunInventory.GetCurrentGun().GetAmmoInWeapon() > 0 && Time.time - timeLastShot > currentGun.timeBetweenShots)
+        if (currentGun.GetAmmoInWeapon() > 0 && Time.time - timeLastShot > currentGun.GetGunSO().timeBetweenShots)
         {
             if (gunInventory.GetIsReloading())
             {
                 gunInventory.CancelReload();
             }
 
-            switch (currentGun.gunType)
+            switch (currentGun.GetGunSO().gunType)
             {
                 case GunSO.GunType.Automatic:
                     HandleAutomaticGun();
