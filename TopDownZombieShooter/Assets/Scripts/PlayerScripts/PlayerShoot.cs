@@ -204,7 +204,8 @@ public class PlayerShoot : MonoBehaviour
         {
             StartCoroutine(DoFlashEffect());
         }
-        
+
+        CinemachineShake.Instance.ShakeCamera(3f, 0.1f);
     }
 
     private Vector3 GetShootDirection()

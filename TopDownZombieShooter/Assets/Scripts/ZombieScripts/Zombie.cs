@@ -62,8 +62,8 @@ public class Zombie : MonoBehaviour
                 break;
 
             case State.walking:
-                //Check if the player is in attack range
-                if (isInRange(attackRange))
+                // check if the player is in attack range
+                if (playerIsInRange(attackRange))
                 {
                     state = State.attacking;
                     agent.isStopped = true;
@@ -86,7 +86,7 @@ public class Zombie : MonoBehaviour
 
     public void Attack()
     {
-        if (isInRange(attackRange * 1.5f))
+        if (playerIsInRange(attackRange * 1.7f))
         {
             player.healthSystem.Damage(damageAmount);
         }
@@ -94,7 +94,7 @@ public class Zombie : MonoBehaviour
         state = State.walking;
     }
 
-    private bool isInRange(float range)
+    private bool playerIsInRange(float range)
     {
         float distance = (attackPoint.position - player.transform.position).magnitude;
         if (distance < range)
