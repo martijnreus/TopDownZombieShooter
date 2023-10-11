@@ -11,6 +11,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject shootFlash;
     [SerializeField] private WallCheck wallCheck;
     [SerializeField] private float cameraShakeAmount;
+    [SerializeField] private GameObject bloodParticlePrefab;
 
     public event EventHandler<Zombie> OnHitZombieAction;
 
@@ -23,7 +24,7 @@ public class PlayerShoot : MonoBehaviour
     private bool muzzleFlashIsActive;
     private bool canShoot = true;
 
-    private RaycastHit2D closestHit;
+    private RaycastHit2D? closestHit;
 
     private List<Zombie> uniqueHits = new List<Zombie>();
 
@@ -145,19 +146,19 @@ public class PlayerShoot : MonoBehaviour
         Vector3 aimDirection = GetShootDirection();
 
         RaycastHit2D[] raycastHit2DArray = Physics2D.RaycastAll(shootTransform.position, aimDirection);
-        RaycastHit2D? raycastHit2D = FindClosestHit(raycastHit2DArray);
+        closestHit = FindClosestHit(raycastHit2DArray);
 
-        if (raycastHit2D == null)
+        if (closestHit == null)
         {
             return;
         }
 
         if (raycastHit2DArray.Length > 0)
         {
-            Damage(raycastHit2D.Value.collider.gameObject);
+            Damage(closestHit.Value.collider.gameObject);
         }
 
-        CreateShootEffect(raycastHit2D.Value.point);
+        CreateShootEffect(closestHit.Value.point);
     }
 
     private RaycastHit2D? FindClosestHit(RaycastHit2D[] hits)
@@ -166,6 +167,8 @@ public class PlayerShoot : MonoBehaviour
         {
             return null;
         }
+
+        RaycastHit2D? closestHit = null;
 
         float closestDistance = 9999;
         foreach (RaycastHit2D hit in hits)
@@ -201,6 +204,10 @@ public class PlayerShoot : MonoBehaviour
             {
                 OnHitZombieAction?.Invoke(this, zombie);
             }
+
+            //create blood effect
+            GameObject bloodParticle = Instantiate(bloodParticlePrefab, closestHit.Value.point, Quaternion.identity);
+            Debug.Log(bloodParticle.transform.position);
         }
     }
 
