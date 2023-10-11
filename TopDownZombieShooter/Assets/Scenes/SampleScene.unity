@@ -10572,6 +10572,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1539304174}
+    - target: {fileID: 2809423791794791245, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: bloodParticlePrefab
+      value: 
+      objectReference: {fileID: 7003019581269049076, guid: 4a6296900142d81458d9652d15c6a237, type: 3}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player

@@ -205,9 +205,8 @@ public class PlayerShoot : MonoBehaviour
                 OnHitZombieAction?.Invoke(this, zombie);
             }
 
-            //create blood effect
-            GameObject bloodParticle = Instantiate(bloodParticlePrefab, closestHit.Value.point, Quaternion.identity);
-            Debug.Log(bloodParticle.transform.position);
+            GameObject bloodParticle = Instantiate(bloodParticlePrefab, closestHit.Value.point, 
+                Quaternion.Euler(0,0, Mathf.Atan2(GetShootDirection().y, GetShootDirection().x) * Mathf.Rad2Deg));
         }
     }
 
