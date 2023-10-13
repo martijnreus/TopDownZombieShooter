@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2809423791021660672
 Transform:
   m_ObjectHideFlags: 0
@@ -595,11 +595,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootTransform: {fileID: 2809423791007895690}
   weaponTracerMaterial: {fileID: 2100000, guid: a993d6e83cdb76b478ebfa3ec0cb8925, type: 2}
-  muzzleFlash: {fileID: 2809423791021660679}
-  shootFlash: {fileID: 2809423792114546152}
   wallCheck: {fileID: 2055449674796905097}
   cameraShakeAmount: 1.7
   bloodParticlePrefab: {fileID: 7003019581269049076, guid: 4a6296900142d81458d9652d15c6a237, type: 3}
+  shootVisual: {fileID: 5703368279715864092}
 --- !u!114 &2809423791794791244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactRange: 0.3
-  interactTransform: {fileID: 0}
+  interactTransform: {fileID: 1254283273242427945}
 --- !u!114 &1710560658254265586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2809423792114546153
 Transform:
   m_ObjectHideFlags: 0
@@ -865,7 +864,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8949035466955883234
 Transform:
   m_ObjectHideFlags: 0
