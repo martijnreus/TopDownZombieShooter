@@ -238,7 +238,7 @@ public class PlayerShoot : MonoBehaviour
     public Vector3 GetAimDirection()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 aimDirection = ((Vector3)mousePosition - transform.position).normalized;
+        Vector3 aimDirection = ((Vector3)mousePosition - shootTransform.position).normalized;
         return aimDirection;
     }
 

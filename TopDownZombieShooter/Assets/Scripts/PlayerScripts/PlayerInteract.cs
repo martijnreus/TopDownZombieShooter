@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private float interactRange;
+    [SerializeField] private Transform interactTransform;
 
     private GameInput gameInput;
 
@@ -26,7 +27,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void TryInteract()
     {
-        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, interactRange);
+        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(interactTransform.position, interactRange);
         foreach (Collider2D collider in colliderArray)
         {
             if (collider.TryGetComponent(out IInteractable interactable))
@@ -38,7 +39,7 @@ public class PlayerInteract : MonoBehaviour
 
     public IInteractable GetInteractableObject()
     {
-        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, interactRange);
+        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(interactTransform.position, interactRange);
         foreach (Collider2D collider in colliderArray)
         {
             if (collider.TryGetComponent(out IInteractable interactable))
