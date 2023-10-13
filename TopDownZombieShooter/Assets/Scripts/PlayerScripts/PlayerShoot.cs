@@ -7,11 +7,10 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform shootTransform;
     [SerializeField] private Material weaponTracerMaterial;
-    [SerializeField] private GameObject muzzleFlash;
-    [SerializeField] private GameObject shootFlash;
     [SerializeField] private WallCheck wallCheck;
     [SerializeField] private float cameraShakeAmount;
     [SerializeField] private GameObject bloodParticlePrefab;
+    [SerializeField] private GameObject shootVisual;
 
     public event EventHandler<Zombie> OnHitZombieAction;
 
@@ -277,12 +276,11 @@ public class PlayerShoot : MonoBehaviour
 
     private IEnumerator DoFlashEffect()
     {
-        muzzleFlash.SetActive(true);
-        shootFlash.SetActive(true);
+        shootVisual.transform.localPosition = (Vector3)gunInventory.GetCurrentGun().GetGunSO().shootVisualOffset;
+        shootVisual.SetActive(true);
         muzzleFlashIsActive = true;
         yield return new WaitForSeconds(0.1f);
-        muzzleFlash.SetActive(false);
-        shootFlash.SetActive(false);
+        shootVisual.SetActive(false);
         muzzleFlashIsActive = false;
     }
 

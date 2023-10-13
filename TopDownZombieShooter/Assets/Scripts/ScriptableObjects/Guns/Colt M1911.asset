@@ -22,5 +22,6 @@ MonoBehaviour:
   bulletSpreadAngle: 0
   gunSprite: {fileID: 21300000, guid: e0f76e9c32bac394185abf4f006a36f9, type: 3}
   gunUISprite: {fileID: 21300000, guid: 246eceee260fe204c9b59291c98ca8c0, type: 3}
+  shootVisualOffset: {x: 0, y: 0}
   gunPrice: 500
   ammoPrice: 500

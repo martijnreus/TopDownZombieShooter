@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GunSO", menuName = "ScriptableObjects/GunSO", order = 1)]
 public class GunSO : ScriptableObject
 {
+    [Header("Gun Info")]
     public string gunName;
     public int baseDamage;
     public int bulletsPerShot;
@@ -13,8 +14,13 @@ public class GunSO : ScriptableObject
     public float reloadTime;
     public GunType gunType;
     public float bulletSpreadAngle;
+
+    [Header("Visual Info")]
     public Sprite gunSprite;
     public Sprite gunUISprite;
+    public Vector2 shootVisualOffset;
+
+    [Header("Purchase Info")]
     public int gunPrice;
     public int ammoPrice;
 
