@@ -12,22 +12,15 @@ public class GunInventory : MonoBehaviour
     private Gun secondaryWeapon;
     private Gun currentWeapon;
 
-    private GameInput gameInput;
-
     private bool isReloading;
     private float completionAmount;
 
     private Coroutine doReload;
 
-    private void Awake()
-    {
-        gameInput = FindObjectOfType<GameInput>();
-    }
-
     private void Start()
     {
-        gameInput.OnReloadAction += OnReloadAcion;
-        gameInput.OnSwitchAction += OnSwitchAction;
+        GameInput.Instance.OnReloadAction += OnReloadAcion;
+        GameInput.Instance.OnSwitchAction += OnSwitchAction;
         primaryWeapon = new Gun(starterWeaponSO);
         currentWeapon = primaryWeapon;
 

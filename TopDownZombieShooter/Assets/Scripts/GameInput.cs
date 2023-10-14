@@ -11,6 +11,8 @@ public class GameInput: MonoBehaviour
     public event EventHandler OnSwitchAction;
     public event EventHandler OnInteractAction;
 
+    public static GameInput Instance { get; private set; }
+
     private void Update()
     {
         if (Input.GetMouseButton(0))

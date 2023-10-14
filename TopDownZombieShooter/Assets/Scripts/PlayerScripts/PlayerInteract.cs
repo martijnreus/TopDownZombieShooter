@@ -8,16 +8,9 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float interactRange;
     [SerializeField] private Transform interactTransform;
 
-    private GameInput gameInput;
-
-    private void Awake()
-    {
-        gameInput = FindObjectOfType<GameInput>();
-    }
-
     private void Start()
     {
-        gameInput.OnInteractAction += OnInteractAction;
+        GameInput.Instance.OnInteractAction += OnInteractAction;
     }
 
     private void OnInteractAction(object sender, EventArgs e)

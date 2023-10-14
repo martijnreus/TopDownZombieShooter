@@ -9,17 +9,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerBody;
     private Vector2 moveDirection;
 
-    private GameInput gameInput;
-
     private void Awake()
     {
         playerBody = GetComponent<Rigidbody2D>();
-        gameInput = FindObjectOfType<GameInput>();
     }
 
     private void Update()
     {
-        moveDirection = gameInput.GetMovementInput().normalized;
+        moveDirection = GameInput.Instance.GetMovementInput().normalized;
     }
 
     private void FixedUpdate()

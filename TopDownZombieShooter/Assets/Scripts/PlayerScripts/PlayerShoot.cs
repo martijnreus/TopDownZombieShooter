@@ -10,7 +10,6 @@ public class PlayerShoot : MonoBehaviour
 
     public event EventHandler<Zombie> OnHitZombieAction;
 
-    private GameInput gameInput;
     private GunInventory gunInventory;
     private HealthSystem healthSystem;
     private PlayerShootVisual playerShootVisual;
@@ -25,7 +24,6 @@ public class PlayerShoot : MonoBehaviour
 
     private void Awake()
     {
-        gameInput = FindObjectOfType<GameInput>();
         gunInventory = GetComponent<GunInventory>();
         playerShootVisual = GetComponent<PlayerShootVisual>();
     }
@@ -35,8 +33,8 @@ public class PlayerShoot : MonoBehaviour
         healthSystem = GetComponent<Player>().GetHealthSystem();
         healthSystem.OnDead += Die;
 
-        gameInput.OnShootAction += StartShooting;
-        gameInput.OnStopShootAction += StopShooting;
+        GameInput.Instance.OnShootAction += StartShooting;
+        GameInput.Instance.OnStopShootAction += StopShooting;
     }
 
     private void Die(object sender, EventArgs e)
