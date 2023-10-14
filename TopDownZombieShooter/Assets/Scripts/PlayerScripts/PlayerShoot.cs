@@ -26,7 +26,7 @@ public class PlayerShoot : MonoBehaviour
     private void Awake()
     {
         gameInput = FindObjectOfType<GameInput>();
-        gunInventory = FindObjectOfType<GunInventory>();
+        gunInventory = GetComponent<GunInventory>();
         playerShootVisual = GetComponent<PlayerShootVisual>();
     }
 
