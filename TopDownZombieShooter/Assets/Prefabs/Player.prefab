@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 2809423791794791247}
   - component: {fileID: 2809423791794791246}
   - component: {fileID: 2809423791794791245}
+  - component: {fileID: 7345234426087100470}
   - component: {fileID: 2809423791794791244}
   - component: {fileID: 1275178551}
   - component: {fileID: 6205693442026379683}
@@ -594,11 +595,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootTransform: {fileID: 2809423791007895690}
-  weaponTracerMaterial: {fileID: 2100000, guid: a993d6e83cdb76b478ebfa3ec0cb8925, type: 2}
   wallCheck: {fileID: 2055449674796905097}
-  cameraShakeAmount: 1.7
+--- !u!114 &7345234426087100470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423791794791250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac18477cb007954285d20f68ec04213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootTransform: {fileID: 2809423791007895690}
+  weaponTracerMaterial: {fileID: 2100000, guid: a993d6e83cdb76b478ebfa3ec0cb8925, type: 2}
   bloodParticlePrefab: {fileID: 7003019581269049076, guid: 4a6296900142d81458d9652d15c6a237, type: 3}
   shootVisual: {fileID: 5703368279715864092}
+  cameraShakeAmount: 1.7
 --- !u!114 &2809423791794791244
 MonoBehaviour:
   m_ObjectHideFlags: 0

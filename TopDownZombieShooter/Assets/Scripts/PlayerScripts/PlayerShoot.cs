@@ -6,21 +6,17 @@ using UnityEngine;
 public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform shootTransform;
-    [SerializeField] private Material weaponTracerMaterial;
     [SerializeField] private WallCheck wallCheck;
-    [SerializeField] private float cameraShakeAmount;
-    [SerializeField] private GameObject bloodParticlePrefab;
-    [SerializeField] private GameObject shootVisual;
 
     public event EventHandler<Zombie> OnHitZombieAction;
 
     private GameInput gameInput;
     private GunInventory gunInventory;
     private HealthSystem healthSystem;
+    private PlayerShootVisual playerShootVisual;
 
     private float timeLastShot;
     private bool isShooting;
-    private bool muzzleFlashIsActive;
     private bool canShoot = true;
 
     private RaycastHit2D? closestHit;
@@ -31,6 +27,7 @@ public class PlayerShoot : MonoBehaviour
     {
         gameInput = FindObjectOfType<GameInput>();
         gunInventory = FindObjectOfType<GunInventory>();
+        playerShootVisual = GetComponent<PlayerShootVisual>();
     }
 
     private void Start()
@@ -157,7 +154,7 @@ public class PlayerShoot : MonoBehaviour
             Damage(closestHit.Value.collider.gameObject);
         }
 
-        CreateShootEffect(closestHit.Value.point);
+        playerShootVisual.CreateShootEffect(closestHit.Value.point);
     }
 
     private RaycastHit2D? FindClosestHit(RaycastHit2D[] hits)
@@ -204,29 +201,11 @@ public class PlayerShoot : MonoBehaviour
                 OnHitZombieAction?.Invoke(this, zombie);
             }
 
-            GameObject bloodParticle = Instantiate(bloodParticlePrefab, closestHit.Value.point, 
-                Quaternion.Euler(0,0, Mathf.Atan2(GetShootDirection().y, GetShootDirection().x) * Mathf.Rad2Deg));
+            playerShootVisual.CreateBloodEffect(closestHit);
         }
     }
 
-    private void CreateShootEffect(Vector3 hitPosition)
-    {
-        Vector3 shootDirection = GetShootDirection();
-        if (hitPosition == Vector3.zero)
-        {
-            hitPosition = shootTransform.position + shootDirection * 20f;
-        }
-
-        CreatBulletTracer(shootTransform.position, hitPosition);
-        if (muzzleFlashIsActive == false)
-        {
-            StartCoroutine(DoFlashEffect());
-        }
-
-        CinemachineShake.Instance.ShakeCamera(cameraShakeAmount, 0.1f);
-    }
-
-    private Vector3 GetShootDirection()
+    public Vector3 GetShootDirection()
     {
         Vector3 aimDirection = GetAimDirection();
         float randomSpreadAngle = UnityEngine.Random.Range(-gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2, gunInventory.GetCurrentGun().GetGunSO().bulletSpreadAngle / 2);
@@ -244,44 +223,6 @@ public class PlayerShoot : MonoBehaviour
     private bool IsAimingDown()
     {
         return GetShootDirection().y < 0;
-    }
-
-    private void CreatBulletTracer(Vector3 fromPosition, Vector3 targetPosition)
-    {
-        Vector3 shootDirection = (targetPosition - fromPosition).normalized;
-        float eulerZ = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg - 90;
-        float distance = Vector2.Distance(fromPosition, targetPosition);
-        Vector3 tracerSpawnPosisition = fromPosition + shootDirection * distance * .5f;
-        Material tmpWeaponTracerMaterial = new Material(weaponTracerMaterial);
-        tmpWeaponTracerMaterial.SetTextureScale("_MainTex", new Vector2(1f, distance / 32f));
-        World_Mesh worldMesh = World_Mesh.Create(tracerSpawnPosisition, eulerZ, 0.5f, distance, tmpWeaponTracerMaterial, null, 10000);
-        worldMesh.gameObject.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("BulletTracer");
-        StartCoroutine(DoTracerCycle(worldMesh));
-    }
-
-    private IEnumerator DoTracerCycle(World_Mesh worldMesh)
-    {
-        int frame = 0;
-        float frameRate = 0.016f;
-        worldMesh.SetUVCoords(new World_Mesh.UVCoords(0, 0, 16, 256));
-        while (frame < 4)
-        {
-            yield return new WaitForSeconds(frameRate);
-            frame++;
-            worldMesh.SetUVCoords(new World_Mesh.UVCoords(16 * frame, 0, 16, 256));
-        }
-
-        Destroy(worldMesh.gameObject);
-    }
-
-    private IEnumerator DoFlashEffect()
-    {
-        shootVisual.transform.localPosition = (Vector3)gunInventory.GetCurrentGun().GetGunSO().shootVisualOffset;
-        shootVisual.SetActive(true);
-        muzzleFlashIsActive = true;
-        yield return new WaitForSeconds(0.1f);
-        shootVisual.SetActive(false);
-        muzzleFlashIsActive = false;
     }
 
     public float GetTimeLastShot()
