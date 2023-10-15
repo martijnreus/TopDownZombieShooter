@@ -38,9 +38,7 @@ public class GunWallBuy : MonoBehaviour, IInteractable
         {
             return "Press E to buy " + gunSO.gunName + "\n[Cost: " + gunSO.gunPrice + "]";
         }
-        else
-        {
-            return "Press E to buy " + gunSO.gunName + " ammo\n[Cost: " + gunSO.ammoPrice + "]";
-        }      
+
+        return "Press E to buy " + gunSO.gunName + " ammo\n[Cost: " + gunSO.ammoPrice + "]";    
     }
 }

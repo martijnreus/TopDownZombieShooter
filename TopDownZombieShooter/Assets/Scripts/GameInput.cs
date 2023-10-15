@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class GameInput: MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class GameInput: MonoBehaviour
     public event EventHandler OnInteractAction;
 
     public static GameInput Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
