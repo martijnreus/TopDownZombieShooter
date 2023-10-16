@@ -74,4 +74,9 @@ public class HealthSystem
         OnHealthMaxChanged?.Invoke(this, EventArgs.Empty);
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }

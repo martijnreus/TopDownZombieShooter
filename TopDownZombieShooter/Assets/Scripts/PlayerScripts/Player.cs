@@ -14,10 +14,24 @@ public class Player : MonoBehaviour
 
     public HealthSystem healthSystem;
 
+    private PerkInventory perkInventory;
+
     private void Awake()
     {
         healthSystem = new HealthSystem(health);
         healthSystem.OnDamaged += OnDamaged;
+
+        perkInventory = GetComponent<PerkInventory>();
+        perkInventory.OnPerkAdd += PerkInventory_OnPerkAdd;
+    }
+
+    private void PerkInventory_OnPerkAdd(object sender, PerkSO perk)
+    {
+        if (perk.type == PerkSO.Type.Juggernog)
+        {
+            healthSystem.SetHealthMax(healthSystem.GetHealth() + 100, false);
+            healthSystem.Heal(100);
+        }
     }
 
     private void OnDamaged(object sender, EventArgs e)

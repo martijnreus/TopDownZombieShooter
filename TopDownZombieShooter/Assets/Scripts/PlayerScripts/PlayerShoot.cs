@@ -42,7 +42,7 @@ public class PlayerShoot : MonoBehaviour
         canShoot = false;
     }
 
-    private void StartShooting(object sender, System.EventArgs e)
+    private void StartShooting(object sender, EventArgs e)
     {
         if (!canShoot)
         {

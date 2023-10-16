@@ -16,6 +16,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI pointsText;
     [SerializeField] TextMeshProUGUI waveText;
     [SerializeField] Slider healthSlider;
+    [SerializeField] TextMeshProUGUI healthText;
 
     private GunInventory gunInventory;
     private PlayerShoot playerShoot;
@@ -42,6 +43,12 @@ public class PlayerUI : MonoBehaviour
         UpdatePointsText();
         UpdateWaveText();
         UpdateHealthSlider();
+        UpdateHealthtext();
+    }
+
+    private void UpdateHealthtext()
+    {
+        healthText.text = player.GetHealthSystem().GetHealth().ToString();
     }
 
     private void UpdateHealthSlider()
