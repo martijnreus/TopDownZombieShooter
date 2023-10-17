@@ -14,8 +14,16 @@ public class GunInventory : MonoBehaviour
 
     private bool isReloading;
     private float completionAmount;
+    private float reloadMultiplier = 1f;
 
     private Coroutine doReload;
+    private PerkInventory perkInventory;
+
+    private void Awake()
+    {
+        perkInventory = GetComponent<PerkInventory>();
+        perkInventory.OnPerkAdd += PerkInventory_OnPerkAdd;
+    }
 
     private void Start()
     {
@@ -25,6 +33,14 @@ public class GunInventory : MonoBehaviour
         currentWeapon = primaryWeapon;
 
         UpdateGunSprite();
+    }
+
+    private void PerkInventory_OnPerkAdd(object sender, PerkSO perk)
+    {
+        if (perk.type == PerkSO.Type.SpeedCola)
+        {
+            reloadMultiplier = 0.5f;
+        }
     }
 
     private void OnSwitchAction(object sender, EventArgs e)
@@ -47,9 +63,12 @@ public class GunInventory : MonoBehaviour
 
         completionAmount = 0;
 
-        while(Time.time - timeStartReloading <= currentWeapon.GetGunSO().reloadTime)
+        while(Time.time - timeStartReloading <= currentWeapon.GetGunSO().reloadTime * reloadMultiplier)
         {
-            completionAmount = 1 - ((currentWeapon.GetGunSO().reloadTime - (Time.time - timeStartReloading)) / currentWeapon.GetGunSO().reloadTime);
+            completionAmount = 1 - ((currentWeapon.GetGunSO().reloadTime - (Time.time - timeStartReloading) * (1 / reloadMultiplier)) 
+                                / currentWeapon.GetGunSO().reloadTime);
+
+            print(completionAmount);
             yield return new WaitForEndOfFrame();
         }
 
