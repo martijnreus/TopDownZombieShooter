@@ -13,10 +13,12 @@ public class PlayerShoot : MonoBehaviour
     private GunInventory gunInventory;
     private HealthSystem healthSystem;
     private PlayerShootVisual playerShootVisual;
+    private PerkInventory perkInventory;
 
     private float timeLastShot;
     private bool isShooting;
     private bool canShoot = true;
+    private float damageMultiplier = 1;
 
     private RaycastHit2D? closestHit;
 
@@ -26,6 +28,9 @@ public class PlayerShoot : MonoBehaviour
     {
         gunInventory = GetComponent<GunInventory>();
         playerShootVisual = GetComponent<PlayerShootVisual>();
+
+        perkInventory = GetComponent<PerkInventory>();
+        perkInventory.OnPerkAdd += PerkInventory_OnPerkAdd;
     }
 
     private void Start()
@@ -35,6 +40,14 @@ public class PlayerShoot : MonoBehaviour
 
         GameInput.Instance.OnShootAction += StartShooting;
         GameInput.Instance.OnStopShootAction += StopShooting;
+    }
+
+    private void PerkInventory_OnPerkAdd(object sender, PerkSO perk)
+    {
+        if (perk.type == PerkSO.Type.DoubleTap)
+        {
+            damageMultiplier = 2;
+        }
     }
 
     private void Die(object sender, EventArgs e)
@@ -192,7 +205,7 @@ public class PlayerShoot : MonoBehaviour
                 uniqueHits.Add(zombie);
             }
 
-            zombie.healthSystem.Damage(gunInventory.GetCurrentGun().GetGunSO().baseDamage);
+            zombie.healthSystem.Damage((int)(gunInventory.GetCurrentGun().GetGunSO().baseDamage * damageMultiplier));
 
             if (gunInventory.GetCurrentGun().GetGunSO().gunType != GunSO.GunType.Shotgun)
             {
