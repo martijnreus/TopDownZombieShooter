@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d15e5b9bf6b6a4eaa864fb25649c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perk: {fileID: 11400000, guid: 125222fb4ec47b7499add0220627456b, type: 2}
+  perk: {fileID: 11400000, guid: 30c4d8a36a6c2e440a50681de432ee6a, type: 2}
 --- !u!58 &832997648
 CircleCollider2D:
   m_ObjectHideFlags: 0

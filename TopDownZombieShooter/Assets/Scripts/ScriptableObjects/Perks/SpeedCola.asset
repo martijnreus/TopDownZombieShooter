@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fc21b752af591f48b5e8197ac9317d4, type: 3}
   m_Name: SpeedCola
   m_EditorClassIdentifier: 
-  type: 0
-  cost: 0
+  type: 1
+  cost: 4500
