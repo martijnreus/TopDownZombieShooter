@@ -68,7 +68,6 @@ public class GunInventory : MonoBehaviour
             completionAmount = 1 - ((currentWeapon.GetGunSO().reloadTime - (Time.time - timeStartReloading) * (1 / reloadMultiplier)) 
                                 / currentWeapon.GetGunSO().reloadTime);
 
-            print(completionAmount);
             yield return new WaitForEndOfFrame();
         }
 

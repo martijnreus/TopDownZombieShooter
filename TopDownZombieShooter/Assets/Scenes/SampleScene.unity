@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 241812300}
   m_Layer: 0
   m_Name: ChauchatWallBuy
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1670,7 +1670,7 @@ GameObject:
   - component: {fileID: 592465388}
   m_Layer: 0
   m_Name: AK47WallBuy
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2213,7 +2213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d15e5b9bf6b6a4eaa864fb25649c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perk: {fileID: 11400000, guid: 30c4d8a36a6c2e440a50681de432ee6a, type: 2}
+  perk: {fileID: 11400000, guid: 125222fb4ec47b7499add0220627456b, type: 2}
 --- !u!58 &832997648
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3178,7 +3178,7 @@ GameObject:
   - component: {fileID: 1044924614}
   m_Layer: 0
   m_Name: ShotgunWallBuy
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8909,23 +8909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed9e0d9064fb58489baf7adcd267bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2011064283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-  m_PrefabInstance: {fileID: 2809423792667102588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2011064297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011064283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57239d48416050942a0e0ade20c514c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2022510143
 GameObject:
   m_ObjectHideFlags: 0
@@ -11099,6 +11082,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205693442026379683, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: interactRange
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
