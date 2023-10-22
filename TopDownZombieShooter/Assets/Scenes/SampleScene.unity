@@ -11036,6 +11036,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1539304174}
+    - target: {fileID: 1710560658254265586, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: starterWeaponSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ccdf17c48108e1409268aa5c3299dfd, type: 2}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11046,11 +11050,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.53
+      value: -13.56
       objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_LocalPosition.z
