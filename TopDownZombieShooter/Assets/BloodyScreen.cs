@@ -22,7 +22,7 @@ public class BloodyScreen : MonoBehaviour
 
     private void BloodyScreen_OnDamaged(object sender, System.EventArgs e)
     {
-        alphaAmount = 1f;
+        alphaAmount = 1f - (player.GetHealthSystem().GetHealthNormalized() / 2);
         timeDamaged = Time.time;
     }
 
