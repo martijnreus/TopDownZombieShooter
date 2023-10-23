@@ -25,7 +25,7 @@ public class Door : MonoBehaviour, IInteractable
 
     public string GetInteractText()
     {
-        return "Press E to open door \n[Cost: " + doorCost + "]";
+        return "Press  E  to  open  door \n[Cost: " + doorCost + "]";
     }
 
     private void OpenDoor()

@@ -29,7 +29,7 @@ public class PerkMachine : MonoBehaviour, IInteractable
     {
         if (!perkInventory.HasPerk(perk))
         {
-            return "Press E to buy " + perk.name + "\n[Cost: " + perk.cost + "]";
+            return "Press  E  to  buy  " + perk.name + "\n[Cost: " + perk.cost + "]";
         }        
 
         return "";
