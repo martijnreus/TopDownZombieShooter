@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 2809423791794791247}
   - component: {fileID: 2809423791794791246}
   - component: {fileID: 2809423791794791245}
+  - component: {fileID: 7962863018828732566}
   - component: {fileID: 7345234426087100470}
   - component: {fileID: 2809423791794791244}
   - component: {fileID: 1275178551}
@@ -597,6 +598,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootTransform: {fileID: 2809423791007895690}
   wallCheck: {fileID: 2055449674796905097}
+--- !u!114 &7962863018828732566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423791794791250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1864e1aaa9347b64ebdce88227eeb600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleePoint: {fileID: 2809423791007895690}
+  meleeRange: 1
+  meleeDamage: 150
 --- !u!114 &7345234426087100470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a116fba53af72d24f89384d0f2c0e152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactRange: 0.3
+  interactRange: 0
   interactTransform: {fileID: 1254283273242427945}
 --- !u!114 &1710560658254265586
 MonoBehaviour:
@@ -666,7 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c85930275a044b83c729f7b7e00c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starterWeaponSO: {fileID: 11400000, guid: c6e42a32beecb464b8b296b132b180ac, type: 2}
+  starterWeaponSO: {fileID: 11400000, guid: 6ccdf17c48108e1409268aa5c3299dfd, type: 2}
   gunSpriteRenderer: {fileID: 169282859}
 --- !u!114 &1275178553
 MonoBehaviour:

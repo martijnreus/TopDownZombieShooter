@@ -11,6 +11,7 @@ public class GameInput: MonoBehaviour
     public event EventHandler OnReloadAction;
     public event EventHandler OnSwitchAction;
     public event EventHandler OnInteractAction;
+    public event EventHandler OnMeleeAction;
 
     public static GameInput Instance { get; private set; }
 
@@ -29,6 +30,11 @@ public class GameInput: MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             OnStopShootAction?.Invoke(this, EventArgs.Empty);
+        }
+
+        if (Input.GetMouseButtonDown(1)) 
+        {
+            OnMeleeAction?.Invoke(this, EventArgs.Empty);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
