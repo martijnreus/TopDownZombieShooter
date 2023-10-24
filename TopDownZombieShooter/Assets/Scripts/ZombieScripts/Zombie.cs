@@ -12,6 +12,8 @@ public class Zombie : MonoBehaviour
     [SerializeField] private int damageAmount;
     [SerializeField] private Transform attackPoint;
 
+    private Vector3 attackOffset = new Vector3(0, 1f, 0);
+
     private Player player;
     private State state;
 
@@ -96,7 +98,7 @@ public class Zombie : MonoBehaviour
 
     private bool playerIsInRange(float range)
     {
-        float distance = (attackPoint.position - player.transform.position).magnitude;
+        float distance = (attackPoint.position - (player.transform.position + attackOffset)).magnitude;
         if (distance < range)
         {
             return true;
