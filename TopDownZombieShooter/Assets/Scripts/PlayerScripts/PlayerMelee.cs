@@ -9,8 +9,11 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private Transform meleePoint;
     [SerializeField] private float meleeRange;
     [SerializeField] private int meleeDamage;
+    [SerializeField] private float meleeSpeed;
 
     public event EventHandler<Zombie> OnMeleeZombieAction;
+
+    private float timeLastMelee;
 
     private void Awake()
     {
@@ -19,6 +22,14 @@ public class PlayerMelee : MonoBehaviour
 
     private void Instance_OnMeleeAction(object sender, System.EventArgs e)
     {
+        // cant melee yet
+        if (Time.time - timeLastMelee < meleeSpeed)
+        {
+            return;
+        }
+
+        timeLastMelee = Time.time;
+
         RaycastHit2D? hit = GetHit();
         if (hit != null) 
         {
