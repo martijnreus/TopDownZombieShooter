@@ -25,3 +25,7 @@ MonoBehaviour:
   shootVisualOffset: {x: 0, y: 0}
   gunPrice: 500
   ammoPrice: 500
+  shootSound: {fileID: 8300000, guid: 885902073de8ca1468801b699ee31b1b, type: 3}
+  reloadSound: {fileID: 0}
+  emptySound: {fileID: 0}
+  shootSoundTimeBetweenPlay: 0

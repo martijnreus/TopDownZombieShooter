@@ -3034,7 +3034,7 @@ MonoBehaviour:
   m_OverrideTileSize: 1
   m_TileSize: 32
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.083333336
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 700d6a54b1539ce478918934b1abb1a5, type: 2}
@@ -11229,7 +11229,7 @@ PrefabInstance:
     - target: {fileID: 1710560658254265586, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: starterWeaponSO
       value: 
-      objectReference: {fileID: 11400000, guid: 6ccdf17c48108e1409268aa5c3299dfd, type: 2}
+      objectReference: {fileID: 11400000, guid: c6e42a32beecb464b8b296b132b180ac, type: 2}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player
@@ -11276,10 +11276,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791251, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6205693442026379683, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: interactRange
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

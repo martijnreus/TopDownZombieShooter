@@ -24,6 +24,12 @@ public class GunSO : ScriptableObject
     public int gunPrice;
     public int ammoPrice;
 
+    [Header("Audio Info")]
+    public AudioClip shootSound;
+    public AudioClip reloadSound;
+    public AudioClip emptySound;
+    public float shootSoundTimeBetweenPlay;
+
     public enum GunType
     {
         Automatic,

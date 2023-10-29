@@ -166,6 +166,8 @@ public class PlayerShoot : MonoBehaviour
         }
 
         playerShootVisual.CreateShootEffect(closestHit.Value.point);
+
+        SoundManager.PlaySound(gunInventory.GetCurrentGun().GetGunSO().shootSound, gunInventory.GetCurrentGun().GetGunSO().shootSoundTimeBetweenPlay);
     }
 
     private RaycastHit2D? FindClosestHit(RaycastHit2D[] hits)
