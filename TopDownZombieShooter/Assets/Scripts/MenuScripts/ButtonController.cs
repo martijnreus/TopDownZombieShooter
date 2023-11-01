@@ -6,9 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
+    public enum Scene
+    {
+        GameScene,
+        MenuScene,
+        LoadingScene
+    }
+
     public void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(sceneIndex);
+        Loader.Load(sceneIndex);
     }
 
     public void ReloadScene() 
