@@ -12157,6 +12157,10 @@ PrefabInstance:
       propertyPath: starterWeaponSO
       value: 
       objectReference: {fileID: 11400000, guid: c6e42a32beecb464b8b296b132b180ac, type: 2}
+    - target: {fileID: 2809423791794791241, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: walkingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 61187136363e1bb4c8f6f7bc804aed7d, type: 3}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player

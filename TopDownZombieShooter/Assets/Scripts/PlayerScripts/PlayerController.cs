@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private AudioClip walkingSound;
 
-    private float soundEffectLength;
+    private float soundEffectLength = 0.8f;
 
     private Rigidbody2D playerBody;
     private Vector2 moveDirection;
