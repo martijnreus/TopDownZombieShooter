@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private AudioClip walkingSound;
+
+    private float soundEffectLength;
 
     private Rigidbody2D playerBody;
     private Vector2 moveDirection;
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         moveDirection = GameInput.Instance.GetMovementInput().normalized;
+
+        PlayWalkingSound();
     }
 
     private void FixedUpdate()
@@ -42,5 +47,14 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetMoveDirection()
     {
         return moveDirection;
+    }
+
+    private void PlayWalkingSound() 
+    {
+        if (moveDirection != new Vector2(0, 0))
+        {
+            // Play walking sound
+            SoundManager.PlaySound(walkingSound, soundEffectLength);
+        }
     }
 }

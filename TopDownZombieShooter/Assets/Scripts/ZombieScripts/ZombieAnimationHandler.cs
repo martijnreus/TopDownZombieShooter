@@ -29,5 +29,6 @@ public class ZombieAnimationHandler : MonoBehaviour
     {
         animator.SetBool("isWalking", zombie.GetState() == Zombie.State.walking);
         animator.SetBool("isAttacking", zombie.GetState() == Zombie.State.attacking);
+        animator.SetBool("isDespawning", zombie.GetState() == Zombie.State.despawning);
     }
 }

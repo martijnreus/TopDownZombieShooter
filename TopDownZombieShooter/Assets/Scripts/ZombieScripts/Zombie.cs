@@ -14,6 +14,9 @@ public class Zombie : MonoBehaviour
 
     private Vector3 attackOffset = new Vector3(0, 1f, 0);
 
+    private float deathTime;
+    private float despawnDelay = 2f;
+
     private Player player;
     private State state;
 
@@ -28,6 +31,7 @@ public class Zombie : MonoBehaviour
         walking,
         attacking,
         idling,
+        despawning,
     }
 
     private void Awake()
@@ -52,7 +56,8 @@ public class Zombie : MonoBehaviour
     private void Die(object sender, EventArgs e)
     {
         waveManager.activeZombies.Remove(gameObject);
-        Destroy(gameObject);
+        deathTime = Time.time;
+        state = State.despawning;
     }
 
     private void Update()
@@ -82,6 +87,14 @@ public class Zombie : MonoBehaviour
                 break;
 
             case State.idling:
+                break;
+
+            case State.despawning:
+                agent.enabled = false;
+                if (Time.time - deathTime > despawnDelay) 
+                {
+                    Destroy(gameObject);
+                }
                 break;
         }
     }
