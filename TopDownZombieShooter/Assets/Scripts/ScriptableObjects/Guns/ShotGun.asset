@@ -26,6 +26,6 @@ MonoBehaviour:
   gunPrice: 1250
   ammoPrice: 750
   shootSound: {fileID: 8300000, guid: 9b513839b11023e4aba0d4c41642772c, type: 3}
-  reloadSound: {fileID: 0}
+  reloadSound: {fileID: 8300000, guid: 894406df9fcaea34fb7dbbdf11c75791, type: 3}
   emptySound: {fileID: 8300000, guid: 4144d47e8b0d74647a4a9a71edda8740, type: 3}
   shootSoundTimeBetweenPlay: 0.4
