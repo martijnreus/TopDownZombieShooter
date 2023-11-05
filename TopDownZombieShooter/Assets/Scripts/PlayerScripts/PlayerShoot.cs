@@ -18,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
     private float timeLastShot;
     private bool isShooting;
     private bool canShoot = true;
+    private bool isHolding;
     private float damageMultiplier = 1;
 
     private RaycastHit2D? closestHit;
@@ -88,6 +89,11 @@ public class PlayerShoot : MonoBehaviour
                     break;
             }
         }
+        else if (currentGun.GetAmmoInWeapon() == 0 && !isHolding) 
+        {
+            SoundManager.PlaySound(currentGun.GetGunSO().emptySound);
+            isHolding = true;
+        }
     }
 
     private void HandleAutomaticGun()
@@ -144,6 +150,7 @@ public class PlayerShoot : MonoBehaviour
     private void StopShooting(object sender, EventArgs e)
     {
         isShooting = false;
+        isHolding = false;
     }
 
     private void ShootBullet()
