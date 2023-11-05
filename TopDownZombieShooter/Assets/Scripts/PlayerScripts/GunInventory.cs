@@ -58,6 +58,8 @@ public class GunInventory : MonoBehaviour
 
     private IEnumerator DoReload()
     {
+        SoundManager.PlaySound(currentWeapon.GetGunSO().reloadSound);
+
         isReloading = true;
         float timeStartReloading = Time.time;
 

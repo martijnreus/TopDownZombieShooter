@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private PerkInventory perkInventory;
 
     private float speedMultiplier = 1f;
+    private bool startWalking;
 
     private void Awake()
     {
@@ -54,7 +55,13 @@ public class PlayerController : MonoBehaviour
         if (moveDirection != new Vector2(0, 0))
         {
             // Play walking sound
-            SoundManager.PlaySound(walkingSound, soundEffectLength);
+            SoundManager.PlaySound(walkingSound, startWalking? soundEffectLength : 0);
+            startWalking = true;
+        }
+        else
+        {     
+            SoundManager.StopSound(walkingSound);
+            startWalking = false;
         }
     }
 }
