@@ -17,7 +17,6 @@ public class BackgroundSound : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(randomSoundTimer);
         randomSoundTimer -= Time.deltaTime;
 
         if (randomSoundTimer <= 0) 
