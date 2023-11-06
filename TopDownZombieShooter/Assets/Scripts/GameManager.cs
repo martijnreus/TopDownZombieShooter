@@ -76,8 +76,6 @@ public class GameManager : MonoBehaviour
             gameData = new GameData();
             Debug.Log("There is no save files to load!");
         }
-            
-
     }
 
     public void DeleteSaveFile()
