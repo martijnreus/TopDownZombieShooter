@@ -38,7 +38,7 @@ public static class SoundManager
 
     public static void StopSound(AudioClip sound)   
     {
-        if (!soundSourceDictionary.ContainsKey(sound)) 
+        if (!soundSourceDictionary.ContainsKey(sound) || soundSourceDictionary[sound] == null) 
         {
             return;
         }
