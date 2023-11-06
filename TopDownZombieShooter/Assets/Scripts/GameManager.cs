@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public GameData gameData;
     private string saveFilePath;
 
-    private static GameManager instance;
+    public static GameManager instance { get; private set; }
 
     private void Awake()
     {
@@ -69,7 +69,8 @@ public class GameManager : MonoBehaviour
             string loadGameData = File.ReadAllText(saveFilePath);
             gameData = JsonUtility.FromJson<GameData>(loadGameData);
 
-            Debug.Log("Load game complete! \nTotal kills: " + gameData.totalKills);
+            Debug.Log("Load game complete! \nTotal kills: " + gameData.totalKills + "Highest kills: " + gameData.highestKillAmount +
+                "Total waves: " + gameData.totalWaves + "Highest wave: " + gameData.highestWave + "Total games played: " + gameData.gamesPlayed);
         }
         else
         {

@@ -10,7 +10,6 @@ public class PlayerDie : MonoBehaviour
 
     private Player player;
     private HealthSystem healthSystem;
-    private GameManager gameManager;
     private WaveManager waveManager;
 
     private Rigidbody2D playerBody;
@@ -21,7 +20,6 @@ public class PlayerDie : MonoBehaviour
         player = GetComponent<Player>();
         playerBody = GetComponent<Rigidbody2D>();
 
-        gameManager = FindObjectOfType<GameManager>();
         waveManager = FindObjectOfType<WaveManager>();
     }
 
@@ -52,14 +50,14 @@ public class PlayerDie : MonoBehaviour
 
     private void UpdateHighestWave() 
     {
-        if (waveManager.GetCurrentWave() - 1 > gameManager.gameData.highestWave)
+        if (waveManager.GetCurrentWave() - 1 > GameManager.instance.gameData.highestWave)
         {
-            gameManager.gameData.highestWave = waveManager.GetCurrentWave() - 1;
+            GameManager.instance.gameData.highestWave = waveManager.GetCurrentWave() - 1;
         }
 
-        gameManager.gameData.totalWaves += waveManager.GetCurrentWave() - 1;
+        GameManager.instance.gameData.totalWaves += waveManager.GetCurrentWave() - 1;
 
-        gameManager.SaveGame();
+        GameManager.instance.SaveGame();
     }
 
     private void DisableScripts(MonoBehaviour[] scripts)

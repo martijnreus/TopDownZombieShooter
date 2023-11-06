@@ -22,7 +22,6 @@ public class Zombie : MonoBehaviour
 
     public HealthSystem healthSystem;
     private WaveManager waveManager;
-    private GameManager gameManager;
 
     private NavMeshAgent agent;
 
@@ -39,7 +38,6 @@ public class Zombie : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         waveManager = FindObjectOfType<WaveManager>();
-        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start()
@@ -60,8 +58,9 @@ public class Zombie : MonoBehaviour
         waveManager.activeZombies.Remove(gameObject);
         deathTime = Time.time;
 
-        gameManager.gameData.highestKillAmount++;
-        gameManager.gameData.totalKills++;
+        // This doesnt work yet
+        //GameManager.instance.gameData.highestKillAmount++;
+        GameManager.instance.gameData.totalKills++;
 
         state = State.despawning;
     }

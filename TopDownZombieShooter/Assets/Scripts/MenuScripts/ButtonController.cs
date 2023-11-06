@@ -6,20 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
-    public enum Scene
-    {
-        GameScene,
-        MenuScene,
-        LoadingScene
-    }
-
     public void LoadScene(int sceneIndex)
     {
         Loader.Load(sceneIndex);
+
+        if (sceneIndex == 2) 
+        {
+            GameManager.instance.gameData.gamesPlayed++;
+        }
     }
 
     public void ReloadScene() 
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
