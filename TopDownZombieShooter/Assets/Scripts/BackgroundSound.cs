@@ -7,6 +7,7 @@ public class BackgroundSound : MonoBehaviour
     [SerializeField] AudioClip[] audioToPlay;
     [SerializeField] float minTimeNextSound;
     [SerializeField] float maxTimeNextSound;
+    [SerializeField] float backGroundSoundVolume = 0.5f;
 
     private float randomSoundTimer;
 
@@ -33,6 +34,6 @@ public class BackgroundSound : MonoBehaviour
 
     private void PlayRandomSound()
     {
-        SoundManager.PlaySound(audioToPlay[Random.Range(0, audioToPlay.Length - 1)]);
+        SoundManager.PlaySound(audioToPlay[Random.Range(0, audioToPlay.Length - 1)], SoundManager.soundEffectVolume * backGroundSoundVolume);
     }
 }

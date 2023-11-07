@@ -91,7 +91,7 @@ public class PlayerShoot : MonoBehaviour
         }
         else if (currentGun.GetAmmoInWeapon() == 0 && !isHolding) 
         {
-            SoundManager.PlaySound(currentGun.GetGunSO().emptySound);
+            SoundManager.PlaySound(currentGun.GetGunSO().emptySound, SoundManager.soundEffectVolume);
             isHolding = true;
         }
     }
