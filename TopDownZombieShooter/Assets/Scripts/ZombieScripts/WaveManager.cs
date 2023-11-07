@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class WaveManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class WaveManager : MonoBehaviour
     [HideInInspector] public List<GameObject> activeZombies;
 
     private Spawner[] spawners;
+
+    public event EventHandler OnNextWaveAction;
 
     private int zombiesToSpawn;
     private float spawnTimer;
@@ -53,7 +56,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnZombie()
     {
-        Spawner spawner = spawners[Random.Range(0, spawners.Length)];
+        Spawner spawner = spawners[UnityEngine.Random.Range(0, spawners.Length)];
         GameObject newZombie = Instantiate(zombiePrefab, spawner.transform.position, Quaternion.identity);
         activeZombies.Add(newZombie);
         zombiesToSpawn--;
@@ -61,7 +64,8 @@ public class WaveManager : MonoBehaviour
 
     private void StartNextWave()
     {
-        //TODO at a pauze before starting next wave
+        OnNextWaveAction?.Invoke(this, EventArgs.Empty);
+
         currentWave++;
         zombiesToSpawn = (int)(0.000058f * Mathf.Pow(currentWave, 3) + 0.074032f * Mathf.Pow(currentWave, 2) + 0.718119f * Mathf.Pow(currentWave, 1) + 6);
 

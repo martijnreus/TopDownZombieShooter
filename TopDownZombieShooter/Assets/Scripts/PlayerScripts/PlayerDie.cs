@@ -10,7 +10,7 @@ public class PlayerDie : MonoBehaviour
 
     private Player player;
     private HealthSystem healthSystem;
-    private WaveManager waveManager;
+    //private WaveManager waveManager;
 
     private Rigidbody2D playerBody;
     private bool isDead;
@@ -20,7 +20,7 @@ public class PlayerDie : MonoBehaviour
         player = GetComponent<Player>();
         playerBody = GetComponent<Rigidbody2D>();
 
-        waveManager = FindObjectOfType<WaveManager>();
+        //waveManager = FindObjectOfType<WaveManager>();
     }
 
     private void Start()
@@ -44,20 +44,6 @@ public class PlayerDie : MonoBehaviour
         playerBody.velocity = Vector3.zero;
 
         DisableScripts(scriptsToDisable);
-
-        UpdateHighestWave();
-    }
-
-    private void UpdateHighestWave() 
-    {
-        if (waveManager.GetCurrentWave() - 1 > GameManager.instance.gameData.highestWave)
-        {
-            GameManager.instance.gameData.highestWave = waveManager.GetCurrentWave() - 1;
-        }
-
-        GameManager.instance.gameData.totalWaves += waveManager.GetCurrentWave() - 1;
-
-        GameManager.instance.SaveGame();
     }
 
     private void DisableScripts(MonoBehaviour[] scripts)

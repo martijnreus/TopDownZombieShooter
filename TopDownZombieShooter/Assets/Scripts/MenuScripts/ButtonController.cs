@@ -9,11 +9,6 @@ public class ButtonController : MonoBehaviour
     public void LoadScene(int sceneIndex)
     {
         Loader.Load(sceneIndex);
-
-        if (sceneIndex == 2) 
-        {
-            GameManager.instance.gameData.gamesPlayed++;
-        }
     }
 
     public void ReloadScene() 
