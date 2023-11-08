@@ -10,18 +10,26 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private float meleeRange;
     [SerializeField] private int meleeDamage;
     [SerializeField] private float meleeSpeed;
+    [SerializeField] private GameObject playerWeapon;
 
     public event EventHandler<Zombie> OnMeleeZombieAction;
+
+    private Animator animator;
 
     private float timeLastMelee;
 
     private void Awake()
     {
         GameInput.Instance.OnMeleeAction += Instance_OnMeleeAction;
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Instance_OnMeleeAction(object sender, System.EventArgs e)
     {
+        Debug.Log("doei");
+        animator.SetBool("isMeleeing", true);
+        playerWeapon.gameObject.SetActive(false);
+
         // cant melee yet
         if (Time.time - timeLastMelee < meleeSpeed)
         {

@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 2809423791621843139}
   - component: {fileID: 2809423791621843132}
   - component: {fileID: 1164261794}
+  - component: {fileID: 7475854969447070422}
   m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
@@ -461,6 +462,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7475854969447070422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809423791621843138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37f643a57858374429b70b514b2a7621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: {fileID: 169282857}
 --- !u!1 &2809423791794791250
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  walkingSound: {fileID: 8300000, guid: 61187136363e1bb4c8f6f7bc804aed7d, type: 3}
 --- !u!50 &2809423791794791240
 Rigidbody2D:
   serializedVersion: 4
@@ -613,6 +628,8 @@ MonoBehaviour:
   meleePoint: {fileID: 2809423791007895690}
   meleeRange: 1
   meleeDamage: 150
+  meleeSpeed: 0
+  playerWeapon: {fileID: 2809423791007895689}
 --- !u!114 &7345234426087100470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638c85930275a044b83c729f7b7e00c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starterWeaponSO: {fileID: 11400000, guid: 6ccdf17c48108e1409268aa5c3299dfd, type: 2}
+  starterWeaponSO: {fileID: 11400000, guid: c6e42a32beecb464b8b296b132b180ac, type: 2}
   gunSpriteRenderer: {fileID: 169282859}
 --- !u!114 &1275178553
 MonoBehaviour:
