@@ -10,7 +10,7 @@ public static class SoundManager
 
     public static float masterVolumeMultiplier = 1f;
     public static float soundEffectVolume = 1f;
-    public static float musicvolume = 1f;
+    public static float musicVolume = 1f;
 
     public static void PlaySound(AudioClip sound, float volume)
     {

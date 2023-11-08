@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         if (moveDirection != new Vector2(0, 0))
         {
             // Play walking sound
-            SoundManager.PlaySound(walkingSound, startWalking? soundEffectLength : 0);
+            SoundManager.PlaySound(walkingSound, SoundManager.soundEffectVolume ,startWalking? soundEffectLength : 0);
             startWalking = true;
         }
         else
