@@ -12350,6 +12350,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7962863018828732566, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: meleeRange
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7962863018828732566, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: playerWeapon
       value: 
       objectReference: {fileID: 196315251}

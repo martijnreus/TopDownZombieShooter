@@ -26,9 +26,7 @@ public class PlayerMelee : MonoBehaviour
 
     private void Instance_OnMeleeAction(object sender, System.EventArgs e)
     {
-        Debug.Log("doei");
         animator.SetBool("isMeleeing", true);
-        playerWeapon.gameObject.SetActive(false);
 
         // cant melee yet
         if (Time.time - timeLastMelee < meleeSpeed)

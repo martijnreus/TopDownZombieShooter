@@ -13,9 +13,13 @@ public class PlayerMeleeAnimationEvent : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void OnStartMeleeAttack()
+    {
+        playerWeapon.gameObject.SetActive(false);
+    }
+
     public void OnEndMeleeAttack()
     {
-        Debug.Log("hoi");
         animator.SetBool("isMeleeing", false);
         playerWeapon.gameObject.SetActive(true);
     }
