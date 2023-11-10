@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
 {
-    [SerializeField] int doorCost;
+    [SerializeField] private int doorCost;
+    [SerializeField] private AudioClip purchageSound;
 
     private PointManager pointManager;
 
@@ -19,6 +20,7 @@ public class Door : MonoBehaviour, IInteractable
         if (pointManager.GetCurrentPointAmount() >= doorCost) 
         {
             pointManager.RemovePoints(doorCost);
+            SoundManager.PlaySound(purchageSound, 1f);
             OpenDoor();
         }
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PerkMachine : MonoBehaviour, IInteractable
 {
     [SerializeField] private PerkSO perk;
+    [SerializeField] private AudioClip purchageSound;
 
     private PerkInventory perkInventory;
     private PointManager pointManager;
@@ -22,6 +23,7 @@ public class PerkMachine : MonoBehaviour, IInteractable
         {
             perkInventory.AddPerk(perk);
             pointManager.RemovePoints(perk.cost);
+            SoundManager.PlaySound(purchageSound, 1f);
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunWallBuy : MonoBehaviour, IInteractable
 {
     [SerializeField] private GunSO gunSO;
+    [SerializeField] private AudioClip purchageSound;
 
     private GunInventory gunInventory;
     private PointManager pointManager;
@@ -23,12 +24,14 @@ public class GunWallBuy : MonoBehaviour, IInteractable
         {
             gunInventory.AddGun(gunSO);
             pointManager.RemovePoints(gunSO.gunPrice);
+            SoundManager.PlaySound(purchageSound, 1f);
         }
         else if (gunInventory.GetCurrentGun().GetGunSO() == gunSO && pointManager.GetCurrentPointAmount() >= gunSO.ammoPrice && 
                     gunInventory.GetCurrentGun().GetTotalAmmo() != gunInventory.GetCurrentGun().GetMaxAmmoAmount())
         {
             gunInventory.GetCurrentGun().RefillAmmo();
             pointManager.RemovePoints(gunSO.ammoPrice);
+            SoundManager.PlaySound(purchageSound, 1f);
         }
     }
 

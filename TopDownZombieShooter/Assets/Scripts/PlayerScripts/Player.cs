@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private float healDelay;
     [SerializeField] private float healRate;
+    [SerializeField] private AudioClip hurtSound;
 
     private float timeLastDamaged;
     private float timeLastHealed;
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
     private void OnDamaged(object sender, EventArgs e)
     {
         timeLastDamaged = Time.time;
+        SoundManager.PlaySound(hurtSound, 1f, 0.1f);
     }
 
     private void Update()

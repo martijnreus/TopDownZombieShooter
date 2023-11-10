@@ -626,10 +626,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleePoint: {fileID: 2809423791007895690}
-  meleeRange: 1
+  meleeRange: 0.7
   meleeDamage: 150
   meleeSpeed: 0
-  playerWeapon: {fileID: 2809423791007895689}
+  playerWeapon: {fileID: 169282857}
 --- !u!114 &7345234426087100470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +662,7 @@ MonoBehaviour:
   health: 150
   healDelay: 2.5
   healRate: 0.02
+  hurtSound: {fileID: 8300000, guid: c1a0eda1fcd652f42948699a8295b99e, type: 3}
 --- !u!210 &1275178551
 SortingGroup:
   m_ObjectHideFlags: 0

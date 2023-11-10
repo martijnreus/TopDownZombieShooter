@@ -1511,6 +1511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSO: {fileID: 11400000, guid: bc4548f21c89d0b4ebae872d937fd75a, type: 2}
+  purchageSound: {fileID: 8300000, guid: dd5eb3c78ef8931438673182ebc2b359, type: 3}
 --- !u!1 &255819710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,6 +2226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSO: {fileID: 11400000, guid: 6ccdf17c48108e1409268aa5c3299dfd, type: 2}
+  purchageSound: {fileID: 8300000, guid: dd5eb3c78ef8931438673182ebc2b359, type: 3}
 --- !u!4 &592465390
 Transform:
   m_ObjectHideFlags: 0
@@ -2823,6 +2825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perk: {fileID: 11400000, guid: 125222fb4ec47b7499add0220627456b, type: 2}
+  purchageSound: {fileID: 8300000, guid: 1dfd86901b242144c832bc223ac68e92, type: 3}
 --- !u!58 &832997648
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3987,6 +3990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSO: {fileID: 11400000, guid: 9eebc82db32a7f84daf76ff289adfc38, type: 2}
+  purchageSound: {fileID: 8300000, guid: dd5eb3c78ef8931438673182ebc2b359, type: 3}
 --- !u!1 &1046439369
 GameObject:
   m_ObjectHideFlags: 0
@@ -7446,6 +7450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorCost: 500
+  purchageSound: {fileID: 8300000, guid: a3eaabef31e55cf4e9789c3870b8a217, type: 3}
 --- !u!212 &1346638444
 SpriteRenderer:
   m_ObjectHideFlags: 0
