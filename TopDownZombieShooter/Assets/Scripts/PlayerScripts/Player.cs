@@ -37,8 +37,12 @@ public class Player : MonoBehaviour
 
     private void OnDamaged(object sender, EventArgs e)
     {
+        if (healthSystem.GetHealth() > 0)
+        {
+            SoundManager.PlaySound(hurtSound, 1f, 0.1f);
+        }
+
         timeLastDamaged = Time.time;
-        SoundManager.PlaySound(hurtSound, 1f, 0.1f);
     }
 
     private void Update()
