@@ -7,6 +7,8 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private int doorCost;
     [SerializeField] private AudioClip purchageSound;
+    [SerializeField] private GameObject door;
+    [SerializeField] private GameObject mist;
 
     private PointManager pointManager;
 
@@ -32,7 +34,7 @@ public class Door : MonoBehaviour, IInteractable
 
     private void OpenDoor()
     {
-        // placeholder replace with actual implementation of opening a door
-        gameObject.SetActive(false);
+        door.gameObject.SetActive(false);
+        mist.gameObject.SetActive(false);
     }
 }

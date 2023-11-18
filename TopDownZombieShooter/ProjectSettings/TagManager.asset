@@ -8,6 +8,7 @@ TagManager:
   - Spawner
   - Wall
   - zombie
+  - Interactable
   layers:
   - Default
   - TransparentFX

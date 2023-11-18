@@ -201,7 +201,7 @@ public class PlayerShoot : MonoBehaviour
 
     private bool ShouldProcessHit(RaycastHit2D hit)
     {
-        return !(wallCheck.GetIsInWall() && hit.collider.CompareTag("Wall") && IsAimingDown()) && !hit.collider.CompareTag("Player");
+        return !(wallCheck.GetIsInWall() && hit.collider.CompareTag("Wall") && IsAimingDown()) && !hit.collider.CompareTag("Interactable") && !hit.collider.CompareTag("Player");
     }
 
     private void Damage(GameObject target)
