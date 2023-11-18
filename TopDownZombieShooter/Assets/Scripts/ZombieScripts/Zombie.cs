@@ -52,6 +52,9 @@ public class Zombie : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
+        walkSpeed = UnityEngine.Random.Range(1f, 1f + Mathf.Min((waveManager.GetCurrentWave() - 1), 5) * 0.2f);
+        agent.speed = walkSpeed;
+
         state = State.spawning;
     }
 

@@ -324,7 +324,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 1
+  m_Speed: 1.5
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -446,7 +446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleCollider2D: {fileID: 6678110692147528084}
   capsuleCollider2D: {fileID: 2903697147876374121}
-  agent: {fileID: 2903697147876374118}
 --- !u!1 &2903697148084695747
 GameObject:
   m_ObjectHideFlags: 0
