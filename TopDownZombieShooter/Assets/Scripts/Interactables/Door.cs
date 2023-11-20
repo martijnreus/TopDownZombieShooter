@@ -35,6 +35,9 @@ public class Door : MonoBehaviour, IInteractable
     private void OpenDoor()
     {
         door.gameObject.SetActive(false);
-        mist.gameObject.SetActive(false);
+        if (mist != null)
+        {
+            mist.gameObject.SetActive(false);
+        }  
     }
 }
