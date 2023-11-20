@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 8326776479100952584}
   - component: {fileID: 8326776479100952591}
   - component: {fileID: 8326776479100952590}
+  - component: {fileID: 2812519502993945400}
   m_Layer: 0
   m_Name: Door
   m_TagString: Interactable
@@ -179,6 +180,22 @@ MonoBehaviour:
   purchageSound: {fileID: 8300000, guid: a3eaabef31e55cf4e9789c3870b8a217, type: 3}
   door: {fileID: 8326776479100952587}
   mist: {fileID: 0}
+--- !u!208 &2812519502993945400
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326776479100952587}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.15, y: 2.5, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8326776479569102646
 GameObject:
   m_ObjectHideFlags: 0
