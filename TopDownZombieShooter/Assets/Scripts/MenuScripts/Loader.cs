@@ -20,7 +20,7 @@ public static class Loader
             LoadSceneAsync(sceneIndex);
         };
 
-        int loadingSceneIndex = 0;
+        int loadingSceneIndex = 1;
         SceneManager.LoadScene(loadingSceneIndex);
     }  
 
