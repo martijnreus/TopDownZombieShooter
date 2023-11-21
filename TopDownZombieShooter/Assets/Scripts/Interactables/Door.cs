@@ -8,7 +8,7 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private int doorCost;
     [SerializeField] private AudioClip purchageSound;
     [SerializeField] private GameObject door;
-    [SerializeField] private GameObject mist;
+    [SerializeField] private GameObject[] mistArray;
 
     private PointManager pointManager;
 
@@ -35,9 +35,9 @@ public class Door : MonoBehaviour, IInteractable
     private void OpenDoor()
     {
         door.gameObject.SetActive(false);
-        if (mist != null)
+        foreach (GameObject mist in mistArray)
         {
             mist.gameObject.SetActive(false);
-        }  
+        }
     }
 }
