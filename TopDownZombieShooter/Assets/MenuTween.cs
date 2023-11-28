@@ -15,7 +15,8 @@ public class MenuTween : MonoBehaviour
     [SerializeField] private CanvasGroup statisticsMenuCanvasGroup;
 
     [Header("Settings Menu")]
-    [SerializeField] private GameObject settingsMrnu;
+    [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private CanvasGroup settingsMenuCanvasGroup;
 
     private float menuTweenSpeed = 0.75f;
 
@@ -32,7 +33,8 @@ public class MenuTween : MonoBehaviour
     {
         float openDelay = 0.1f;
 
-        statisticsMenuCanvasGroup.alpha = 1f;
+        statisticsMenuCanvasGroup.alpha = 0f;
+        statisticsMenuCanvasGroup.blocksRaycasts = true;
 
         statisticsMenu.transform.localPosition = new Vector3(0f, -1000f, 0f);
         statisticsMenu.transform.DOLocalMoveY(0f, menuTweenSpeed).SetEase(Ease.InOutBack).SetDelay(openDelay);
@@ -43,6 +45,7 @@ public class MenuTween : MonoBehaviour
     public void CloseStatistics()
     {
         statisticsMenuCanvasGroup.alpha = 1f;
+        statisticsMenuCanvasGroup.blocksRaycasts = false;
 
         statisticsMenu.transform.localPosition = new Vector3(0f, 0f, 0f);
         statisticsMenu.transform.DOLocalMoveY(-1000f, menuTweenSpeed).SetEase(Ease.InOutBack);
@@ -52,12 +55,26 @@ public class MenuTween : MonoBehaviour
 
     public void OpenSettings()
     {
+        float openDelay = 0.1f;
 
+        settingsMenuCanvasGroup.alpha = 0f;
+        settingsMenuCanvasGroup.blocksRaycasts = true;
+
+        settingsMenu.transform.localPosition = new Vector3(0f, -1000f, 0f);
+        settingsMenu.transform.DOLocalMoveY(0f, menuTweenSpeed).SetEase(Ease.InOutBack).SetDelay(openDelay);
+
+        settingsMenuCanvasGroup.DOFade(1f, menuTweenSpeed).SetEase(Ease.InOutBack);
     }
 
     public void CloseSettings()
     {
+        settingsMenuCanvasGroup.alpha = 1f;
+        settingsMenuCanvasGroup.blocksRaycasts = false;
 
+        settingsMenu.transform.localPosition = new Vector3(0f, 0f, 0f);
+        settingsMenu.transform.DOLocalMoveY(-1000f, menuTweenSpeed).SetEase(Ease.InOutBack);
+
+        settingsMenuCanvasGroup.DOFade(0f, menuTweenSpeed * 2).SetEase(Ease.InOutBack);
     }
 
     public void OpenMainMenu()
@@ -65,6 +82,7 @@ public class MenuTween : MonoBehaviour
         float openDelay = 0.1f;
 
         mainMenuCanvasGroup.alpha = 0f;
+        mainMenuCanvasGroup.blocksRaycasts = true;
 
         mainMenuTitle.transform.localPosition = new Vector3(mainMenuTextPosition.x, 1000f, 0f);
         mainMenuTitle.transform.DOLocalMoveY(mainMenuTextPosition.y, menuTweenSpeed).SetEase(Ease.InOutBack).SetDelay(openDelay);
@@ -78,6 +96,7 @@ public class MenuTween : MonoBehaviour
     public void CloseMainMenu()
     {
         mainMenuCanvasGroup.alpha = 1f;
+        mainMenuCanvasGroup.blocksRaycasts = false;
 
         mainMenuTitle.transform.DOLocalMoveY(1000f, menuTweenSpeed).SetEase(Ease.InOutBack);
         mainMenuPanel.transform.DOLocalMoveX(2000f, menuTweenSpeed).SetEase(Ease.InOutBack);
