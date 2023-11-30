@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Tilemaps;
+using System.Numerics;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -35,10 +37,10 @@ public class Door : MonoBehaviour, IInteractable
 
     private void OpenDoor()
     {
-        door.gameObject.SetActive(false);
         foreach (GameObject mist in mistArray)
         {
-            mist.gameObject.SetActive(false);
+            mist.GetComponent<TilemapRenderer>().material.DOFade(0f, 0.5f);
         }
+        door.gameObject.SetActive(false);
     }
 }

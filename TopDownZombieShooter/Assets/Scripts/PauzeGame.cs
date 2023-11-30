@@ -9,7 +9,10 @@ public class PauzeGame : MonoBehaviour
     private bool isPaused;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private CanvasGroup pauseCanvasGroup;
+
     [SerializeField] private CanvasGroup gameHUDCanvasGroup;
+    [SerializeField] private CanvasGroup interactCanvasGroup;
+
     [SerializeField] private MonoBehaviour[] scriptsToDisable;
 
     private void Update()
@@ -41,6 +44,7 @@ public class PauzeGame : MonoBehaviour
 
         pauseCanvasGroup.DOFade(1f, 0.5f).SetEase(Ease.InOutBack).SetUpdate(true);
         gameHUDCanvasGroup.DOFade(0f, 0.5f).SetEase(Ease.InOutBack).SetUpdate(true);
+        interactCanvasGroup.DOFade(0f, 0.5f).SetEase(Ease.InOutBack).SetUpdate(true);
     }
 
     public void Play()
@@ -57,6 +61,7 @@ public class PauzeGame : MonoBehaviour
 
         pauseCanvasGroup.DOFade(0f, 0.5f).SetEase(Ease.InOutBack);
         gameHUDCanvasGroup.DOFade(1f, 0.5f).SetEase(Ease.InOutBack);
+        interactCanvasGroup.DOFade(1f, 0.5f).SetEase(Ease.InOutBack);
     }
 
     private void EnableScripts()
