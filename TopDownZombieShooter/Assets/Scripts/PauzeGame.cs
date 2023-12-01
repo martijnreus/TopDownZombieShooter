@@ -6,7 +6,6 @@ using DG.Tweening;
 
 public class PauzeGame : MonoBehaviour
 {
-    private bool isPaused;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private CanvasGroup pauseCanvasGroup;
 
@@ -14,6 +13,8 @@ public class PauzeGame : MonoBehaviour
     [SerializeField] private CanvasGroup interactCanvasGroup;
 
     [SerializeField] private MonoBehaviour[] scriptsToDisable;
+
+    private bool isPaused;
 
     private void Update()
     {
@@ -34,7 +35,7 @@ public class PauzeGame : MonoBehaviour
     {
         isPaused = true;
         DisableScripts();
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
 
         pauseCanvasGroup.alpha = 0f;
         pauseCanvasGroup.blocksRaycasts = true;

@@ -27,12 +27,17 @@ public class PlayerDie : MonoBehaviour
     {   
         deathScreen.SetActive(false);
         healthSystem = player.GetHealthSystem();
-        healthSystem.OnDead += Die;
+        healthSystem.OnDead += OnDie;
     }
 
-    private void Die(object sender, EventArgs e)
+    private void OnDie(object sender, EventArgs e)
     {
-        if (isDead) 
+        Die();
+    }
+
+    public void Die()
+    {
+        if (isDead)
         {
             return;
         }
