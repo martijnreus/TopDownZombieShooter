@@ -49,6 +49,8 @@ public class PlayerDie : MonoBehaviour
         playerBody.velocity = Vector3.zero;
 
         DisableScripts(scriptsToDisable);
+
+        // play the die animation
     }
 
     private void DisableScripts(MonoBehaviour[] scripts)
