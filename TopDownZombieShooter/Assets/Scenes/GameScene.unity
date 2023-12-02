@@ -7037,7 +7037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Surrender
+  m_text: End Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3ca17ecde2370d4db1d6b7f69fbd6e5, type: 2}
   m_sharedMaterial: {fileID: 773871350759272443, guid: e3ca17ecde2370d4db1d6b7f69fbd6e5, type: 2}
@@ -15557,6 +15557,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42131df3316257f40a84055139010824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1275178562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1710560658254265586, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+  m_PrefabInstance: {fileID: 2809423792667102588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638c85930275a044b83c729f7b7e00c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1275178563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6205693442026379683, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+  m_PrefabInstance: {fileID: 2809423792667102588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a116fba53af72d24f89384d0f2c0e152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1275178571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2809423791794791241, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+  m_PrefabInstance: {fileID: 2809423792667102588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfd9b7d71c91434b8a41fdc2764cd2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1296872016
 GameObject:
   m_ObjectHideFlags: 0
@@ -15773,7 +15806,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328210825
 MonoBehaviour:
@@ -15796,8 +15829,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6117647, g: 0.043137256, b: 0.043137256, a: 1}
+    m_NormalColor: {r: 0.3803922, g: 0.14901961, b: 0.21960786, a: 0}
+    m_HighlightedColor: {r: 0.38039216, g: 0.14901961, b: 0.21960784, a: 1}
     m_PressedColor: {r: 0.2924528, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
@@ -15819,9 +15852,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1275178558}
-        m_TargetAssemblyTypeName: PlayerDie, Assembly-CSharp
-        m_MethodName: Die
+      - m_Target: {fileID: 704897631}
+        m_TargetAssemblyTypeName: PauzeGame, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15831,9 +15864,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 704897631}
-        m_TargetAssemblyTypeName: PauzeGame, Assembly-CSharp
-        m_MethodName: Play
+      - m_Target: {fileID: 1275178558}
+        m_TargetAssemblyTypeName: PlayerDie, Assembly-CSharp
+        m_MethodName: Die
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20797,7 +20830,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1820562554
 MonoBehaviour:
@@ -20820,8 +20853,8 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.6117647, g: 0.043137256, b: 0.043137256, a: 1}
+    m_NormalColor: {r: 0.3803922, g: 0.14901961, b: 0.21960786, a: 0}
+    m_HighlightedColor: {r: 0.38039216, g: 0.14901961, b: 0.21960784, a: 1}
     m_PressedColor: {r: 0.2924528, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
@@ -25177,6 +25210,34 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1539304174}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1275178563}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1275178571}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.data[2]
+      value: 
+      objectReference: {fileID: 1275178562}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.data[3]
+      value: 
+      objectReference: {fileID: 1275178555}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.data[4]
+      value: 
+      objectReference: {fileID: 1020289848}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: scriptsToDisable.Array.data[5]
+      value: 
+      objectReference: {fileID: 1275178555}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player
