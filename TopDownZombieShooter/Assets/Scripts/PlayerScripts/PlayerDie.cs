@@ -7,6 +7,7 @@ public class PlayerDie : MonoBehaviour
 {
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private MonoBehaviour[] scriptsToDisable;
+    [SerializeField] private GameObject gunSprite;
 
     private Player player;
     private HealthSystem healthSystem;
@@ -14,6 +15,8 @@ public class PlayerDie : MonoBehaviour
 
     private Rigidbody2D playerBody;
     private bool isDead;
+
+    private Animator animator;
 
     private void Awake()
     {
@@ -25,6 +28,8 @@ public class PlayerDie : MonoBehaviour
 
     private void Start()
     {   
+        animator = GetComponentInChildren<Animator>();
+
         deathScreen.SetActive(false);
         healthSystem = player.GetHealthSystem();
         healthSystem.OnDead += OnDie;
@@ -44,6 +49,7 @@ public class PlayerDie : MonoBehaviour
 
         isDead = true;
         deathScreen.SetActive(true);
+        gunSprite.SetActive(false);
 
         // make sure the player stop moving
         playerBody.velocity = Vector3.zero;
@@ -51,6 +57,7 @@ public class PlayerDie : MonoBehaviour
         DisableScripts(scriptsToDisable);
 
         // play the die animation
+        animator.SetTrigger("isDead");
     }
 
     private void DisableScripts(MonoBehaviour[] scripts)

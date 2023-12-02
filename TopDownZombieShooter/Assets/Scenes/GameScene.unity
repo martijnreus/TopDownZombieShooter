@@ -15557,39 +15557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42131df3316257f40a84055139010824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1275178562 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1710560658254265586, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-  m_PrefabInstance: {fileID: 2809423792667102588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 638c85930275a044b83c729f7b7e00c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1275178563 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6205693442026379683, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-  m_PrefabInstance: {fileID: 2809423792667102588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a116fba53af72d24f89384d0f2c0e152, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1275178571 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2809423791794791241, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-  m_PrefabInstance: {fileID: 2809423792667102588}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfd9b7d71c91434b8a41fdc2764cd2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1296872016
 GameObject:
   m_ObjectHideFlags: 0
@@ -25202,42 +25169,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 169304979}
     m_Modifications:
-    - target: {fileID: 169282857, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: gunSprite
+      value: 
+      objectReference: {fileID: 196315251}
     - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 1539304174}
     - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: scriptsToDisable.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: scriptsToDisable.Array.data[0]
-      value: 
-      objectReference: {fileID: 1275178563}
-    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: scriptsToDisable.Array.data[1]
-      value: 
-      objectReference: {fileID: 1275178571}
-    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: scriptsToDisable.Array.data[2]
-      value: 
-      objectReference: {fileID: 1275178562}
-    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: scriptsToDisable.Array.data[3]
-      value: 
-      objectReference: {fileID: 1275178555}
-    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: scriptsToDisable.Array.data[4]
       value: 
       objectReference: {fileID: 1020289848}
-    - target: {fileID: 1275178554, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: scriptsToDisable.Array.data[5]
-      value: 
-      objectReference: {fileID: 1275178555}
+    - target: {fileID: 2809423791794791244, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791250, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Name
       value: Player
@@ -25286,14 +25233,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7962863018828732566, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: meleeRange
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7962863018828732566, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
-      propertyPath: playerWeapon
-      value: 
-      objectReference: {fileID: 196315251}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
 --- !u!1001 &4287427876053231895

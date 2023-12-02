@@ -728,11 +728,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 0}
   scriptsToDisable:
-  - {fileID: 2809423791794791246}
   - {fileID: 6205693442026379683}
-  - {fileID: 2809423791794791245}
   - {fileID: 2809423791794791241}
   - {fileID: 1710560658254265586}
+  - {fileID: 2809423791794791246}
+  - {fileID: 0}
 --- !u!70 &1275178555
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
