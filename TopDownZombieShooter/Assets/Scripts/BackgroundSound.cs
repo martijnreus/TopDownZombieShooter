@@ -16,6 +16,11 @@ public class BackgroundSound : MonoBehaviour
         ResetRandomTimer();
     }
 
+    private void Start()
+    {
+        PlayRandomSound();
+    }
+
     private void Update()
     {
         randomSoundTimer -= Time.deltaTime;

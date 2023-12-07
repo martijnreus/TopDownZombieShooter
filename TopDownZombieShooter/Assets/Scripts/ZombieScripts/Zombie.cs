@@ -11,6 +11,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private int damageAmount;
     [SerializeField] private Transform attackPoint;
+    [SerializeField] private AudioClip attackSound;
 
     private Vector3 attackOffset = new Vector3(0, 1f, 0);
 
@@ -109,6 +110,9 @@ public class Zombie : MonoBehaviour
 
     public void Attack()
     {
+        // Play attack sound effect
+        SoundManager.PlaySound(attackSound, SoundManager.soundEffectVolume, 0.1f);
+
         if (playerIsInRange(attackRange * 1.7f))
         {
             player.healthSystem.Damage(damageAmount);

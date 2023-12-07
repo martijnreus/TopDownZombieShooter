@@ -17951,6 +17951,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioToPlay:
   - {fileID: 8300000, guid: b521b8863b24c1d42aeec740e148ff7b, type: 3}
+  - {fileID: 8300000, guid: 6b122b772413a3240a000709fc5f217f, type: 3}
+  - {fileID: 8300000, guid: e943f55b51aadfb44a67aeab2f000dd7, type: 3}
+  - {fileID: 8300000, guid: 071f3382deb1ec94db6448456da53a38, type: 3}
+  - {fileID: 8300000, guid: 96ecf71f3bd5c434fa4cf1d7051b081a, type: 3}
   minTimeNextSound: 10
   maxTimeNextSound: 60
   backGroundSoundVolume: 0.5

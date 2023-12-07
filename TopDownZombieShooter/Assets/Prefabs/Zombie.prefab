@@ -314,6 +314,7 @@ MonoBehaviour:
   attackRange: 0.8
   damageAmount: 50
   attackPoint: {fileID: 2903697148084695744}
+  attackSound: {fileID: 8300000, guid: c00cbc7118ebc13438febb19d7bc54e1, type: 3}
 --- !u!195 &2903697147876374118
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -446,6 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleCollider2D: {fileID: 6678110692147528084}
   capsuleCollider2D: {fileID: 2903697147876374121}
+  zombieDieSound: {fileID: 8300000, guid: 895dd5499ec2dd440ae5d118ce9efe5c, type: 3}
 --- !u!1 &2903697148084695747
 GameObject:
   m_ObjectHideFlags: 0
