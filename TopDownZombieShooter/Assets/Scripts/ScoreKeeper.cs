@@ -51,14 +51,12 @@ public class ScoreKeeper : MonoBehaviour
         {
             GameManager.instance.gameData.highestWave = currentWave;
         }
-        Debug.Log(currentWave);
 
         GameManager.instance.gameData.totalKills += currentKills;
         if (currentKills > GameManager.instance.gameData.highestKillAmount)
         {
             GameManager.instance.gameData.highestKillAmount = currentKills;
         }
-        Debug.Log(currentKills);
 
         GameManager.instance.SaveGame();
     }
