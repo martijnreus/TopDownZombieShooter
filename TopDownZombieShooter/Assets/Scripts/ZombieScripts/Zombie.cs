@@ -17,6 +17,7 @@ public class Zombie : MonoBehaviour
 
     private float deathTime;
     private float despawnDelay = 2f;
+    private float timeOfSpawning;
 
     private Player player;
     private State state;
@@ -56,6 +57,8 @@ public class Zombie : MonoBehaviour
         walkSpeed = UnityEngine.Random.Range(1f, 1f + Mathf.Min((waveManager.GetCurrentWave() - 1), 5) * 0.2f);
         agent.speed = walkSpeed;
 
+        timeOfSpawning = Time.time;
+
         state = State.spawning;
     }
 
@@ -74,7 +77,11 @@ public class Zombie : MonoBehaviour
         switch (state)
         {
             case State.spawning:
-                state = State.walking;
+                float spawnDuration = 0.5f;
+                if (Time.time - timeOfSpawning > spawnDuration)
+                {
+                    state = State.walking;
+                }
                 break;
 
             case State.walking:
