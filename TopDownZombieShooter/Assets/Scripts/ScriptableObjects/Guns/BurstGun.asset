@@ -15,12 +15,17 @@ MonoBehaviour:
   gunName: BurstGun
   baseDamage: 75
   bulletsPerShot: 3
-  bulletCapacity: 30
-  timeBetweenShots: 0.1
+  bulletCapacity: 21
+  timeBetweenShots: 0.05
   reloadTime: 1
   gunType: 3
   bulletSpreadAngle: 5
   gunSprite: {fileID: 21300000, guid: e0f76e9c32bac394185abf4f006a36f9, type: 3}
   gunUISprite: {fileID: 21300000, guid: 246eceee260fe204c9b59291c98ca8c0, type: 3}
+  shootVisualOffset: {x: 0, y: 0}
   gunPrice: 1250
   ammoPrice: 750
+  shootSound: {fileID: 8300000, guid: f2efcb53a9693f142b7d29b965f3097b, type: 3}
+  reloadSound: {fileID: 8300000, guid: bfc10d8eab0f8ea4585f70df8c16be8e, type: 3}
+  emptySound: {fileID: 8300000, guid: 95fbcd5fa1cc482448f28859bae160b3, type: 3}
+  shootSoundTimeBetweenPlay: 0

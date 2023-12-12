@@ -25,7 +25,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        spawners = FindObjectsOfType<Spawner>();
+        UpdateSpawners();
     }
 
     private void Update()
@@ -52,6 +52,11 @@ public class WaveManager : MonoBehaviour
                 StartNextWave();
             } 
         }
+    }
+
+    public void UpdateSpawners()
+    {
+        spawners = FindObjectsOfType<Spawner>();
     }
 
     private void SpawnZombie()

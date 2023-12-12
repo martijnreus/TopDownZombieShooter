@@ -12,12 +12,15 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip purchageSound;
     [SerializeField] private GameObject door;
     [SerializeField] private GameObject[] mistArray;
+    [SerializeField] private GameObject[] spawners;
 
     private PointManager pointManager;
+    private WaveManager waveManager;
 
     private void Awake()
     {
         pointManager = FindObjectOfType<PointManager>();
+        waveManager = FindObjectOfType<WaveManager>();
     }
 
     public void Interact()
@@ -41,6 +44,13 @@ public class Door : MonoBehaviour, IInteractable
         {
             mist.GetComponent<TilemapRenderer>().material.DOFade(0f, 0.5f);
         }
+
+        foreach (GameObject spawner in spawners)
+        {
+            spawner.SetActive(true);
+        }
+
+        waveManager.UpdateSpawners();
         door.gameObject.SetActive(false);
     }
 }
