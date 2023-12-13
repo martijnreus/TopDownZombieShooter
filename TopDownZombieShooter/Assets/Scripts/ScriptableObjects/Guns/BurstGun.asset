@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0076208e2a92dbe49875283c24285e74, type: 3}
   m_Name: BurstGun
   m_EditorClassIdentifier: 
-  gunName: BurstGun
+  gunName: DV-860
   baseDamage: 75
   bulletsPerShot: 3
   bulletCapacity: 21
@@ -20,8 +20,8 @@ MonoBehaviour:
   reloadTime: 1
   gunType: 3
   bulletSpreadAngle: 5
-  gunSprite: {fileID: 21300000, guid: e0f76e9c32bac394185abf4f006a36f9, type: 3}
-  gunUISprite: {fileID: 21300000, guid: 246eceee260fe204c9b59291c98ca8c0, type: 3}
+  gunSprite: {fileID: -1399499462, guid: cd1af2795f21eec4cb4e84a7cda8bd59, type: 3}
+  gunUISprite: {fileID: -721890504, guid: cd1af2795f21eec4cb4e84a7cda8bd59, type: 3}
   shootVisualOffset: {x: 0, y: 0}
   gunPrice: 1250
   ammoPrice: 750

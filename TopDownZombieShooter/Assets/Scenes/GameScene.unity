@@ -31621,7 +31621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8101761050692720185, guid: 3f5b48e51e57d264a927fef6c7fd6894, type: 3}
       propertyPath: m_Name
-      value: StarterWeaponWallBuy (1)
+      value: DV-860WallBuy
       objectReference: {fileID: 0}
     - target: {fileID: 8101761050692720185, guid: 3f5b48e51e57d264a927fef6c7fd6894, type: 3}
       propertyPath: m_TagString
@@ -31710,7 +31710,7 @@ PrefabInstance:
     - target: {fileID: 8101761051593437373, guid: 3f5b48e51e57d264a927fef6c7fd6894, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b25515e0ba5b8814cad753a993615fa3, type: 3}
+      objectReference: {fileID: 1522065411, guid: cd1af2795f21eec4cb4e84a7cda8bd59, type: 3}
     - target: {fileID: 8101761051593437373, guid: 3f5b48e51e57d264a927fef6c7fd6894, type: 3}
       propertyPath: m_SortingLayer
       value: 3
