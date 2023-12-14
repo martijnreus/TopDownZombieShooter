@@ -17,7 +17,7 @@ MonoBehaviour:
   bulletsPerShot: 3
   bulletCapacity: 21
   timeBetweenShots: 0.05
-  reloadTime: 1
+  reloadTime: 1.5
   gunType: 3
   bulletSpreadAngle: 5
   gunSprite: {fileID: -1399499462, guid: cd1af2795f21eec4cb4e84a7cda8bd59, type: 3}
@@ -26,6 +26,6 @@ MonoBehaviour:
   gunPrice: 1250
   ammoPrice: 750
   shootSound: {fileID: 8300000, guid: f2efcb53a9693f142b7d29b965f3097b, type: 3}
-  reloadSound: {fileID: 8300000, guid: bfc10d8eab0f8ea4585f70df8c16be8e, type: 3}
+  reloadSound: {fileID: 8300000, guid: dbcc95c41e97f7f4f949cb26d2fc8709, type: 3}
   emptySound: {fileID: 8300000, guid: 95fbcd5fa1cc482448f28859bae160b3, type: 3}
   shootSoundTimeBetweenPlay: 0

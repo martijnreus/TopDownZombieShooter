@@ -13,6 +13,7 @@ public class PauzeGame : MonoBehaviour
     [SerializeField] private CanvasGroup interactCanvasGroup;
 
     [SerializeField] private MonoBehaviour[] scriptsToDisable;
+    [SerializeField] private Player player;
 
     private bool isPaused;
 
@@ -79,5 +80,10 @@ public class PauzeGame : MonoBehaviour
         {
             script.enabled = false;
         }
+    }
+
+    public void EndGame()
+    {
+        player.GetHealthSystem().Die();
     }
 }

@@ -15,7 +15,7 @@ public class DieCameraAnimation : MonoBehaviour
     private float zoomAmount = 10f;
     private float zoomDuration = 5f;
 
-    private float fadeDuration = 4f;
+    private float fadeDuration = 2.5f;
 
     private void Start()
     {
@@ -38,6 +38,12 @@ public class DieCameraAnimation : MonoBehaviour
     private void FadeToBlack()
     {
         Color color = backGround.color;
-        backGround.DOColor(new Color(color.r, color.g, color.b, 1f), fadeDuration).SetDelay(2f);
+        backGround.DOColor(new Color(color.r, color.g, color.b, 1f), fadeDuration).SetDelay(2.5f);
+    }
+
+    private IEnumerator ShowGameOverScreen()
+    {
+        yield return new WaitForSeconds(2f);
+        //backGround.DOColor(new Color(color.r, color.g, color.b, 1.5f), fadeDuration).SetDelay(1f);
     }
 }

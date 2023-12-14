@@ -48,7 +48,7 @@ public class PlayerDie : MonoBehaviour
         }
 
         isDead = true;
-        deathScreen.SetActive(true);
+        //deathScreen.SetActive(true);
         gunSprite.SetActive(false);
 
         // make sure the player stop moving
