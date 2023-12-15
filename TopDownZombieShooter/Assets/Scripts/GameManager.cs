@@ -10,6 +10,7 @@ public class GameData
     public int highestKillAmount;
     public int totalKills;
     public int gamesPlayed;
+    public int totalWins;
 }
 
 public class GameManager : MonoBehaviour

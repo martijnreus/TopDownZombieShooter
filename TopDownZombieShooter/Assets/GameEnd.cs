@@ -8,12 +8,14 @@ public class GameEnd : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip purchageSound;
 
     private PointManager pointManager;
-    private Player player;
+    private DieCameraAnimation dieCameraAnimation;
+    private ScoreKeeper scoreKeeper;
 
     private void Start()
     {
         pointManager = FindObjectOfType<PointManager>();
-        player = FindObjectOfType<Player>();
+        dieCameraAnimation = FindObjectOfType<DieCameraAnimation>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
     public void Interact()
@@ -22,7 +24,11 @@ public class GameEnd : MonoBehaviour, IInteractable
         {
             pointManager.RemovePoints(doorCost);
             SoundManager.PlaySound(purchageSound, 1f);
-            player.GetHealthSystem().Die();
+            dieCameraAnimation.ZoomOut();
+            dieCameraAnimation.FadeToBlack();
+            dieCameraAnimation.ShowWinScreen();
+            scoreKeeper.hasWon = true;
+            scoreKeeper.UpdateGameData();
         }
     }
 

@@ -8,6 +8,8 @@ public class ScoreKeeper : MonoBehaviour
     private int currentWave = 0;
     private int currentKills = 0;
 
+    [HideInInspector]
+    public bool hasWon = false;
     private bool isUpdated = false;
 
     private Player player;
@@ -42,7 +44,7 @@ public class ScoreKeeper : MonoBehaviour
         }
     }
 
-    private void UpdateGameData()
+    public void UpdateGameData()
     {
         isUpdated = true;
 
@@ -56,6 +58,11 @@ public class ScoreKeeper : MonoBehaviour
         if (currentKills > GameManager.instance.gameData.highestKillAmount)
         {
             GameManager.instance.gameData.highestKillAmount = currentKills;
+        }
+
+        if (hasWon)
+        {
+            GameManager.instance.gameData.totalWins++;
         }
 
         GameManager.instance.SaveGame();

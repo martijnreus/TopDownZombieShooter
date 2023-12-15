@@ -10,7 +10,6 @@ public class PlayerDie : MonoBehaviour
 
     private Player player;
     private HealthSystem healthSystem;
-    //private WaveManager waveManager;
 
     private Rigidbody2D playerBody;
     private bool isDead;
@@ -21,8 +20,6 @@ public class PlayerDie : MonoBehaviour
     {
         player = GetComponent<Player>();
         playerBody = GetComponent<Rigidbody2D>();
-
-        //waveManager = FindObjectOfType<WaveManager>();
     }
 
     private void Start()

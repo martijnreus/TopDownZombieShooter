@@ -10,6 +10,7 @@ public class StatisticsMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalWavesText;
     [SerializeField] TextMeshProUGUI highestWavesText;
     [SerializeField] TextMeshProUGUI totalGamesText;
+    [SerializeField] TextMeshProUGUI timeEscapedText;
 
     private void Update()
     {
@@ -18,5 +19,6 @@ public class StatisticsMenu : MonoBehaviour
         totalWavesText.text = "Total waves: " + GameManager.instance.gameData.totalWaves;
         highestWavesText.text = "Highest wave: " + GameManager.instance.gameData.highestWave;
         totalGamesText.text = "Total games: " + GameManager.instance.gameData.gamesPlayed;
+        timeEscapedText.text = "Times escaped: " + GameManager.instance.gameData.totalWins;
     }
 }
