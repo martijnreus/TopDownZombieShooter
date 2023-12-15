@@ -2313,6 +2313,7 @@ GameObject:
   - component: {fileID: 44614831}
   - component: {fileID: 44614833}
   - component: {fileID: 44614832}
+  - component: {fileID: 44614834}
   m_Layer: 0
   m_Name: Chair3 (1)
   m_TagString: Untagged
@@ -2402,7 +2403,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!208 &44614834
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44614830}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.28100002, y: 0.35, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.2, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &52188093
 GameObject:
   m_ObjectHideFlags: 0
@@ -19025,6 +19042,7 @@ GameObject:
   - component: {fileID: 1174807392}
   - component: {fileID: 1174807394}
   - component: {fileID: 1174807393}
+  - component: {fileID: 1174807395}
   m_Layer: 0
   m_Name: Chair3
   m_TagString: Untagged
@@ -19114,7 +19132,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!208 &1174807395
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174807391}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.28100002, y: 0.35, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.2, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1174830254
 GameObject:
   m_ObjectHideFlags: 0
