@@ -47,7 +47,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (perk.type == PerkSO.Type.DoubleTap)
         {
-            damageMultiplier = 2;
+            damageMultiplier = 2.5f;
         }
     }
 
