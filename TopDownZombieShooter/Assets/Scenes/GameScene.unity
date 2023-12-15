@@ -38431,6 +38431,10 @@ PrefabInstance:
       propertyPath: scriptsToDisable.Array.data[4]
       value: 
       objectReference: {fileID: 1020289848}
+    - target: {fileID: 2809423791794791241, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
+      propertyPath: moveSpeed
+      value: 3.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2809423791794791244, guid: 2ff74691aad2f9f4b9949987eaf68dda, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         if (perk.type == PerkSO.Type.StaminUp) 
         { 
-            speedMultiplier = 1.2f;
+            speedMultiplier = 1.25f;
         }
     }
 
