@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerDie : MonoBehaviour
 {
-    [SerializeField] private GameObject deathScreen;
     [SerializeField] private MonoBehaviour[] scriptsToDisable;
     [SerializeField] private GameObject gunSprite;
 
@@ -29,8 +28,6 @@ public class PlayerDie : MonoBehaviour
     private void Start()
     {   
         animator = GetComponentInChildren<Animator>();
-
-        deathScreen.SetActive(false);
         healthSystem = player.GetHealthSystem();
         healthSystem.OnDead += OnDie;
     }
@@ -48,7 +45,6 @@ public class PlayerDie : MonoBehaviour
         }
 
         isDead = true;
-        //deathScreen.SetActive(true);
         gunSprite.SetActive(false);
 
         // make sure the player stop moving

@@ -89,11 +89,17 @@ public class Zombie : MonoBehaviour
                 if (playerIsInRange(attackRange))
                 {
                     state = State.attacking;
-                    agent.isStopped = true;
+                    if (agent.isOnNavMesh)
+                    {
+                        agent.isStopped = true;
+                    }
                     break;
                 }
 
-                agent.isStopped = false;
+                if (agent.isOnNavMesh)
+                {
+                    agent.isStopped = false;
+                }   
 
                 RotateSprite();
                 agent.SetDestination(player.transform.position);

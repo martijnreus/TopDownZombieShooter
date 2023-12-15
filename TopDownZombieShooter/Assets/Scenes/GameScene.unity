@@ -9948,7 +9948,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1199738845}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &495558977
 SpriteRenderer:
@@ -10402,6 +10402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cinemachineVirtualCamera: {fileID: 1953016708}
   backGround: {fileID: 949352065}
+  deathScreen: {fileID: 1539304179}
 --- !u!1 &521959414
 GameObject:
   m_ObjectHideFlags: 0
@@ -17277,8 +17278,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1076640665}
   - component: {fileID: 1076640666}
+  - component: {fileID: 1076640668}
+  - component: {fileID: 1076640667}
   m_Layer: 0
-  m_Name: DoorBaricated
+  m_Name: FrontDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17292,12 +17295,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076640664}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.12, y: 0.4699998, z: -0.018186748}
+  m_LocalPosition: {x: -0.8903839, y: 7.1279855, z: -0.072536156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1199738845}
-  m_RootOrder: 0
+  m_Father: {fileID: 1751446350}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1076640666
 SpriteRenderer:
@@ -17351,6 +17354,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1076640667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076640664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bddd62208d99749b7260d912bf06ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorCost: 100000
+  purchageSound: {fileID: 8300000, guid: a3eaabef31e55cf4e9789c3870b8a217, type: 3}
+--- !u!58 &1076640668
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076640664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!1 &1089516320
 GameObject:
   m_ObjectHideFlags: 0
@@ -22805,7 +22838,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1076640665}
   - {fileID: 1749007763}
   - {fileID: 495558976}
   - {fileID: 1665336361}
@@ -28598,13 +28630,14 @@ GameObject:
   - component: {fileID: 1539304178}
   - component: {fileID: 1539304177}
   - component: {fileID: 1539304176}
+  - component: {fileID: 1539304179}
   m_Layer: 0
   m_Name: DeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1539304175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28689,6 +28722,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!225 &1539304179
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539304174}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1541102312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29103,7 +29148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1199738845}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1585367215
 SpriteRenderer:
@@ -29605,7 +29650,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1199738845}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1665336362
 SpriteRenderer:
@@ -30311,7 +30356,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1199738845}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1749007764
 SpriteRenderer:
@@ -30400,6 +30445,7 @@ Transform:
   - {fileID: 1226343569}
   - {fileID: 190015274}
   - {fileID: 1309328456}
+  - {fileID: 1076640665}
   m_Father: {fileID: 1815982434}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

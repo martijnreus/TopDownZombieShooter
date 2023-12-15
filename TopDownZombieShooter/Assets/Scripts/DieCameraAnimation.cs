@@ -9,8 +9,10 @@ public class DieCameraAnimation : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] private Image backGround;
+    [SerializeField] private CanvasGroup deathScreen;
 
     private HealthSystem playerHealthSystem;
+    private Player player;
 
     private float zoomAmount = 10f;
     private float zoomDuration = 5f;
@@ -19,7 +21,8 @@ public class DieCameraAnimation : MonoBehaviour
 
     private void Start()
     {
-        playerHealthSystem = FindObjectOfType<Player>().GetHealthSystem();
+        player = FindObjectOfType<Player>();
+        playerHealthSystem = player.GetHealthSystem();
         playerHealthSystem.OnDead += PlayerHealthSystem_OnDead;
     }
 
@@ -28,6 +31,7 @@ public class DieCameraAnimation : MonoBehaviour
         cinemachineVirtualCamera.gameObject.SetActive(false);
         ZoomOut();
         FadeToBlack();
+        StartCoroutine(ShowGameOverScreen());
     }
 
     private void ZoomOut()
@@ -43,7 +47,9 @@ public class DieCameraAnimation : MonoBehaviour
 
     private IEnumerator ShowGameOverScreen()
     {
-        yield return new WaitForSeconds(2f);
-        //backGround.DOColor(new Color(color.r, color.g, color.b, 1.5f), fadeDuration).SetDelay(1f);
+        deathScreen.DOFade(1f, 1f).SetDelay(3.5f);
+        deathScreen.blocksRaycasts = true;
+        yield return new WaitForSeconds(4f);
+        player.transform.position = new Vector3(1000, 0, 0);
     }
 }
