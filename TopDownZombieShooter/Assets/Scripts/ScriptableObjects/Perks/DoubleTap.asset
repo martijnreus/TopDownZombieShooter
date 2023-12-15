@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DoubleTap
   m_EditorClassIdentifier: 
   type: 2
-  cost: 4000
+  cost: 2000

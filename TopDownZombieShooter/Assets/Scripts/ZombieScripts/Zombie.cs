@@ -102,7 +102,10 @@ public class Zombie : MonoBehaviour
                 }   
 
                 RotateSprite();
-                agent.SetDestination(player.transform.position);
+                if (agent.isOnNavMesh)
+                {
+                    agent.SetDestination(player.transform.position);
+                }
                 break;
 
             case State.attacking:

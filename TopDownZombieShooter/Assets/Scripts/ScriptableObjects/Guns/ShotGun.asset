@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0076208e2a92dbe49875283c24285e74, type: 3}
   m_Name: ShotGun
   m_EditorClassIdentifier: 
-  gunName: ShotGun
-  baseDamage: 50
+  gunName: Mossberg 590
+  baseDamage: 75
   bulletsPerShot: 5
-  bulletCapacity: 20
+  bulletCapacity: 15
   timeBetweenShots: 0.5
   reloadTime: 3
   gunType: 2

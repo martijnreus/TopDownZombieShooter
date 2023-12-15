@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SpeedCola
   m_EditorClassIdentifier: 
   type: 1
-  cost: 4500
+  cost: 3000

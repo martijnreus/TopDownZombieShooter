@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Chauchat LMG
   m_EditorClassIdentifier: 
   gunName: Chauchat LMG
-  baseDamage: 125
+  baseDamage: 200
   bulletsPerShot: 1
   bulletCapacity: 80
-  timeBetweenShots: 0.25
+  timeBetweenShots: 0.35
   reloadTime: 5
   gunType: 0
   bulletSpreadAngle: 15
   gunSprite: {fileID: 21300000, guid: e7e4977636ce9874ba3065309021dda4, type: 3}
   gunUISprite: {fileID: 21300000, guid: 0f2eef53604c1a94e97a790f30b5e4f1, type: 3}
   shootVisualOffset: {x: 0.3, y: -0.02}
-  gunPrice: 750
+  gunPrice: 1000
   ammoPrice: 500
   shootSound: {fileID: 8300000, guid: 238cf39ead8c2004abe065d80376305a, type: 3}
   reloadSound: {fileID: 8300000, guid: 894406df9fcaea34fb7dbbdf11c75791, type: 3}

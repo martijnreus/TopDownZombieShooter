@@ -312,7 +312,7 @@ MonoBehaviour:
   health: 150
   walkSpeed: 1
   attackRange: 0.8
-  damageAmount: 50
+  damageAmount: 75
   attackPoint: {fileID: 2903697148084695744}
   attackSound: {fileID: 8300000, guid: c00cbc7118ebc13438febb19d7bc54e1, type: 3}
 --- !u!195 &2903697147876374118

@@ -19,15 +19,13 @@ public class PointManager : MonoBehaviour
     {
         playerShoot.OnHitZombieAction += PlayerShoot_OnHitZombieAction;
         playerMelee.OnMeleeZombieAction += PlayerMelee_OnMeleeZombieAction;
-
-        //currentPointAmount = 0;
     }
 
     private void PlayerMelee_OnMeleeZombieAction(object sender, Zombie target)
     {
         if (!target.healthSystem.IsDead())
         {
-            currentPointAmount += 10;
+            currentPointAmount += 20;
         }
         else
         {
@@ -40,11 +38,11 @@ public class PointManager : MonoBehaviour
     {
         if (!target.healthSystem.IsDead())
         {
-            currentPointAmount += 10;
+            currentPointAmount += 15;
         }
         else
         {
-            currentPointAmount += 50;
+            currentPointAmount += 100;
         }
     }
 
