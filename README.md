@@ -100,7 +100,7 @@ Contributions are welcome! To contribute:
 
 ## **Issues and Feedback**
 
-If you encounter bugs or have suggestions for new features, please create a ticket on the [Issues page](link-to-issues-page).
+If you encounter bugs or have suggestions for new features, please create a ticket on the [Issues page](https://github.com/martijnreus/TopDownZombieShooter/issues).
 
 ## **Acknowledgments**
 - Inspired by the iconic Call of Duty zombie mode.
