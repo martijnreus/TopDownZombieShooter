@@ -21,7 +21,6 @@
 <br/>
 <div align="center">
     <img src="Images/ZombieShooter1.png" width="397" height="223"> 
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     <img src="Images/ZombieShooter2.png" width="397" height="223">
 </div>
 <br/>
